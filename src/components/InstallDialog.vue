@@ -33,7 +33,7 @@
           </p>
 
           <q-card>
-            <q-img :src="require('../assets/iOS_install_instructions.png')">
+            <q-img src="../assets/iOS_install_instructions.png">
             </q-img>
           </q-card> -->
         </q-tab-panel>

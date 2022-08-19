@@ -41,7 +41,7 @@
         <q-card-section class="text-h5">Currently Open</q-card-section>
         <q-card-section>
           <ButteryCardList
-            :butteries="OpenButteryCardList"
+            :butteries="butteries"
             :emptyMessage="{
               overline: 'Oops!',
               header: 'No Butteries Open',
@@ -54,7 +54,7 @@
         <q-card-section class="text-h5">Currently Closed</q-card-section>
         <q-card-section>
           <ButteryCardList
-            :butteries="ClosedButteryCardList"
+            :butteries="butteries"
             :emptyMessage="{
               overline: 'Yay!',
               header: 'No Butteries Closed',
@@ -71,6 +71,8 @@
 import { ref, watch } from 'vue';
 import { useQuasar } from 'quasar';
 import { onBeforeRouteLeave } from 'vue-router';
+import { butteries } from '../shared/butteries';
+import ButteryCardList from '../components/ButteryCardList.vue';
 
 function pullRefresh() {
   return null;
