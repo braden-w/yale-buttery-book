@@ -15,7 +15,7 @@ const ClosedButteryCardList: Ref<Buttery[]> = ref([]);
 let scheduleSyncInterval: NodeJS.Timeout | null = null;
 let calendarSyncInterval: NodeJS.Timeout | null = null;
 
-export function useCalendar() {
+export function useButterySchedule() {
   async function getButterySchedule() {
     const startRange = new Date(new Date().setDate(new Date().getDate() - 1));
     const endRange = new Date(new Date().setDate(new Date().getDate() + 30));
@@ -29,7 +29,9 @@ export function useCalendar() {
       })),
     };
     const res = await axios({
-      url: 'https://www.googleapis.com/calendar/v3/freeBusy?key=import.meta.env.VITE_GOOGLE_CALENDAR_API_KEY',
+      url: `https://www.googleapis.com/calendar/v3/freeBusy?key=${
+        import.meta.env.VITE_GOOGLE_CALENDAR_API_KEY
+      }`,
       method: 'POST',
       data: requestBody,
     });

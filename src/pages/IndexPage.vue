@@ -38,7 +38,7 @@
         <q-card-section class="text-h5">Currently Open</q-card-section>
         <q-card-section>
           <ButteryCardList
-            :butteries="butteries"
+            :butteries="OpenButteryCardList"
             :emptyMessage="{
               overline: 'Oops!',
               header: 'No Butteries Open',
@@ -51,7 +51,7 @@
         <q-card-section class="text-h5">Currently Closed</q-card-section>
         <q-card-section>
           <ButteryCardList
-            :butteries="butteries"
+            :butteries="ClosedButteryCardList"
             :emptyMessage="{
               overline: 'Yay!',
               header: 'No Butteries Closed',
@@ -66,17 +66,44 @@
 
 <script setup lang="ts">
 import { ref, watch } from 'vue';
+import ButteryCardList from 'src/components/ButteryCardList.vue';
 import { useQuasar } from 'quasar';
+import { useButterySchedule } from './useButterySchedule';
 import { onBeforeRouteLeave } from 'vue-router';
-import { butteries } from '../shared/butteries';
-import ButteryCardList from '../components/ButteryCardList.vue';
 
-function pullRefresh() {
-  return null;
+const {
+  OpenButteryCardList,
+  ClosedButteryCardList,
+  refresh,
+  startSync,
+  stopSync,
+} = useButterySchedule();
+
+startSync();
+
+async function pullRefresh(done: () => void): Promise<void> {
+  await refresh();
+  done();
 }
+
 const banner = ref(true);
 
 // --- App Visibility Toggles Sync ---
+const $q = useQuasar();
+watch(
+  () => $q.appVisible,
+  (val) => {
+    console.log(val ? 'App became visible' : 'App went in the background');
+    if (val) {
+      startSync();
+    } else {
+      stopSync();
+    }
+  }
+);
 
 // --- Routing ---
+onBeforeRouteLeave(() => {
+  stopSync();
+});
 </script>
