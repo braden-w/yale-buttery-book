@@ -226,6 +226,7 @@ const isValidEmailOrPhone = (text: string): boolean =>
 async function submitReportDialog() {
   const report_date = new Date().toDateString();
   const report_time = new Date().toTimeString();
+
   const feedbackUploadToSupabase = async () => {
     const { data, error } = await supabase.from('reports').insert({
       name: reportCollege.value,
@@ -273,8 +274,7 @@ Yale Buttery Book Team`,
     spinner: true,
   });
 
-  feedbackUploadToSupabase();
-  feedbackSendEmail();
+  await Promise.all([feedbackUploadToSupabase(), feedbackSendEmail()]);
   loadingNotification();
   closeReportDialog();
   // if (error) {
@@ -284,14 +284,12 @@ Yale Buttery Book Team`,
   //     color: 'negative',
   //     icon: 'error'
   //   });
-  // } else {
   $q.notify({
     message: 'Thank you, issue reported!',
     caption: reportMessage.value,
     classes: 'yale-blue-1',
     icon: 'campaign',
   });
-  // }
 }
 
 function reportGeneral() {
