@@ -24,15 +24,14 @@ export function useCalendar() {
     const requestBody = {
       timeMin: startRangeISO,
       timeMax: endRangeISO,
-      items: butteries.map(buttery => ({
-        id: buttery.calendarID
-      }))
+      items: butteries.map((buttery) => ({
+        id: buttery.calendarID,
+      })),
     };
     const res = await axios({
-      url:
-        'https://www.googleapis.com/calendar/v3/freeBusy?key=import.meta.env.VITE_GOOGLE_CALENDAR_API_KEY',
+      url: 'https://www.googleapis.com/calendar/v3/freeBusy?key=import.meta.env.VITE_GOOGLE_CALENDAR_API_KEY',
       method: 'POST',
-      data: requestBody
+      data: requestBody,
     });
     butterySchedule.value = res.data as GCalAPIResponse;
   }
@@ -47,12 +46,12 @@ export function useCalendar() {
     }
     let previousEventRange = {
       start: new Date(butteryScheduleBusy?.[0]?.start),
-      end: new Date(butteryScheduleBusy?.[0]?.end)
+      end: new Date(butteryScheduleBusy?.[0]?.end),
     };
     for (const event of butteryScheduleBusy) {
       const eventRange = {
         start: new Date(event.start),
-        end: new Date(event.end)
+        end: new Date(event.end),
       };
       // If Open
       if (eventRange.start <= now && eventRange.end >= now) {
@@ -60,7 +59,7 @@ export function useCalendar() {
         const millisecondsToClose = eventRange.end.getTime() - now.getTime();
         const humanReadable = formatDistance(millisecondsToClose, 0, {
           addSuffix: true,
-          includeSeconds: true
+          includeSeconds: true,
         });
 
         buttery.opensIn = `Closes ${humanReadable}`;
@@ -71,7 +70,7 @@ export function useCalendar() {
         const millisecondsToOpen = eventRange.start.getTime() - now.getTime();
         const humanReadable = formatDistance(millisecondsToOpen, 0, {
           addSuffix: true,
-          includeSeconds: true
+          includeSeconds: true,
         });
 
         buttery.opensIn = `Opens ${humanReadable}`;
@@ -144,6 +143,6 @@ export function useCalendar() {
     ClosedButteryCardList,
     refresh,
     startSync,
-    stopSync
+    stopSync,
   };
 }

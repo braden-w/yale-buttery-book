@@ -31,8 +31,6 @@
         />
         <q-btn v-else round flat icon="download" @click="installDialog.open" /> -->
         <q-space />
-        <ReportDialog />
-        <InstallDialog />
         <q-btn round flat icon="info" to="/about" />
         <!-- <q-btn
           v-if="$q.screen.lt.sm"
@@ -125,10 +123,7 @@
 
 <script setup lang="ts">
 // import EssentialLink from 'components/EssentialLink.vue';
-import InstallDialog from 'src/components/InstallDialog.vue';
 // import { ref } from 'vue';
-import ReportDialog from 'src/components/ReportDialog.vue';
-import useReportDialog from 'src/components/useReportDialog';
 import { residentialColleges } from 'src/shared/butteries';
 
 // const linksList = [
@@ -154,13 +149,8 @@ import { residentialColleges } from 'src/shared/butteries';
 
 // const leftDrawerOpen = ref(false);
 
-const { openReportDialog, setReportCollege, setReportMessage } =
-  useReportDialog();
-
 function reportGeneral() {
-  openReportDialog();
-  setReportCollege(residentialColleges[0]);
-  setReportMessage('It would be great if...');
+  return null;
 }
 
 // const essentialLinks = linksList;
