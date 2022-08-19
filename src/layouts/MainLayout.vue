@@ -1,34 +1,73 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
-      <q-toolbar>
-        <q-btn
+      <q-toolbar class="yale-blue-1">
+        <!-- <q-btn
           flat
           dense
           round
           icon="menu"
           aria-label="Menu"
           @click="toggleLeftDrawer"
+        /> -->
+
+        <q-btn
+          class="text-h6 text-weight-light"
+          no-caps
+          flat
+          to="/"
+          icon="breakfast_dining"
+          label="Yale Buttery Book"
         />
+        <q-avatar>
+          <!-- TODO: <img src="../../public/Icon.png" alt="" /> -->
+        </q-avatar>
+        <!-- <q-btn
+          v-if="$q.screen.gt.md"
+          class="yale-accent-1"
+          icon="download"
+          label="Add to Home Screen"
+          @click="installDialog.open"
+        />
+        <q-btn v-else round flat icon="download" @click="installDialog.open" /> -->
+        <q-space />
+        <ReportDialog />
+        <InstallDialog />
+        <q-btn round flat icon="info" to="/about" />
+        <!-- <q-btn
+          v-if="$q.screen.lt.sm"
+          icon="search"
+          color="accent"
+          to="/menus"
+        />
+        <q-btn
+          v-else-if="$q.screen.lt.md"
+          icon="search"
+          color="accent"
+          label="Menus"
+          to="/menus"
+        />
+        <q-btn
+          v-else
+          icon="search"
+          color="accent"
+          label="Browse Menus"
+          to="/menus"
+        /> -->
 
-        <q-toolbar-title>
-          Quasar App
-        </q-toolbar-title>
-
-        <div>Quasar v{{ $q.version }}</div>
+        <q-toggle
+          color="blue-grey-5"
+          v-model="$q.dark.mode"
+          @click="$q.dark.toggle()"
+        >
+        </q-toggle>
       </q-toolbar>
     </q-header>
 
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-    >
+    <!-- <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
       <q-list>
-        <q-item-label
-          header
-        >
-          Essential Links
+        <q-item-label header>
+          Navigation
         </q-item-label>
 
         <EssentialLink
@@ -37,80 +76,95 @@
           v-bind="link"
         />
       </q-list>
-    </q-drawer>
+    </q-drawer> -->
 
     <q-page-container>
       <router-view />
+      <div class="text-center">&copy; Buttery Book 2022</div>
+      <q-page-sticky position="bottom-right" :offset="[18, 18]">
+        <q-btn fab icon="campaign" @click="reportGeneral()" color="accent"
+          >Suggest</q-btn
+        >
+      </q-page-sticky>
     </q-page-container>
   </q-layout>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from 'vue';
-import EssentialLink from 'components/EssentialLink.vue';
+<style lang="scss">
+.yale-blue-1 {
+  background-color: #00356b;
+}
+.yale-blue-2 {
+  background-color: #286dc0;
+}
+.yale-blue-3 {
+  background-color: #63aaff;
+}
+.yale-gray-1 {
+  background-color: #222222;
+}
+.yale-gray-2 {
+  background-color: #4a4a4a;
+}
+.yale-gray-3 {
+  background-color: #978d85;
+}
+.yale-gray-4 {
+  background-color: #dddddd;
+}
+.yale-gray-5 {
+  background-color: #f9f9f9;
+}
+.yale-accent-1 {
+  background-color: #5f712d;
+}
+.yale-accent-2 {
+  background-color: #bd5319;
+}
+</style>
 
-const linksList = [
-  {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev'
-  },
-  {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework'
-  },
-  {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev'
-  },
-  {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev'
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
-  }
-];
+<script setup lang="ts">
+// import EssentialLink from 'components/EssentialLink.vue';
+import InstallDialog from 'src/components/InstallDialog.vue';
+// import { ref } from 'vue';
+import ReportDialog from 'src/components/ReportDialog.vue';
+import useReportDialog from 'src/components/useReportDialog';
+import { residentialColleges } from 'src/shared/butteries';
 
-export default defineComponent({
-  name: 'MainLayout',
+// const linksList = [
+//   {
+//     title: 'Home',
+//     caption: 'All Colleges',
+//     icon: 'school',
+//     path: '/'
+//   },
+//   {
+//     title: 'Browse',
+//     caption: 'All Menus',
+//     icon: 'search',
+//     path: '/menus'
+//   },
+//   {
+//     title: 'About',
+//     caption: 'About DCommune',
+//     icon: 'info',
+//     path: '/about'
+//   }
+// ];
 
-  components: {
-    EssentialLink
-  },
+// const leftDrawerOpen = ref(false);
 
-  setup () {
-    const leftDrawerOpen = ref(false)
+const { openReportDialog, setReportCollege, setReportMessage } =
+  useReportDialog();
 
-    return {
-      essentialLinks: linksList,
-      leftDrawerOpen,
-      toggleLeftDrawer () {
-        leftDrawerOpen.value = !leftDrawerOpen.value
-      }
-    }
-  }
-});
+function reportGeneral() {
+  openReportDialog();
+  setReportCollege(residentialColleges[0]);
+  setReportMessage('It would be great if...');
+}
+
+// const essentialLinks = linksList;
+// function toggleLeftDrawer() {
+//   leftDrawerOpen.value = !leftDrawerOpen.value;
+// }
 </script>
