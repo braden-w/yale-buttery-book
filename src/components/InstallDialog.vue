@@ -21,7 +21,7 @@
               href="https://apps.apple.com/us/app/yale-buttery-book/id1595499598"
               target="_blank"
             >
-              <img src="../assets/DownloadToAppStore.svg" />
+              <img src="~assets/DownloadToAppStore.svg" />
             </a>
             <q-space> </q-space>
           </div>
@@ -33,7 +33,7 @@
           </p>
 
           <q-card>
-            <q-img src="../assets/iOS_install_instructions.png">
+            <q-img src="~assets/iOS_install_instructions.png">
             </q-img>
           </q-card> -->
         </q-tab-panel>
@@ -43,7 +43,7 @@
             App'.
           </p>
           <q-card>
-            <q-img src="../assets/android_install_instructions.png"> </q-img>
+            <q-img src="~assets/android_install_instructions.png"> </q-img>
           </q-card>
           <p>Alternatively, just tap the 'Add to Home Screen' banner below.</p>
         </q-tab-panel>
@@ -54,6 +54,6 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-const tab = ref('android');
+const tab = ref('ios');
 const isOpen = ref(true);
 </script>
