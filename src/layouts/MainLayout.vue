@@ -228,21 +228,11 @@ const reportOpen = ref(false);
 const reportCollege = ref('');
 const reportMessage = ref('');
 const reportContact = ref('');
-function openReportDialog() {
-  reportOpen.value = true;
-}
 
-function closeReportDialog() {
-  reportOpen.value = false;
-}
-
-function setReportCollege(college: string) {
-  reportCollege.value = college;
-}
-
-function setReportMessage(message: string) {
-  reportMessage.value = message;
-}
+const openReportDialog = () => (reportOpen.value = true);
+const closeReportDialog = () => (reportOpen.value = false);
+const setReportCollege = (college: string) => (reportCollege.value = college);
+const setReportMessage = (message: string) => (reportMessage.value = message);
 
 const $q = useQuasar();
 const supabase = createClient(
