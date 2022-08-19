@@ -255,31 +255,33 @@ async function submitReportDialog() {
     spinner: true,
   });
 
-  const { data, error } = await supabase.from('reports').insert({
-    name: reportCollege.value,
-    report_message: reportMessage.value,
-    report_contact: reportContact.value,
-    report_date,
-    report_time,
-  });
+  async function feedbackUploadToSupabase() {
+    const { data, error } = await supabase.from('reports').insert({
+      name: reportCollege.value,
+      report_message: reportMessage.value,
+      report_contact: reportContact.value,
+      report_date,
+      report_time,
+    });
+    if (data) console.log('database write success', data);
+    else console.error('database write failed', error);
+  }
 
-  if (data) console.log('database write success', data);
-  else console.error('database write failed', error);
+  async function feedbackSendEmail() {
+    const email = await axios({
+      method: 'post',
+      url: 'https://api.mailgun.net/v3/yalebutterybook.com/messages',
+      params: {
+        from: 'Yale Buttery Book <yalebutterybook@gmail.com>',
+        to: isEmail(reportContact.value)
+          ? reportContact.value
+          : 'yalebutterybook@gmail.com',
+        cc: 'braden.wong@yale.edu',
+        subject: `Yale Buttery Book Report: ${reportMessage.value}`,
+        text: `To whom it may concern,
 
-  const email = await axios({
-    method: 'post',
-    url: 'https://api.mailgun.net/v3/yalebutterybook.com/messages',
-    params: {
-      from: 'Yale Buttery Book <yalebutterybook@gmail.com>',
-      to: isEmail(reportContact.value)
-        ? reportContact.value
-        : 'yalebutterybook@gmail.com',
-      cc: 'braden.wong@yale.edu',
-      subject: `Yale Buttery Book Report: ${reportMessage.value}`,
-      text: `To whom it may concern,
-        
 This email confirms receipt of your report on ${report_date} at ${report_time} with the following details:
-    
+
         College: ${reportCollege.value}
         Message: ${reportMessage.value}
         Contact: ${reportContact.value}
@@ -288,12 +290,15 @@ We'll respond to you shortly.
 
 Warmly,
 Yale Buttery Book Team`,
-    },
-    auth: { username: 'api', password: import.meta.env.VITE_MAILGUN_API_KEY },
-  });
-  if (email.status === 200) console.log('email sent', email);
-  else console.error('email failed', email);
+      },
+      auth: { username: 'api', password: import.meta.env.VITE_MAILGUN_API_KEY },
+    });
+    if (email.status === 200) console.log('email sent', email);
+    else console.error('email failed', email);
+  }
 
+  feedbackUploadToSupabase();
+  feedbackSendEmail();
   loadingNotification();
   closeReportDialog();
   // if (error) {
