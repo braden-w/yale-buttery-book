@@ -22,7 +22,7 @@
         </q-btn>
       </template>
     </q-input>
-    <q-card v-if="showSettings" class="q-ma-xs" style="width:100%">
+    <q-card v-if="showSettings" class="q-ma-xs" style="width: 100%">
       <div class="row justify-between">
         <q-toggle
           v-model="grid"
@@ -105,7 +105,7 @@
           </q-btn>
         </q-td> -->
         <q-td key="Name" :props="props">
-          <div class="text-subtitle2 ">{{ props.row.Name }}</div>
+          <div class="text-subtitle2">{{ props.row.Name }}</div>
         </q-td>
         <q-td key="Price" :props="props">
           <q-badge :color="priceGradient(props.row.Price)">
@@ -165,15 +165,15 @@ export interface MenuItem {
 const props = defineProps({
   search: {
     type: String,
-    default: ''
-  }
+    default: '',
+  },
 });
 
 const pagination = ref({
   sortBy: 'desc',
   descending: false,
   page: 1,
-  rowsPerPage: 300
+  rowsPerPage: 300,
 });
 const tableData: Ref<MenuItem[]> = ref([]);
 const columns = [
@@ -183,19 +183,19 @@ const columns = [
     field: 'Name',
     align: 'left',
     required: true,
-    sortable: true
+    sortable: true,
   },
   {
     name: 'Price',
     label: 'Price',
     field: 'Price',
-    sortable: true
+    sortable: true,
   },
   {
     name: 'Residential College',
     label: 'Residential College',
     field: 'Residential College',
-    sortable: true
+    sortable: true,
   },
   {
     name: 'Category',
@@ -203,23 +203,22 @@ const columns = [
     label: 'Category',
     field: 'Category',
     // align: 'left',
-    sortable: true
-  }
+    sortable: true,
+  },
 ];
 
-const toggleColumnNames = columns.map(column => ({
+const toggleColumnNames = columns.map((column) => ({
   label: column.field,
-  value: column.field
+  value: column.field,
 }));
-const visibleColumns = ref(columns.map(column => column.field));
+const visibleColumns = ref(columns.map((column) => column.field));
 
 const loading = ref(true);
 async function getTableData() {
   loading.value = true;
   const res = await axios({
-    url:
-      'https://opensheet.elk.sh/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/Dashboard',
-    method: 'get'
+    url: 'https://opensheet.elk.sh/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/Dashboard',
+    method: 'get',
   });
   tableData.value = res.data as MenuItem[];
   loading.value = false;
@@ -244,7 +243,7 @@ const separatorOptions = [
   { label: 'Horizontal', value: 'horizontal', icon: 'view_headline' },
   { label: 'Vertical', value: 'vertical', icon: 'calendar_view_week' },
   { label: 'Grid', value: 'cell', icon: 'view_comfy' },
-  { label: 'None', value: 'none', icon: 'grid_off' }
+  { label: 'None', value: 'none', icon: 'grid_off' },
 ];
 
 function priceGradient(price: string) {

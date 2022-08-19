@@ -86,7 +86,7 @@
           </q-tab-panel>
 
           <q-tab-panel name="menu">
-            <!-- <MenusTable :search="props.buttery.name" /> -->
+            <MenusTable :search="props.buttery.name" />
           </q-tab-panel>
 
           <q-tab-panel name="calendar">
@@ -108,7 +108,7 @@
 <script setup lang="ts">
 import { ref, PropType } from 'vue';
 import { Buttery, TimeRemaining, TimeUntil } from 'src/shared/types-butteries';
-// // import MenusTable from 'src/components/MenusTable.vue';
+import MenusTable from 'src/components/MenusTable.vue';
 import ButteryCardCalendar from 'src/components/ButteryCardCalendar.vue';
 
 const props = defineProps({
