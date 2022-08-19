@@ -86,6 +86,7 @@ module.exports = configure(function (/* ctx */) {
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#framework
     framework: {
       config: {
+        dark: true,
         brand: {
           primary: '#00356b',
           accent: '#5f712d',
