@@ -26,18 +26,14 @@
         class="q-mb-md"
         style="width: 100%"
       >
-        <q-banner inline-actions rounded dense class="bg-accent text-white">
-          <template v-slot:avatar>
-            <q-icon name="download" />
-          </template>
-          <span style="color: white">
+        <q-card>
+          <q-toolbar class="bg-accent text-white">
             Yale Buttery Book is now available on the App Store!
-          </span>
-          <template v-slot:action>
+            <q-space />
             <q-btn flat color="white" label="Install" to="/install" />
             <q-btn flat icon="close" color="white" @click="banner = false" />
-          </template>
-        </q-banner>
+          </q-toolbar>
+        </q-card>
       </div>
 
       <q-card class="q-mb-md">
