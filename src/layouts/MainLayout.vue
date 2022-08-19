@@ -192,37 +192,12 @@
 </style>
 
 <script setup lang="ts">
-// import EssentialLink from 'components/EssentialLink.vue';
 import { createClient } from '@supabase/supabase-js';
 import axios from 'axios';
 import { useQuasar } from 'quasar';
 import InstallDialog from 'src/components/InstallDialog.vue';
-// import { ref } from 'vue';
-import { residentialColleges } from 'src/shared/butteries';
 import { ref } from 'vue';
-
-// const linksList = [
-//   {
-//     title: 'Home',
-//     caption: 'All Colleges',
-//     icon: 'school',
-//     path: '/'
-//   },
-//   {
-//     title: 'Browse',
-//     caption: 'All Menus',
-//     icon: 'search',
-//     path: '/menus'
-//   },
-//   {
-//     title: 'About',
-//     caption: 'About DCommune',
-//     icon: 'info',
-//     path: '/about'
-//   }
-// ];
-
-// const leftDrawerOpen = ref(false);
+import { residentialColleges } from 'src/shared/butteries';
 
 const reportOpen = ref(false);
 const reportCollege = ref('');
@@ -325,9 +300,4 @@ function reportGeneral() {
   setReportCollege(residentialColleges[0]);
   setReportMessage('It would be great if...');
 }
-
-// const essentialLinks = linksList;
-// function toggleLeftDrawer() {
-//   leftDrawerOpen.value = !leftDrawerOpen.value;
-// }
 </script>
