@@ -234,17 +234,19 @@ const closeReportDialog = () => (reportOpen.value = false);
 const setReportCollege = (college: string) => (reportCollege.value = college);
 const setReportMessage = (message: string) => (reportMessage.value = message);
 
-const $q = useQuasar();
 const supabase = createClient(
   import.meta.env.VITE_SUPABASE_URL,
   import.meta.env.VITE_SUPABASE_ANON_KEY
 );
 
-function isEmail(email: string) {
-  const isEmailRegex =
-    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return isEmailRegex.test(email);
-}
+const $q = useQuasar();
+const isEmail = (email: string) =>
+  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+    email
+  );
+const isValidEmailOrPhone = (text: string): boolean =>
+  /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(text) ||
+  /^\d{10}$/.test(text);
 
 async function submitReportDialog() {
   const report_date = new Date().toDateString();
@@ -316,13 +318,6 @@ Yale Buttery Book Team`,
     icon: 'campaign',
   });
   // }
-}
-
-function isValidEmailOrPhone(text: string): boolean {
-  return (
-    /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(text) ||
-    /^\d{10}$/.test(text)
-  );
 }
 
 function reportGeneral() {
