@@ -1,7 +1,7 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
-      <q-toolbar class="yale-blue-1">
+      <q-toolbar>
         <!-- <q-btn
           flat
           dense
@@ -226,13 +226,7 @@ const isValidEmailOrPhone = (text: string): boolean =>
 async function submitReportDialog() {
   const report_date = new Date().toDateString();
   const report_time = new Date().toTimeString();
-  const loadingNotification = $q.notify({
-    message: 'Sending report...',
-    classes: 'yale-blue-1',
-    spinner: true,
-  });
-
-  async function feedbackUploadToSupabase() {
+  const feedbackUploadToSupabase = async () => {
     const { data, error } = await supabase.from('reports').insert({
       name: reportCollege.value,
       report_message: reportMessage.value,
@@ -242,9 +236,8 @@ async function submitReportDialog() {
     });
     if (data) console.log('database write success', data);
     else console.error('database write failed', error);
-  }
-
-  async function feedbackSendEmail() {
+  };
+  const feedbackSendEmail = async () => {
     const email = await axios({
       method: 'post',
       url: 'https://api.mailgun.net/v3/yalebutterybook.com/messages',
@@ -272,7 +265,13 @@ Yale Buttery Book Team`,
     });
     if (email.status === 200) console.log('email sent', email);
     else console.error('email failed', email);
-  }
+  };
+
+  const loadingNotification = $q.notify({
+    message: 'Sending report...',
+    classes: 'yale-blue-1',
+    spinner: true,
+  });
 
   feedbackUploadToSupabase();
   feedbackSendEmail();
