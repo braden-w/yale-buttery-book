@@ -24,7 +24,7 @@
         </q-avatar>
         <!-- <q-btn
           v-if="$q.screen.gt.md"
-          class="yale-accent-1"
+          color="accent"
           icon="download"
           label="Add to Home Screen"
           @click="installDialog.open"
@@ -157,39 +157,6 @@
     </q-page-container>
   </q-layout>
 </template>
-
-<style lang="scss">
-.yale-blue-1 {
-  background-color: #00356b;
-}
-.yale-blue-2 {
-  background-color: #286dc0;
-}
-.yale-blue-3 {
-  background-color: #63aaff;
-}
-.yale-gray-1 {
-  background-color: #222222;
-}
-.yale-gray-2 {
-  background-color: #4a4a4a;
-}
-.yale-gray-3 {
-  background-color: #978d85;
-}
-.yale-gray-4 {
-  background-color: #dddddd;
-}
-.yale-gray-5 {
-  background-color: #f9f9f9;
-}
-.yale-accent-1 {
-  background-color: #5f712d;
-}
-.yale-accent-2 {
-  background-color: #bd5319;
-}
-</style>
 
 <script setup lang="ts">
 import { createClient } from '@supabase/supabase-js';
