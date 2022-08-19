@@ -110,6 +110,8 @@ import { ref, PropType } from 'vue';
 import { Buttery, TimeRemaining, TimeUntil } from 'src/shared/types-butteries';
 import MenusTable from 'src/components/MenusTable.vue';
 import ButteryCardCalendar from 'src/components/ButteryCardCalendar.vue';
+import { useQuasar } from 'quasar';
+import ReportDialog from 'src/components/ReportDialog.vue';
 
 const props = defineProps({
   buttery: {
@@ -120,10 +122,24 @@ const props = defineProps({
 
 const tab = ref('photo');
 
+const $q = useQuasar();
 function reportClosed(buttery: Buttery) {
-  //   openReportDialog();
-  //   setReportCollege(buttery.name);
-  //   setReportMessage('Closed for today.');
+  $q.dialog({
+    component: ReportDialog,
+    componentProps: {
+      placeHolderCollege: buttery.name,
+      placeHolderMessage: 'Closed for today.',
+    },
+  })
+    .onOk(() => {
+      console.log('OK');
+    })
+    .onCancel(() => {
+      console.log('Cancel');
+    })
+    .onDismiss(() => {
+      console.log('Called on OK or Cancel');
+    });
 }
 
 const butteriesWithDarkMode = ['Acorn', 'Beanjamin'];
