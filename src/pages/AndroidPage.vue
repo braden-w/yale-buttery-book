@@ -13,14 +13,11 @@
             App'.
           </p>
           <q-card>
-            <q-img :src="require('../assets/android_install_instructions.png')">
-            </q-img>
+            <q-img src="../assets/android_install_instructions.png"> </q-img>
           </q-card>
         </q-card-section>
         <q-card-section>
-          <p>
-            Alternatively, just tap the 'Add to Home Screen' banner below.
-          </p>
+          <p>Alternatively, just tap the 'Add to Home Screen' banner below.</p>
         </q-card-section>
       </q-card>
       <q-space></q-space>
