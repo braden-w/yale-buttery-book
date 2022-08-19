@@ -5,6 +5,7 @@ import About from 'pages/AboutPage.vue';
 import Privacy from 'pages/PrivacyPage.vue';
 import Install from 'pages/InstallPage.vue';
 import Android from 'pages/AndroidPage.vue';
+import Menus from 'pages/MenusPage.vue';
 
 const routes: RouteRecordRaw[] = [
   {
@@ -21,6 +22,11 @@ const routes: RouteRecordRaw[] = [
     path: '/privacy',
     component: MainLayout,
     children: [{ path: '', component: Privacy }],
+  },
+  {
+    path: '/menus',
+    component: MainLayout,
+    children: [{ path: '', component: Menus }],
   },
   {
     path: '/install',
