@@ -21,18 +21,24 @@
         </q-input>
       </q-card>
 
-      <q-card
+      <div
         v-if="banner && !$q.platform.is.capacitor"
         class="q-mb-md"
         style="width: 100%"
       >
-        <q-toolbar class="bg-accent text-white">
-          Yale Buttery Book is now available on the App Store!
-          <q-space />
-          <q-btn flat color="white" label="Install" to="/install" />
-          <q-btn flat icon="close" color="white" @click="banner = false" />
-        </q-toolbar>
-      </q-card>
+        <q-banner inline-actions dense rounded class="bg-accent text-white">
+          <template #avatar>
+            <q-icon name="breakfast_dining" />
+          </template>
+          <div class="text-subtitle2 text-center">
+            Yale Buttery Book is now available on the App Store!
+          </div>
+          <template #action>
+            <q-btn flat label="Install" to="/install" />
+            <q-btn flat icon="close" @click="banner = false" />
+          </template>
+        </q-banner>
+      </div>
 
       <q-card class="q-mb-md">
         <q-card-section class="text-h5">Currently Open</q-card-section>
