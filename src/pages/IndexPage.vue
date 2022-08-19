@@ -28,7 +28,7 @@
       >
         <q-banner inline-actions dense rounded class="bg-accent text-white">
           <template #avatar>
-            <q-icon name="breakfast_dining" />
+            <q-icon name="shopping_bag" />
           </template>
           <div class="text-subtitle2 text-center">
             Yale Buttery Book is now available on the App Store!
