@@ -21,12 +21,7 @@
             </a>
 
             <q-space> </q-space>
-            <q-btn
-              class="yale-accent-1"
-              icon="android"
-              to="android"
-              label="Android"
-            >
+            <q-btn color="accent" icon="android" to="android" label="Android">
             </q-btn>
             <q-space></q-space>
           </div>

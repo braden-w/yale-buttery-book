@@ -26,7 +26,7 @@
         class="q-mb-md"
         style="width: 100%"
       >
-        <q-banner inline-actions rounded dense class="yale-accent-1 text-white">
+        <q-banner inline-actions rounded dense class="bg-accent text-white">
           <span style="color: white">
             Yale Buttery Book is now available on the App Store!
           </span>
