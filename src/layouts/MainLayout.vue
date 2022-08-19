@@ -31,6 +31,7 @@
         />
         <q-btn v-else round flat icon="download" @click="installDialog.open" /> -->
         <q-space />
+        <InstallDialog />
         <q-btn round flat icon="info" to="/about" />
         <!-- <q-btn
           v-if="$q.screen.lt.sm"
@@ -123,6 +124,7 @@
 
 <script setup lang="ts">
 // import EssentialLink from 'components/EssentialLink.vue';
+import InstallDialog from 'src/components/InstallDialog.vue';
 // import { ref } from 'vue';
 import { residentialColleges } from 'src/shared/butteries';
 
