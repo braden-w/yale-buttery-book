@@ -9,11 +9,6 @@
 import { onMounted, onBeforeUnmount, PropType } from 'vue';
 import { Buttery, TimeRemaining, TimeUntil } from 'src/shared/types-butteries';
 
-import '@fullcalendar/core/vdom';
-import { Calendar } from '@fullcalendar/core';
-import googleCalendarPlugin from '@fullcalendar/google-calendar';
-import timeGridPlugin from '@fullcalendar/timegrid';
-
 const props = defineProps({
   buttery: {
     type: Object as PropType<Buttery & Partial<TimeRemaining & TimeUntil>>,
@@ -22,6 +17,10 @@ const props = defineProps({
 });
 
 // --- Begin Calendar Logic ---
+import '@fullcalendar/core/vdom';
+import { Calendar } from '@fullcalendar/core';
+import googleCalendarPlugin from '@fullcalendar/google-calendar';
+import timeGridPlugin from '@fullcalendar/timegrid';
 
 let calendar: Calendar | null = null;
 const calendarHeight = 300;
