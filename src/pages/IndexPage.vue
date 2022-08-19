@@ -1,49 +1,112 @@
 <template>
-  <q-page class="row items-center justify-evenly">
-    <example-component
-      title="Example component"
-      active
-      :todos="todos"
-      :meta="meta"
-    ></example-component>
+  <q-page>
+    <q-pull-to-refresh
+      @refresh="pullRefresh"
+      icon="breakfast_dining"
+      color="white"
+      bg-color="primary"
+    >
+      <q-card class="q-mb-md">
+        <q-input
+          standout
+          dense
+          debounce="300"
+          @click="$router.push('/menus')"
+          placeholder="I'm Feeling Like Eating..."
+          style="width: 100%"
+        >
+          <template #append>
+            <q-icon name="search" />
+          </template>
+        </q-input>
+      </q-card>
+
+      <div
+        v-if="banner && !$q.platform.is.capacitor"
+        class="q-mb-md"
+        style="width:100%"
+      >
+        <q-banner inline-actions rounded dense class="yale-accent-1 text-white">
+          <span style="color:white">
+            Yale Buttery Book is now available on the App Store!
+          </span>
+          <template v-slot:action>
+            <q-btn flat color="white" label="Install" to="/install" />
+            <q-btn flat icon="close" color="white" @click="banner = false" />
+          </template>
+        </q-banner>
+      </div>
+
+      <q-card class="q-mb-md">
+        <q-card-section class="text-h5">Currently Open</q-card-section>
+        <q-card-section>
+          <ButteryCardList
+            :butteries="OpenButteryCardList"
+            :emptyMessage="{
+              overline: 'Oops!',
+              header: 'No Butteries Open',
+              text: 'Maybe try snackpass :('
+            }"
+          />
+        </q-card-section>
+      </q-card>
+      <q-card>
+        <q-card-section class="text-h5">Currently Closed</q-card-section>
+        <q-card-section>
+          <ButteryCardList
+            :butteries="ClosedButteryCardList"
+            :emptyMessage="{
+              overline: 'Yay!',
+              header: 'No Butteries Closed',
+              text: 'Today is a good day!'
+            }"
+          />
+        </q-card-section>
+      </q-card>
+    </q-pull-to-refresh>
   </q-page>
 </template>
 
-<script lang="ts">
-import { Todo, Meta } from 'components/models';
-import ExampleComponent from 'components/ExampleComponent.vue';
-import { defineComponent, ref } from 'vue';
+<script setup lang="ts">
+import { ref, watch } from 'vue';
+import ButteryCardList from 'src/components/ButteryCardList.vue';
+import { useQuasar } from 'quasar';
+import { useCalendar } from './useButterySchedule';
+import { onBeforeRouteLeave } from 'vue-router';
 
-export default defineComponent({
-  name: 'IndexPage',
-  components: { ExampleComponent },
-  setup () {
-    const todos = ref<Todo[]>([
-      {
-        id: 1,
-        content: 'ct1'
-      },
-      {
-        id: 2,
-        content: 'ct2'
-      },
-      {
-        id: 3,
-        content: 'ct3'
-      },
-      {
-        id: 4,
-        content: 'ct4'
-      },
-      {
-        id: 5,
-        content: 'ct5'
-      }
-    ]);
-    const meta = ref<Meta>({
-      totalCount: 1200
-    });
-    return { todos, meta };
+const {
+  OpenButteryCardList,
+  ClosedButteryCardList,
+  refresh,
+  startSync,
+  stopSync
+} = useCalendar();
+
+startSync();
+
+async function pullRefresh(done: () => void): Promise<void> {
+  await refresh();
+  done();
+}
+
+const banner = ref(true);
+
+// --- App Visibility Toggles Sync ---
+const $q = useQuasar();
+watch(
+  () => $q.appVisible,
+  val => {
+    console.log(val ? 'App became visible' : 'App went in the background');
+    if (val) {
+      startSync();
+    } else {
+      stopSync();
+    }
   }
+);
+
+// --- Routing ---
+onBeforeRouteLeave(() => {
+  stopSync();
 });
 </script>

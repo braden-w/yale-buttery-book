@@ -1,12 +1,43 @@
 import { RouteRecordRaw } from 'vue-router';
+import MainLayout from 'layouts/MainLayout.vue';
+import Index from 'pages/IndexPage.vue';
+import About from 'pages/AboutPage.vue';
+import Privacy from 'pages/PrivacyPage.vue';
+import Install from 'pages/InstallPage.vue';
+import Android from 'pages/AndroidPage.vue';
+import Menus from 'pages/MenusPage.vue';
 
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    component: () => import('layouts/MainLayout.vue'),
-    children: [{ path: '', component: () => import('pages/IndexPage.vue') }],
+    component: MainLayout,
+    children: [{ path: '', component: Index }]
   },
-
+  {
+    path: '/about',
+    component: MainLayout,
+    children: [{ path: '', component: About }]
+  },
+  {
+    path: '/privacy',
+    component: MainLayout,
+    children: [{ path: '', component: Privacy }]
+  },
+  {
+    path: '/install',
+    component: MainLayout,
+    children: [{ path: '', component: Install }]
+  },
+  {
+    path: '/menus',
+    component: MainLayout,
+    children: [{ path: '', component: Menus }]
+  },
+  {
+    path: '/android',
+    component: MainLayout,
+    children: [{ path: '', component: Android }]
+  },
   // Always leave this as last one,
   // but you can also remove it
   {
