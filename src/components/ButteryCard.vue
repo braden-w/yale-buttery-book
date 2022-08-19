@@ -47,7 +47,7 @@
       </template>
       <q-item-section side>
         <div class="q-pa-md q-gutter-sm" style="width: 100%">
-          <q-banner class="yale-blue-1">
+          <q-banner class="bg-primary">
             <template #avatar>
               <q-icon name="breakfast_dining" color="white" />
             </template>
