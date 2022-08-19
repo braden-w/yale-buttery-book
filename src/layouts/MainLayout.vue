@@ -237,6 +237,7 @@ async function submitReportDialog() {
     });
     if (data) console.log('database write success', data);
     else console.error('database write failed', error);
+    return { data, error };
   };
   const feedbackSendEmail = async () => {
     const email = await axios({
@@ -266,6 +267,7 @@ Yale Buttery Book Team`,
     });
     if (email.status === 200) console.log('email sent', email);
     else console.error('email failed', email);
+    return email.status === 200;
   };
 
   const loadingNotification = $q.notify({
@@ -274,16 +276,20 @@ Yale Buttery Book Team`,
     spinner: true,
   });
 
-  await Promise.all([feedbackUploadToSupabase(), feedbackSendEmail()]);
+  const [{ data, error }, emailSent] = await Promise.all([
+    feedbackUploadToSupabase(),
+    feedbackSendEmail(),
+  ]);
+  if (error && !emailSent) {
+    $q.notify({
+      message: 'Error sending report',
+      caption: `Details: ${error?.message}` ?? 'Error sending email',
+      color: 'negative',
+      icon: 'error',
+    });
+  }
   loadingNotification();
   closeReportDialog();
-  // if (error) {
-  //   $q.notify({
-  //     message: 'Error sending report',
-  //     caption: error.message,
-  //     color: 'negative',
-  //     icon: 'error'
-  //   });
   $q.notify({
     message: 'Thank you, issue reported!',
     caption: reportMessage.value,
