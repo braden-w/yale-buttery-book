@@ -1,11 +1,11 @@
 <template>
-  <q-dialog v-model="reportOpen" seamless position="bottom">
+  <q-dialog ref="dialogRef" @hide="onDialogHide" seamless position="bottom">
     <q-card style="width: 100%">
       <q-card-section>
         <div class="row">
           <div class="text-h6">Report an Issue</div>
           <q-space></q-space>
-          <q-btn round flat icon="close" @click="closeReportDialog"></q-btn>
+          <q-btn round flat icon="close" @click="closeReportDialog()"></q-btn>
         </div>
         <div class="text-caption">
           We'll do our best to respond within the night! This form emails us at
@@ -62,19 +62,30 @@ import { ref } from 'vue';
 import { residentialColleges } from 'src/shared/butteries';
 import { useDialogPluginComponent } from 'quasar';
 
+const props = defineProps({
+  placeHolderCollege: {
+    type: String,
+    required: false,
+  },
+  placeHolderMessage: {
+    type: String,
+    required: false,
+  },
+});
+
 defineEmits([...useDialogPluginComponent.emits]);
+
 const { dialogRef, onDialogHide, onDialogOK, onDialogCancel } =
   useDialogPluginComponent();
 
-const reportOpen = ref(false);
-const reportCollege = ref('');
-const reportMessage = ref('');
+const reportCollege = ref(props.placeHolderCollege);
+const reportMessage = ref(props.placeHolderMessage);
 const reportContact = ref('');
 
-const openReportDialog = () => (reportOpen.value = true);
-const closeReportDialog = () => (reportOpen.value = false);
-const setReportCollege = (college: string) => (reportCollege.value = college);
-const setReportMessage = (message: string) => (reportMessage.value = message);
+// const openReportDialog = () => (dialogRef.value = true);
+const closeReportDialog = onDialogCancel;
+// const setReportCollege = (college: string) => (reportCollege.value = college);
+// const setReportMessage = (message: string) => (reportMessage.value = message);
 
 const supabase = createClient(
   import.meta.env.VITE_SUPABASE_URL,
@@ -91,6 +102,7 @@ const isValidEmailOrPhone = (text: string): boolean =>
   /^\d{10}$/.test(text);
 
 async function submitReportDialog() {
+  onDialogOK();
   const report_date = new Date().toDateString();
   const report_time = new Date().toTimeString();
 
@@ -163,11 +175,5 @@ Yale Buttery Book Team`,
     classes: 'yale-blue-1',
     icon: 'campaign',
   });
-}
-
-function reportGeneral() {
-  openReportDialog();
-  setReportCollege(residentialColleges[0]);
-  setReportMessage('It would be great if...');
 }
 </script>

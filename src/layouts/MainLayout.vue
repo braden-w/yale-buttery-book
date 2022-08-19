@@ -91,5 +91,28 @@
 </template>
 
 <script setup lang="ts">
+import { useQuasar } from 'quasar';
 import InstallDialog from 'src/components/InstallDialog.vue';
+import ReportDialog from 'src/components/ReportDialog.vue';
+import { residentialColleges } from 'src/shared/butteries';
+
+const $q = useQuasar();
+function reportGeneral() {
+  $q.dialog({
+    component: ReportDialog,
+    componentProps: {
+      placeHolderCollege: residentialColleges[0],
+      placeHolderMessage: 'It would be great if...',
+    },
+  })
+    .onOk(() => {
+      console.log('OK');
+    })
+    .onCancel(() => {
+      console.log('Cancel');
+    })
+    .onDismiss(() => {
+      console.log('Called on OK or Cancel');
+    });
+}
 </script>
