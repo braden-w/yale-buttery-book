@@ -78,7 +78,7 @@ Yale Buttery Book Team`,
       },
       auth: {
         username: 'api',
-        password: process.env.MAILGUN_PASSWORD as string,
+        password: process.env.MAILGUN_PASSWORD,
       },
     });
     if (email.status === 200) {
