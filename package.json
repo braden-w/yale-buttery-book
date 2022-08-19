@@ -1,14 +1,16 @@
 {
   "name": "buttery-book-vite",
   "version": "0.0.1",
-  "description": "A Quasar Project",
-  "productName": "Quasar App",
+  "description": "An app that answers one simple question: which butteries are open right now?",
+  "productName": "Yale Buttery Book",
   "author": "Braden Wong <bmw02002turbo@gmail.com>",
   "private": true,
   "scripts": {
     "lint": "eslint --ext .js,.ts,.vue ./",
-    "format": "prettier --write \"**/*.{js,ts,vue,css,html,md,json}\" --ignore-path .gitignore",
-    "test": "echo \"No test specified\" && exit 0"
+    "test": "echo \"No test specified\" && exit 0",
+    "generateIcons": "icongenie g  --theme-color 00356b -i public/Icon.png",
+    "generateIOS": "quasar build -ide -m capacitor -T ios",
+    "generateAndroid": "quasar build -m pwa && bubblewrap build"
   },
   "dependencies": {
     "@fullcalendar/core": "^5.11.2",
