@@ -79,7 +79,7 @@
           <q-tab-panel name="photo">
             <q-img
               style="max-height: 80%"
-              src=" ~assets/menu_photos/${props.buttery?.pictureUrl}.jpg "
+              :src="`/menu_photos/${props.buttery?.pictureUrl}.jpg`"
               :alt="props.buttery?.pictureUrl"
             >
             </q-img>
