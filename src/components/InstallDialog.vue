@@ -6,7 +6,13 @@
 
         <div class="text-caption">We are now published to the App Store!</div>
       </q-card-section>
-      <q-tabs v-model="tab" class="text-teal" inline-label>
+      <q-tabs
+        v-model="tab"
+        class="text-grey"
+        active-color="white"
+        indicator-color="primary"
+        inline-label
+      >
         <q-tab name="ios" icon="apple" label="iOS" />
         <q-tab name="android" icon="android" label="Android" />
       </q-tabs>
