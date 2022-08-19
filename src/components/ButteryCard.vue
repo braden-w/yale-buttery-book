@@ -10,8 +10,8 @@
                 :src="
                   butteriesWithDarkMode.includes(props.buttery.pictureUrl) &&
                   $q.dark.isActive
-                    ? `../assets/buttery_shields/${props.buttery.pictureUrl}Dark.png`
-                    : `../assets/buttery_shields/${props.buttery?.pictureUrl}.png`
+                    ? `~assets/buttery_shields/${props.buttery.pictureUrl}Dark.png`
+                    : `~assets/buttery_shields/${props.buttery?.pictureUrl}.png`
                 "
                 :alt="props.buttery?.pictureUrl"
               />
@@ -79,7 +79,7 @@
           <q-tab-panel name="photo">
             <q-img
               style="max-height: 80%"
-              src=" ../assets/menu_photos/${props.buttery?.pictureUrl}.jpg "
+              src=" ~assets/menu_photos/${props.buttery?.pictureUrl}.jpg "
               :alt="props.buttery?.pictureUrl"
             >
             </q-img>

@@ -17,7 +17,7 @@
               href="https://apps.apple.com/us/app/yale-buttery-book/id1595499598"
               target="_blank"
             >
-              <img src="../assets/DownloadToAppStore.svg" />
+              <img src="~assets/DownloadToAppStore.svg" />
             </a>
 
             <q-space> </q-space>

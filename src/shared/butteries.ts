@@ -9,7 +9,7 @@ export const butteries: Buttery[] = [
     pictureUrl: 'BenjaminFranklin',
     recommend: 'Vegan Quesadilla, Fries',
     textTime: 'Sun-Th, 10 PM - 1 AM',
-    startTime: '22:00:00'
+    startTime: '22:00:00',
   }),
   reactive({
     name: 'Berkeley',
@@ -18,7 +18,7 @@ export const butteries: Buttery[] = [
     pictureUrl: 'Berkeley',
     recommend: 'BK Special, Pancakes, Nutellawich',
     textTime: 'Sun-Fri, 10 PM - 1 AM',
-    startTime: '22:00:00'
+    startTime: '22:00:00',
   }),
   reactive({
     name: 'Branford',
@@ -27,7 +27,7 @@ export const butteries: Buttery[] = [
     pictureUrl: 'Branford',
     recommend: 'The Chin, Circle of Life, Mario Melt',
     textTime: 'Sun-Th, 10:30 PM - 12:45 AM',
-    startTime: '22:30:00'
+    startTime: '22:30:00',
   }),
   reactive({
     name: 'Davenport',
@@ -36,7 +36,7 @@ export const butteries: Buttery[] = [
     pictureUrl: 'Davenport',
     recommend: 'RJR, BBQQ, Goldilocks Waffles',
     textTime: 'Everyday, 10 PM - 12:30 AM',
-    startTime: '22:00:00'
+    startTime: '22:00:00',
   }),
   reactive({
     name: 'Ezra Stiles',
@@ -45,7 +45,7 @@ export const butteries: Buttery[] = [
     pictureUrl: 'EzraStiles',
     recommend: 'The Ezra, Jambler, Monkey Madness',
     textTime: 'Sun-Th, 10 PM - 12:50 AM',
-    startTime: '22:00:00'
+    startTime: '22:00:00',
   }),
   reactive({
     name: 'Grace Hopper',
@@ -54,7 +54,7 @@ export const butteries: Buttery[] = [
     pictureUrl: 'GraceHopper',
     recommend: 'Flying Pig, Buff Chik Ques, Cup O’ Crack',
     textTime: 'Sun-Th, 10 PM - 1 AM',
-    startTime: '22:00:00'
+    startTime: '22:00:00',
   }),
   reactive({
     name: 'Jonathan Edwards',
@@ -63,7 +63,7 @@ export const butteries: Buttery[] = [
     pictureUrl: 'JonathanEdwards',
     recommend: 'Allie’s Cookies & Cream, The Fernandilla, Chicken Tenders',
     textTime: 'Sun-Th, 9:30 PM - 12:30 AM',
-    startTime: '21:30:00'
+    startTime: '21:30:00',
   }),
   reactive({
     name: 'Morse',
@@ -72,7 +72,7 @@ export const butteries: Buttery[] = [
     pictureUrl: 'Morse',
     recommend: 'Jim Stanley, The Thing Joe Gets, Bagels, The Austin',
     textTime: 'Sun-Th, 10 PM - 12 AM',
-    startTime: '22:00:00'
+    startTime: '22:00:00',
   }),
   reactive({
     name: 'Pauli Murray',
@@ -81,7 +81,7 @@ export const butteries: Buttery[] = [
     pictureUrl: 'PauliMurray',
     recommend: 'Fried Rice w/ Kimchi, Boba, French Toast',
     textTime: 'Sun-Th, 10 PM - 1 AM',
-    startTime: '22:00:00'
+    startTime: '22:00:00',
   }),
   reactive({
     name: 'Pierson',
@@ -90,7 +90,7 @@ export const butteries: Buttery[] = [
     pictureUrl: 'Pierson',
     recommend: 'the PCK Ques, CJ Wrap, Mango Smoothie',
     textTime: 'Sun-Th, 10:30 PM - 12:30 AM',
-    startTime: '22:30:00'
+    startTime: '22:30:00',
   }),
   reactive({
     name: 'Saybrook',
@@ -99,7 +99,7 @@ export const butteries: Buttery[] = [
     pictureUrl: 'Saybrook',
     recommend: 'Manliestwich, Mozzliestwich, Crepe w/ Ice Cream',
     textTime: 'Sun-Th, 10 PM - 12:45 AM',
-    startTime: '22:00:00'
+    startTime: '22:00:00',
   }),
   reactive({
     name: 'Silliman',
@@ -108,7 +108,7 @@ export const butteries: Buttery[] = [
     pictureUrl: 'Silliman',
     recommend: 'Curly Fries, Hot Chocolate, Apple Cider',
     textTime: 'Sun-Th, 10 PM - 1 AM',
-    startTime: '22:00:00'
+    startTime: '22:00:00',
   }),
   reactive({
     name: 'Timothy Dwight',
@@ -118,7 +118,7 @@ export const butteries: Buttery[] = [
     recommend:
       'Grilled Cheese w/ Popcorn Chicken, Tortizza, Anything fried (they have a fryer!)',
     textTime: 'Sun-Th, 10 PM - 1 AM', // ??
-    startTime: '22:00:00'
+    startTime: '22:00:00',
   }),
   reactive({
     name: 'Trumbull',
@@ -127,7 +127,7 @@ export const butteries: Buttery[] = [
     pictureUrl: 'Trumbull',
     recommend: 'Dino Grilled Cheese, Cookies, Ice Cream Sandwich',
     textTime: 'Sun, M, W, 10 PM - 11:30 PM; T, Th 10 PM - 1 AM', // ??
-    startTime: '22:00:00'
+    startTime: '22:00:00',
     //textTime: 'Sun-Th, 9 PM - 10:30 PM; T, Th 11:30 PM - 1 AM' // ??
   }),
   reactive({
@@ -137,7 +137,7 @@ export const butteries: Buttery[] = [
     pictureUrl: 'Acorn',
     recommend: 'Basic #1 Toast, Basic #2 Toast, Espresso',
     textTime: 'Everyday, 9 AM - 8 PM',
-    startTime: '09:00:00'
+    startTime: '09:00:00',
   }),
   reactive({
     name: 'Benjamin Franklin',
@@ -146,11 +146,11 @@ export const butteries: Buttery[] = [
     pictureUrl: 'Beanjamin',
     recommend: 'Matcha Latte, Tea Lemonade, Toasts',
     textTime: 'Everyday, 2 PM - 5 PM',
-    startTime: '14:00:00'
-  })
+    startTime: '14:00:00',
+  }),
 ];
 
 export const residentialColleges = [
   'Errors or Suggestions',
-  ...Array.from(new Set(butteries.map(buttery => buttery.name)))
+  ...Array.from(new Set(butteries.map((buttery) => buttery.name))),
 ];
