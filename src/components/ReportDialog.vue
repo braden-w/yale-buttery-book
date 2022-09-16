@@ -155,7 +155,7 @@ Yale Buttery Book Team`,
     spinner: true,
   });
 
-  const [{ data, error }, emailSent] = await Promise.all([
+  const [{ error }, emailSent] = await Promise.all([
     feedbackUploadToSupabase(),
     feedbackSendEmail(),
   ]);
