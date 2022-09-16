@@ -81,6 +81,7 @@
               style="max-height: 80%"
               :src="`/menu_photos/${props.buttery?.pictureUrl}.jpg`"
               :alt="props.buttery?.pictureUrl"
+              draggable
             >
             </q-img>
           </q-tab-panel>

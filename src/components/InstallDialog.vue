@@ -1,5 +1,5 @@
 <template>
-  <q-dialog v-model="isOpen">
+  <q-dialog ref="dialogRef" @hide="onDialogHide">
     <q-card style="width: 400px">
       <q-card-section>
         <div class="text-h6">Install the App</div>
@@ -60,6 +60,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useDialogPluginComponent } from 'quasar';
 const tab = ref('ios');
-const isOpen = ref(true);
+defineEmits([...useDialogPluginComponent.emits]);
 </script>

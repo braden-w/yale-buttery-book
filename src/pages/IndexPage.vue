@@ -34,7 +34,7 @@
             Yale Buttery Book is now available on the App Store!
           </div>
           <template #action>
-            <q-btn flat label="Install" to="/install" />
+            <q-btn flat label="Install" @click="openInstallDialog" />
             <q-btn flat icon="close" @click="banner = false" />
           </template>
         </q-banner>
@@ -72,6 +72,7 @@
 
 <script setup lang="ts">
 import { ref, watch } from 'vue';
+import InstallDialog from 'src/components/InstallDialog.vue';
 import ButteryCardList from 'src/components/ButteryCardList.vue';
 import { useQuasar } from 'quasar';
 import { useButterySchedule } from './useButterySchedule';
@@ -84,6 +85,12 @@ const {
   startSync,
   stopSync,
 } = useButterySchedule();
+
+const openInstallDialog = () => {
+  $q.dialog({
+    component: InstallDialog,
+  });
+};
 
 startSync();
 
