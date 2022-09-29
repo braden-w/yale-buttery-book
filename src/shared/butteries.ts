@@ -49,7 +49,7 @@ export const butteries: Buttery[] = [
   }),
   reactive({
     name: 'Grace Hopper',
-    calendarID: 'c_26egeoou374b24nc3t8usu3d1g@group.calendar.google.com',
+    calendarID: 'c_jpohh0fj3bjf9oa50uqhdsn210@group.calendar.google.com',
     nickname: 'The Trolley Stop',
     pictureUrl: 'GraceHopper',
     recommend: 'Flying Pig, Buff Chik Ques, Cup O’ Crack',
