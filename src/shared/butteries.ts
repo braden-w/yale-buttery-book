@@ -58,7 +58,7 @@ export const butteries: Buttery[] = [
   }),
   reactive({
     name: 'Jonathan Edwards',
-    calendarID: 'c_8o16mq4tt14aeivb5fsnpp486s@group.calendar.google.com',
+    calendarID: 'c_vidd8mkjnfknj5gf2qvsdo35o0@group.calendar.google.com',
     nickname: 'JE Buttery',
     pictureUrl: 'JonathanEdwards',
     recommend: 'Allie’s Cookies & Cream, The Fernandilla, Chicken Tenders',
