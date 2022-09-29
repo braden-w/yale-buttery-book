@@ -1,12 +1,11 @@
 <template>
   <q-card class="q-mb-md">
     <q-input
-      standout
+      standout="bg-dark"
       dense
       debounce="300"
       v-model="filter"
       placeholder="Search Menus..."
-      style="width: 100%"
       ref="searchInput"
     >
       <template #append>
