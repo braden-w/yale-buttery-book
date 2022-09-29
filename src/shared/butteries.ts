@@ -112,7 +112,7 @@ export const butteries: Buttery[] = [
   }),
   reactive({
     name: 'Timothy Dwight',
-    calendarID: 'c_m9322s3tgfjkqgarl95t5h4a40@group.calendar.google.com',
+    calendarID: 'c_5se1ib9s1al5e2vmtn7sgjrfmk@group.calendar.google.com',
     nickname: 'TD Butt',
     pictureUrl: 'TimothyDwight',
     recommend:
