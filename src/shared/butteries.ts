@@ -40,7 +40,7 @@ export const butteries: Buttery[] = [
   }),
   reactive({
     name: 'Ezra Stiles',
-    calendarID: 'c_9ijkvv0smsutkbr547mnn0pai0@group.calendar.google.com',
+    calendarID: 'c_2sd6ipbve5qecpbvjk6n4krm88@group.calendar.google.com',
     nickname: 'Moose Butt',
     pictureUrl: 'EzraStiles',
     recommend: 'The Ezra, Jambler, Monkey Madness',
