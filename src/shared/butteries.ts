@@ -122,7 +122,7 @@ export const butteries: Buttery[] = [
   }),
   reactive({
     name: 'Trumbull',
-    calendarID: 'c_luars7a83gq18p9k7em4jkjnco@group.calendar.google.com',
+    calendarID: 'c_fqjk0og8tsg22m9c5hpjochn9k@group.calendar.google.com',
     nickname: 'The TrumButt',
     pictureUrl: 'Trumbull',
     recommend: 'Dino Grilled Cheese, Cookies, Ice Cream Sandwich',
