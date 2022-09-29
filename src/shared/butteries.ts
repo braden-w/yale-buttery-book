@@ -76,7 +76,7 @@ export const butteries: Buttery[] = [
   }),
   reactive({
     name: 'Pauli Murray',
-    calendarID: 'c_cfe8e3danvqjf639n3mjfidpl8@group.calendar.google.com',
+    calendarID: 'c_v7d6qo6iu5s3dnq2hj852ccvkc@group.calendar.google.com',
     nickname: 'MY Butt',
     pictureUrl: 'PauliMurray',
     recommend: 'Fried Rice w/ Kimchi, Boba, French Toast',
