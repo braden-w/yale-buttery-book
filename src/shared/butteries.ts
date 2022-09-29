@@ -103,7 +103,7 @@ export const butteries: Buttery[] = [
   }),
   reactive({
     name: 'Silliman',
-    calendarID: 'c_6qnk941kt04s2u2d2marfc075c@group.calendar.google.com',
+    calendarID: 'c_g2hs55m8rdnjo7ulvdm97k6jpk@group.calendar.google.com',
     nickname: 'Sillicafe',
     pictureUrl: 'Silliman',
     recommend: 'Curly Fries, Hot Chocolate, Apple Cider',
