@@ -8,7 +8,7 @@
     >
       <q-card class="q-mb-md">
         <q-input
-          standout
+          standout="bg-dark"
           dense
           debounce="300"
           @click="$router.push('/menus')"
