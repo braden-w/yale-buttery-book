@@ -85,7 +85,7 @@ export const butteries: Buttery[] = [
   }),
   reactive({
     name: 'Pierson',
-    calendarID: 'c_06nrh3kv2lav45p5vp26l8ip6c@group.calendar.google.com',
+    calendarID: 'c_be16luiqg08s5fjbtl48klg0qg@group.calendar.google.com',
     nickname: 'Pierson Knight Club',
     pictureUrl: 'Pierson',
     recommend: 'the PCK Ques, CJ Wrap, Mango Smoothie',
