@@ -31,7 +31,7 @@ export const butteries: Buttery[] = [
   }),
   reactive({
     name: 'Davenport',
-    calendarID: 'c_vdv6h0llicdhfeij2m7dtod034@group.calendar.google.com',
+    calendarID: 'c_ljjasqrqmi61clcb7q8grhmh5o@group.calendar.google.com',
     nickname: 'The Dive',
     pictureUrl: 'Davenport',
     recommend: 'RJR, BBQQ, Goldilocks Waffles',
