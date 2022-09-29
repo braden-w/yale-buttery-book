@@ -13,7 +13,7 @@ export const butteries: Buttery[] = [
   }),
   reactive({
     name: 'Berkeley',
-    calendarID: 'c_fg90gra7rho1h04uktfd1tsc80@group.calendar.google.com',
+    calendarID: 'c_18ghppn0o4coealtrqf4m876jo@group.calendar.google.com',
     nickname: "Marvin's",
     pictureUrl: 'Berkeley',
     recommend: 'BK Special, Pancakes, Nutellawich',
