@@ -46,8 +46,8 @@
         </q-btn>
       </template>
       <q-item-section side>
-        <div class="q-pa-md q-gutter-sm" style="width: 100%">
-          <q-banner class="bg-primary">
+        <div class="q-py-md" style="width: 100%">
+          <q-banner class="bg-primary" rounded>
             <template #avatar>
               <q-icon name="breakfast_dining" color="white" />
             </template>
