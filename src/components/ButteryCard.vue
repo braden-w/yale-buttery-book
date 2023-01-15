@@ -1,107 +1,104 @@
 <template>
-  <div>
-    <!-- <q-expansion-item :icon="`img:assets/${props.buttery?.picture_url}`"> -->
-    <q-expansion-item group="butteries">
-      <template #header>
-        <q-item>
-          <q-item-section avatar>
-            <q-avatar>
-              <img
-                :src="
-                  butteriesWithDarkMode.includes(props.buttery.pictureUrl) &&
-                  $q.dark.isActive
-                    ? `/buttery_shields/${props.buttery.pictureUrl}Dark.png`
-                    : `/buttery_shields/${props.buttery?.pictureUrl}.png`
-                "
-                :alt="props.buttery?.pictureUrl"
-              />
-            </q-avatar>
-          </q-item-section>
-          <q-item-section>
-            <q-item-label overline>{{ props.buttery?.name }}</q-item-label>
-            <q-item-label>{{ props.buttery?.nickname }}</q-item-label>
-            <q-item-label caption>
-              {{ props.buttery?.textTime }}
-              <br />
-              <span class="text-warning">
-                {{ props.buttery?.opensIn }}
-              </span>
-            </q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-space />
-        <q-btn
-          v-if="$q.screen.width >= 455"
-          flat
-          label="Report Issue"
-          @click.stop="reportClosed(props.buttery)"
-        >
-        </q-btn>
-        <q-btn
-          v-else
-          flat
-          icon="feedback"
-          @click.stop="reportClosed(props.buttery)"
-        >
-        </q-btn>
-      </template>
-
-      <q-banner class="bg-primary" style="width: 100%" rounded>
-        <template #avatar>
-          <q-icon name="breakfast_dining" color="white" />
-        </template>
-        <div class="text-subtitle2 text-center">
-          Buttery Book Recommends: {{ props.buttery?.recommend }}
-        </div>
-      </q-banner>
-
-      <q-tabs
-        v-model="tab"
-        dense
-        active-color="white"
-        indicator-color="primary"
-        align="justify"
-        narrow-indicator
-      >
-        <q-tab name="photo" label="Photo" />
-        <q-tab name="menu" label="Menu" />
-        <q-tab name="calendar" label="Calendar" />
-      </q-tabs>
-
-      <q-separator />
-
-      <q-tab-panels v-model="tab" animated>
-        <q-tab-panel name="photo">
-          <!-- Center the image -->
-          <div class="row justify-center">
-            <q-img
-              style="max-width: 640px; max-height: 80vh"
-              fit="contain"
-              :src="`/menu_photos/${props.buttery?.pictureUrl}.jpg`"
+  <q-expansion-item group="butteries">
+    <template #header>
+      <q-item>
+        <q-item-section avatar>
+          <q-avatar>
+            <img
+              :src="
+                butteriesWithDarkMode.includes(props.buttery.pictureUrl) &&
+                $q.dark.isActive
+                  ? `/buttery_shields/${props.buttery.pictureUrl}Dark.png`
+                  : `/buttery_shields/${props.buttery?.pictureUrl}.png`
+              "
               :alt="props.buttery?.pictureUrl"
-              draggable
-            >
-            </q-img>
-          </div>
-        </q-tab-panel>
+            />
+          </q-avatar>
+        </q-item-section>
+        <q-item-section>
+          <q-item-label overline>{{ props.buttery?.name }}</q-item-label>
+          <q-item-label>{{ props.buttery?.nickname }}</q-item-label>
+          <q-item-label caption>
+            {{ props.buttery?.textTime }}
+            <br />
+            <span class="text-warning">
+              {{ props.buttery?.opensIn }}
+            </span>
+          </q-item-label>
+        </q-item-section>
+      </q-item>
+      <q-space />
+      <q-btn
+        v-if="$q.screen.width >= 455"
+        flat
+        label="Report Issue"
+        @click.stop="reportClosed(props.buttery)"
+      >
+      </q-btn>
+      <q-btn
+        v-else
+        flat
+        icon="feedback"
+        @click.stop="reportClosed(props.buttery)"
+      >
+      </q-btn>
+    </template>
 
-        <q-tab-panel name="menu">
-          <MenusTable :search="props.buttery.name" />
-        </q-tab-panel>
+    <q-banner class="bg-primary" style="width: 100%" rounded>
+      <template #avatar>
+        <q-icon name="breakfast_dining" color="white" />
+      </template>
+      <div class="text-subtitle2 text-center">
+        Buttery Book Recommends: {{ props.buttery?.recommend }}
+      </div>
+    </q-banner>
 
-        <q-tab-panel name="calendar">
-          <q-card>
-            <q-card-section>
-              <div class="text-h5 text-center">
-                {{ props.buttery.nickname }} Schedule
-              </div>
-            </q-card-section>
-            <ButteryCardCalendar :buttery="buttery" />
-          </q-card>
-        </q-tab-panel>
-      </q-tab-panels>
-    </q-expansion-item>
-  </div>
+    <q-tabs
+      v-model="tab"
+      dense
+      active-color="white"
+      indicator-color="primary"
+      align="justify"
+      narrow-indicator
+    >
+      <q-tab name="photo" label="Photo" />
+      <q-tab name="menu" label="Menu" />
+      <q-tab name="calendar" label="Calendar" />
+    </q-tabs>
+
+    <q-separator />
+
+    <q-tab-panels v-model="tab" animated>
+      <q-tab-panel name="photo">
+        <!-- Center the image -->
+        <div class="row justify-center">
+          <q-img
+            style="max-width: 640px; max-height: 80vh"
+            fit="contain"
+            :src="`/menu_photos/${props.buttery?.pictureUrl}.jpg`"
+            :alt="props.buttery?.pictureUrl"
+            draggable
+          >
+          </q-img>
+        </div>
+      </q-tab-panel>
+
+      <q-tab-panel name="menu">
+        <MenusTable :search="props.buttery.name" />
+      </q-tab-panel>
+
+      <q-tab-panel name="calendar">
+        <q-card>
+          <q-card-section>
+            <div class="text-h5 text-center">
+              {{ props.buttery.nickname }} Schedule
+            </div>
+          </q-card-section>
+          <ButteryCardCalendar :buttery="buttery" />
+        </q-card>
+      </q-tab-panel>
+    </q-tab-panels>
+  </q-expansion-item>
 </template>
 
 <script setup lang="ts">
