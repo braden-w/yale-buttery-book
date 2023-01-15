@@ -1,7 +1,7 @@
 <template>
   <q-input
     class="q-mb-md"
-    standout="bg-dark"
+    filled
     dense
     debounce="300"
     v-model="filter"
