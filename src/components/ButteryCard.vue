@@ -62,7 +62,6 @@
         <q-tabs
           v-model="tab"
           dense
-          class="text-grey"
           active-color="white"
           indicator-color="primary"
           align="justify"
@@ -77,13 +76,17 @@
 
         <q-tab-panels v-model="tab" animated>
           <q-tab-panel name="photo">
-            <q-img
-              style="max-height: 80%"
-              :src="`/menu_photos/${props.buttery?.pictureUrl}.jpg`"
-              :alt="props.buttery?.pictureUrl"
-              draggable
-            >
-            </q-img>
+            <!-- Center the image -->
+            <div class="row justify-center">
+              <q-img
+                style="max-width: 640px; max-height: 80vh"
+                fit="contain"
+                :src="`/menu_photos/${props.buttery?.pictureUrl}.jpg`"
+                :alt="props.buttery?.pictureUrl"
+                draggable
+              >
+              </q-img>
+            </div>
           </q-tab-panel>
 
           <q-tab-panel name="menu">
