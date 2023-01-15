@@ -1,50 +1,50 @@
 <template>
-  <q-card class="q-mb-md">
-    <q-input
-      standout="bg-dark"
-      dense
-      debounce="300"
-      v-model="filter"
-      placeholder="Search Menus..."
-      ref="searchInput"
-    >
-      <template #append>
-        <q-icon name="search" />
-      </template>
-      <template #after>
-        <q-btn flat icon="refresh" @click="getTableData"></q-btn>
-        <q-btn
-          flat
-          :icon="showSettings ? 'expand_less' : 'expand_more'"
-          @click="toggleSettings"
-        >
-        </q-btn>
-      </template>
-    </q-input>
-    <q-card v-if="showSettings" class="q-ma-xs" style="width: 100%">
-      <div class="row justify-between">
-        <q-toggle
-          v-model="grid"
-          :icon="grid ? 'view_day' : 'table_chart'"
-          :label="grid ? 'Card' : 'Grid'"
-        />
-        <q-btn-toggle
-          v-model="separator"
-          toggle-color="accent"
-          rounded
-          flat
-          :options="separatorOptions"
-        />
-        <q-option-group
-          v-model="visibleColumns"
-          :options="toggleColumnNames"
-          color="accent"
-          inline
-          type="checkbox"
-        />
-      </div>
-    </q-card>
+  <q-input
+    class="q-mb-md"
+    standout="bg-dark"
+    dense
+    debounce="300"
+    v-model="filter"
+    placeholder="Search Menus..."
+    ref="searchInput"
+  >
+    <template #append>
+      <q-icon name="search" />
+    </template>
+    <template #after>
+      <q-btn flat icon="refresh" @click="getTableData"></q-btn>
+      <q-btn
+        flat
+        :icon="showSettings ? 'expand_less' : 'expand_more'"
+        @click="toggleSettings"
+      >
+      </q-btn>
+    </template>
+  </q-input>
+  <q-card v-if="showSettings" class="q-ma-xs" style="width: 100%">
+    <div class="row justify-between">
+      <q-toggle
+        v-model="grid"
+        :icon="grid ? 'view_day' : 'table_chart'"
+        :label="grid ? 'Card' : 'Grid'"
+      />
+      <q-btn-toggle
+        v-model="separator"
+        toggle-color="accent"
+        rounded
+        flat
+        :options="separatorOptions"
+      />
+      <q-option-group
+        v-model="visibleColumns"
+        :options="toggleColumnNames"
+        color="accent"
+        inline
+        type="checkbox"
+      />
+    </div>
   </q-card>
+
   <q-table
     :grid="grid"
     grid-header
