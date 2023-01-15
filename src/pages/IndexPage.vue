@@ -5,6 +5,7 @@
       icon="breakfast_dining"
       color="white"
       bg-color="primary"
+      class="q-pa-md"
     >
       <q-input
         class="q-mb-md"
