@@ -45,66 +45,61 @@
         >
         </q-btn>
       </template>
-      <q-item-section side>
-        <div class="q-py-md" style="width: 100%">
-          <q-banner class="bg-primary" rounded>
-            <template #avatar>
-              <q-icon name="breakfast_dining" color="white" />
-            </template>
-            <div class="text-subtitle2 text-center">
-              Buttery Book Recommends: {{ props.buttery?.recommend }}
-            </div>
-          </q-banner>
+
+      <q-banner class="bg-primary" style="width: 100%" rounded>
+        <template #avatar>
+          <q-icon name="breakfast_dining" color="white" />
+        </template>
+        <div class="text-subtitle2 text-center">
+          Buttery Book Recommends: {{ props.buttery?.recommend }}
         </div>
-      </q-item-section>
+      </q-banner>
 
-      <q-card>
-        <q-tabs
-          v-model="tab"
-          dense
-          active-color="white"
-          indicator-color="primary"
-          align="justify"
-          narrow-indicator
-        >
-          <q-tab name="photo" label="Photo" />
-          <q-tab name="menu" label="Menu" />
-          <q-tab name="calendar" label="Calendar" />
-        </q-tabs>
+      <q-tabs
+        v-model="tab"
+        dense
+        active-color="white"
+        indicator-color="primary"
+        align="justify"
+        narrow-indicator
+      >
+        <q-tab name="photo" label="Photo" />
+        <q-tab name="menu" label="Menu" />
+        <q-tab name="calendar" label="Calendar" />
+      </q-tabs>
 
-        <q-separator />
+      <q-separator />
 
-        <q-tab-panels v-model="tab" animated>
-          <q-tab-panel name="photo">
-            <!-- Center the image -->
-            <div class="row justify-center">
-              <q-img
-                style="max-width: 640px; max-height: 80vh"
-                fit="contain"
-                :src="`/menu_photos/${props.buttery?.pictureUrl}.jpg`"
-                :alt="props.buttery?.pictureUrl"
-                draggable
-              >
-              </q-img>
-            </div>
-          </q-tab-panel>
+      <q-tab-panels v-model="tab" animated>
+        <q-tab-panel name="photo">
+          <!-- Center the image -->
+          <div class="row justify-center">
+            <q-img
+              style="max-width: 640px; max-height: 80vh"
+              fit="contain"
+              :src="`/menu_photos/${props.buttery?.pictureUrl}.jpg`"
+              :alt="props.buttery?.pictureUrl"
+              draggable
+            >
+            </q-img>
+          </div>
+        </q-tab-panel>
 
-          <q-tab-panel name="menu">
-            <MenusTable :search="props.buttery.name" />
-          </q-tab-panel>
+        <q-tab-panel name="menu">
+          <MenusTable :search="props.buttery.name" />
+        </q-tab-panel>
 
-          <q-tab-panel name="calendar">
-            <q-card>
-              <q-card-section>
-                <div class="text-h5 text-center">
-                  {{ props.buttery.nickname }} Schedule
-                </div>
-              </q-card-section>
-              <ButteryCardCalendar :buttery="buttery" />
-            </q-card>
-          </q-tab-panel>
-        </q-tab-panels>
-      </q-card>
+        <q-tab-panel name="calendar">
+          <q-card>
+            <q-card-section>
+              <div class="text-h5 text-center">
+                {{ props.buttery.nickname }} Schedule
+              </div>
+            </q-card-section>
+            <ButteryCardCalendar :buttery="buttery" />
+          </q-card>
+        </q-tab-panel>
+      </q-tab-panels>
     </q-expansion-item>
   </div>
 </template>
