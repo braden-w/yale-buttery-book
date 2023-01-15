@@ -40,7 +40,7 @@
         </q-banner>
       </div>
 
-      <q-card class="q-mb-md">
+      <q-card flat class="q-mb-md">
         <q-card-section class="text-h5">Currently Open</q-card-section>
         <q-card-section>
           <ButteryCardList
@@ -53,7 +53,7 @@
           />
         </q-card-section>
       </q-card>
-      <q-card>
+      <q-card flat>
         <q-card-section class="text-h5">Currently Closed</q-card-section>
         <q-card-section>
           <ButteryCardList
