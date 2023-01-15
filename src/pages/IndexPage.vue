@@ -21,24 +21,25 @@
         </template>
       </q-input>
 
-      <div
+      <q-banner
+        inline-actions
+        dense
+        rounded
+        class="q-mb-md bg-accent text-white"
         v-if="banner && !$q.platform.is.capacitor"
-        class="q-mb-md"
         style="width: 100%"
       >
-        <q-banner inline-actions dense rounded class="bg-accent text-white">
-          <template #avatar>
-            <q-icon name="shopping_bag" />
-          </template>
-          <div class="text-subtitle2 text-center">
-            Yale Buttery Book is now available on the App Store!
-          </div>
-          <template #action>
-            <q-btn flat label="Install" @click="openInstallDialog" />
-            <q-btn flat icon="close" @click="banner = false" />
-          </template>
-        </q-banner>
-      </div>
+        <template #avatar>
+          <q-icon name="shopping_bag" />
+        </template>
+        <div class="text-subtitle2 text-center">
+          Yale Buttery Book is now available on the App Store!
+        </div>
+        <template #action>
+          <q-btn flat label="Install" @click="openInstallDialog" />
+          <q-btn flat icon="close" @click="banner = false" />
+        </template>
+      </q-banner>
 
       <q-card flat class="q-mb-md">
         <q-card-section class="text-h5">Currently Open</q-card-section>
@@ -53,6 +54,7 @@
           />
         </q-card-section>
       </q-card>
+
       <q-card flat>
         <q-card-section class="text-h5">Currently Closed</q-card-section>
         <q-card-section>
