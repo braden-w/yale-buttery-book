@@ -106,7 +106,7 @@ export function startSync() {
   // Stop sync if residual
   stopSync();
   console.log('starting sync');
-  void refresh();
+  refresh();
 
   // Refresh GCal schedule every minute
   calendarSyncInterval = setInterval(async () => {
