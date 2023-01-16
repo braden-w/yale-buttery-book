@@ -1,9 +1,8 @@
 <template>
-  <q-dialog ref="dialogRef" @hide="onDialogHide">
-    <q-card style="width: 400px">
+  <q-dialog ref="dialogRef">
+    <q-card style="width: 400px" flat>
       <q-card-section>
         <div class="text-h6">Install the App</div>
-
         <div class="text-caption">We are now published to the App Store!</div>
       </q-card-section>
       <q-separator />
@@ -29,7 +28,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
 import { useDialogPluginComponent } from 'quasar';
 defineEmits([...useDialogPluginComponent.emits]);
 </script>
