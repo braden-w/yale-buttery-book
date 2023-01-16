@@ -96,7 +96,7 @@ function clearButteryCardList() {
   ClosedButteryCardList.value = [];
 }
 
-export async function refresh(): Promise<void> {
+export async function refreshGcalAndButteries(): Promise<void> {
   await refreshGcalButterySchedule();
   clearButteryCardList();
   updateButteriesStatus();
@@ -106,7 +106,7 @@ export function startSync() {
   // Stop sync if residual
   stopSync();
   console.log('starting sync');
-  refresh();
+  refreshGcalAndButteries();
 
   // Refresh GCal schedule every minute
   calendarSyncInterval = setInterval(async () => {
