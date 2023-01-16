@@ -1,11 +1,10 @@
 <template>
-  <q-page>
+  <q-page class="q-pa-md">
     <q-pull-to-refresh
       @refresh="pullRefresh"
       icon="breakfast_dining"
       color="white"
       bg-color="primary"
-      class="q-pa-md"
     >
       <q-input
         class="q-mb-md"
@@ -45,14 +44,7 @@
       <q-card flat class="q-mb-md">
         <q-card-section class="text-h5">Currently Open</q-card-section>
         <q-card-section v-if="OpenButteryCardList.length !== 0">
-          <ButteryCardList
-            :butteries="OpenButteryCardList"
-            :emptyMessage="{
-              overline: 'Oops!',
-              header: 'No Butteries Open',
-              text: 'Maybe try snackpass :(',
-            }"
-          />
+          <ButteryCardList :butteries="OpenButteryCardList" />
         </q-card-section>
         <q-card-section v-else>
           <q-item>
@@ -72,14 +64,7 @@
       <q-card flat>
         <q-card-section class="text-h5">Currently Closed</q-card-section>
         <q-card-section v-if="ClosedButteryCardList.length !== 0">
-          <ButteryCardList
-            :butteries="ClosedButteryCardList"
-            :emptyMessage="{
-              overline: 'Yay!',
-              header: 'No Butteries Closed',
-              text: 'Today is a good day!',
-            }"
-          />
+          <ButteryCardList :butteries="ClosedButteryCardList" />
         </q-card-section>
         <q-card-section v-else>
           <q-item>

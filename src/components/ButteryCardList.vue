@@ -18,13 +18,5 @@ const props = defineProps({
     type: Array as PropType<(Buttery & Partial<TimeRemaining & TimeUntil>)[]>,
     default: () => [],
   },
-  emptyMessage: {
-    type: Object as PropType<{
-      overline: string;
-      header: string;
-      text: string;
-    }>,
-    default: () => ({}),
-  },
 });
 </script>
