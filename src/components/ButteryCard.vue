@@ -1,5 +1,5 @@
 <template>
-  <q-expansion-item group="butteries" :class="!isMobile ? 'q-ma-sm' : ''">
+  <q-expansion-item group="butteries" :class="!isMobile() ? 'q-ma-sm' : ''">
     <template #header>
       <q-item-section avatar class="q-mr-md">
         <q-avatar
@@ -28,7 +28,7 @@
       </q-item-section>
       <q-space />
       <q-btn
-        v-if="!isMobile"
+        v-if="!isMobile()"
         flat
         label="Report Issue"
         @click.stop="reportClosed(props.buttery)"
