@@ -1,8 +1,5 @@
 <template>
-  <q-expansion-item
-    group="butteries"
-    :class="$q.screen.width >= BREAKPOINT ? 'q-ma-sm' : ''"
-  >
+  <q-expansion-item group="butteries" :class="!isMobile ? 'q-ma-sm' : ''">
     <template #header>
       <q-item-section avatar class="q-mr-md">
         <q-avatar
@@ -31,7 +28,7 @@
       </q-item-section>
       <q-space />
       <q-btn
-        v-if="$q.screen.width >= BREAKPOINT"
+        v-if="!isMobile"
         flat
         label="Report Issue"
         @click.stop="reportClosed(props.buttery)"
@@ -115,6 +112,7 @@ import MenusTable from 'src/components/MenusTable.vue';
 import ButteryCardCalendar from 'src/components/ButteryCardCalendar.vue';
 import { useQuasar } from 'quasar';
 import ReportDialog from 'src/components/ReportDialog.vue';
+import { isMobile } from 'src/shared/screen';
 
 const props = defineProps({
   buttery: {
@@ -123,7 +121,6 @@ const props = defineProps({
   },
 });
 
-const BREAKPOINT = 455;
 const tab = ref('photo');
 
 const $q = useQuasar();

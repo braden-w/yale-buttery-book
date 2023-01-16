@@ -1,7 +1,7 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header>
-      <q-toolbar>
+      <q-toolbar :class="isMobile ? 'q-px-none' : ''">
         <!-- <q-btn
           flat
           dense
@@ -12,10 +12,11 @@
         /> -->
 
         <q-btn
-          :class="{
-            'text-h6 text-weight-light': $q.screen.gt.sm,
-            'text-subtitle1 text-weight-regular': $q.screen.lt.sm,
-          }"
+          :class="
+            isMobile
+              ? 'text-subtitle1 text-weight-regular'
+              : 'text-h6 text-weight-light'
+          "
           stretch
           no-caps
           flat
@@ -103,6 +104,7 @@ import { useQuasar } from 'quasar';
 import InstallDialog from 'src/components/InstallDialog.vue';
 import ReportDialog from 'src/components/ReportDialog.vue';
 import { residentialColleges } from 'src/shared/butteries';
+import { isMobile } from 'src/shared/screen';
 
 const $q = useQuasar();
 function reportGeneral() {
