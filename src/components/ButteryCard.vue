@@ -3,12 +3,17 @@
     <template #header>
       <q-item>
         <q-item-section avatar>
-          <q-avatar>
+          <q-avatar
+            :color="
+              butteriesWithDarkMode.includes(props.buttery.nickname)
+                ? 'white'
+                : 'dark'
+            "
+          >
             <img
               :src="
-                butteriesWithDarkMode.includes(props.buttery.pictureUrl) &&
                 $q.dark.isActive
-                  ? `/buttery_shields_svgs/${props.buttery.pictureUrl}Dark.svg`
+                  ? `/buttery_shields_svgs/${props.buttery.pictureUrl}.svg`
                   : `/buttery_shields_svgs/${props.buttery?.pictureUrl}.svg`
               "
               :alt="props.buttery?.pictureUrl"
@@ -142,5 +147,5 @@ function reportClosed(buttery: Buttery) {
     });
 }
 
-const butteriesWithDarkMode = ['Acorn', 'Beanjamin'];
+const butteriesWithDarkMode = ['The Acorn', 'Beanjamin'];
 </script>
