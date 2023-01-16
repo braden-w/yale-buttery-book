@@ -41,9 +41,10 @@ quasar build
 
 See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).
 
-### SVGs Generated from PNGs with
+### Technologies Used
 
-https://www.aconvert.com/image/png-to-svg/
+SVGs Generated from PNGs with https://www.aconvert.com/image/png-to-svg/
+Backend is a hybrid of Google Sheets and [benborgers/opensheet](https://github.com/benborgers/opensheet)
 
 ### Pictures
 
