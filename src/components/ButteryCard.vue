@@ -8,8 +8,8 @@
               :src="
                 butteriesWithDarkMode.includes(props.buttery.pictureUrl) &&
                 $q.dark.isActive
-                  ? `/buttery_shields/${props.buttery.pictureUrl}Dark.png`
-                  : `/buttery_shields/${props.buttery?.pictureUrl}.png`
+                  ? `/buttery_shields_svgs/${props.buttery.pictureUrl}Dark.svg`
+                  : `/buttery_shields_svgs/${props.buttery?.pictureUrl}.svg`
               "
               :alt="props.buttery?.pictureUrl"
             />
