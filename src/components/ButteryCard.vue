@@ -107,7 +107,7 @@
 
 <script setup lang="ts">
 import { ref, PropType } from 'vue';
-import { Buttery, TimeRemaining, TimeUntil } from 'src/shared/types-butteries';
+import { Buttery, TimeRemaining, TimeUntil } from 'src/shared/butteries';
 import MenusTable from 'src/components/MenusTable.vue';
 import ButteryCardCalendar from 'src/components/ButteryCardCalendar.vue';
 import { useQuasar } from 'quasar';

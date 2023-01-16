@@ -8,7 +8,7 @@
 
 <script setup lang="ts">
 import { PropType } from 'vue';
-import { Buttery, TimeRemaining, TimeUntil } from 'src/shared/types-butteries';
+import { Buttery, TimeRemaining, TimeUntil } from 'src/shared/butteries';
 import '@fullcalendar/core/vdom';
 import FullCalendar from '@fullcalendar/vue3';
 import googleCalendarPlugin from '@fullcalendar/google-calendar';
