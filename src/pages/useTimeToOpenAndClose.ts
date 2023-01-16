@@ -1,5 +1,5 @@
 import { Buttery, TimeRemaining, TimeUntil } from 'src/shared/butteries';
-import { butterySchedule } from './useButterySchedule';
+import { gcalButterySchedule } from './useButterySchedule';
 
 const ERROR = null;
 /*** Function that adds much time is left until buttery opens */
@@ -8,7 +8,7 @@ export function addTimeToOpen<T>(
 ): Buttery & T & TimeUntil {
   const now = new Date();
   const butteryScheduleBusy =
-    butterySchedule.value?.calendars[buttery.calendarID].busy;
+    gcalButterySchedule.value?.calendars[buttery.calendarID].busy;
   if (!butteryScheduleBusy) {
     return { ...buttery, timeUntil: ERROR };
   }
@@ -27,7 +27,7 @@ export function addTimeToClose<T>(
 ): Buttery & T & TimeRemaining {
   const now = new Date();
   const butteryScheduleBusy =
-    butterySchedule.value?.calendars[buttery.calendarID].busy;
+    gcalButterySchedule.value?.calendars[buttery.calendarID].busy;
   if (!butteryScheduleBusy) {
     return { ...buttery, timeRemaining: ERROR };
   }

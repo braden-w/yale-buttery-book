@@ -80,7 +80,9 @@ function updateTimeToOpenAndClose(buttery: Buttery) {
   }
 }
 
-function updateButteriesStatus(): void {
+function clearButteryCardListAndRefreshButteries() {
+  OpenButteryCardList.value = [];
+  ClosedButteryCardList.value = [];
   for (const buttery of butteries) {
     updateTimeToOpenAndClose(buttery);
     if (buttery.isOpen) {
@@ -91,15 +93,9 @@ function updateButteriesStatus(): void {
   }
 }
 
-function clearButteryCardList() {
-  OpenButteryCardList.value = [];
-  ClosedButteryCardList.value = [];
-}
-
 export async function refreshGcalAndButteries(): Promise<void> {
   await refreshGcalButterySchedule();
-  clearButteryCardList();
-  updateButteriesStatus();
+  clearButteryCardListAndRefreshButteries();
 }
 
 export function startSync() {
@@ -115,8 +111,7 @@ export function startSync() {
 
   // Refresh open and closed butteries every second
   scheduleSyncInterval = setInterval(() => {
-    clearButteryCardList();
-    updateButteriesStatus();
+    clearButteryCardListAndRefreshButteries();
   }, 1 * 1000);
   console.log('sync started', calendarSyncInterval, scheduleSyncInterval);
 }
