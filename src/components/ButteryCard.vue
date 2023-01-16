@@ -1,7 +1,7 @@
 <template>
   <q-expansion-item
     group="butteries"
-    :class="$q.screen.width >= 455 ? 'q-ma-sm' : ''"
+    :class="$q.screen.width >= BREAKPOINT ? 'q-ma-sm' : ''"
   >
     <template #header>
       <q-item-section avatar class="q-mr-md">
@@ -31,7 +31,7 @@
       </q-item-section>
       <q-space />
       <q-btn
-        v-if="$q.screen.width >= 455"
+        v-if="$q.screen.width >= BREAKPOINT"
         flat
         label="Report Issue"
         @click.stop="reportClosed(props.buttery)"
@@ -123,6 +123,7 @@ const props = defineProps({
   },
 });
 
+const BREAKPOINT = 455;
 const tab = ref('photo');
 
 const $q = useQuasar();
