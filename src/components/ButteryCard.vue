@@ -1,7 +1,10 @@
 <template>
-  <q-expansion-item group="butteries" :class="!isMobile() ? 'q-ma-sm' : ''">
+  <q-expansion-item
+    group="butteries"
+    :style="{ margin: isMobile() ? '0 -1rem' : '0.5rem 0.5rem' }"
+  >
     <template #header>
-      <q-item-section avatar class="q-mr-md">
+      <q-item-section avatar :class="!isMobile() ? 'q-mr-md' : ''">
         <q-avatar
           :color="
             butteriesWithDarkMode.includes(props.buttery.nickname)
@@ -19,7 +22,7 @@
         <q-item-label overline>{{ props.buttery?.name }}</q-item-label>
         <q-item-label>{{ props.buttery?.nickname }}</q-item-label>
         <q-item-label caption>
-          {{ props.buttery?.textTime }}
+          <span>{{ props.buttery?.textTime }}</span>
           <br />
           <span class="text-warning">
             {{ props.buttery?.opensIn }}
