@@ -106,7 +106,6 @@
       </q-tab-panels>
     </div>
   </q-expansion-item>
-  {{ props.buttery }}
 </template>
 
 <script setup lang="ts">
