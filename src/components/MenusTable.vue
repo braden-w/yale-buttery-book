@@ -1,75 +1,75 @@
 <template>
-  <q-card flat>
-    <q-input
-      class="q-mb-md"
-      filled
-      dense
-      debounce="300"
-      v-model="filter"
-      placeholder="Search Menus..."
-      ref="searchInput"
-    >
-      <template #append>
-        <q-icon name="search" />
-      </template>
-      <template #after>
-        <q-btn flat icon="refresh" @click="getTableData"></q-btn>
-        <q-btn
+  <div style="display: flex; flex-direction: column; gap: 1rem">
+    <q-card flat>
+      <q-input
+        filled
+        dense
+        debounce="300"
+        v-model="filter"
+        placeholder="Search Menus..."
+        ref="searchInput"
+      >
+        <template #append>
+          <q-icon name="search" />
+        </template>
+        <template #after>
+          <q-btn flat icon="refresh" @click="getTableData"></q-btn>
+          <q-btn
+            flat
+            :icon="showSettings ? 'expand_less' : 'expand_more'"
+            @click="toggleSettings"
+          >
+          </q-btn>
+        </template>
+      </q-input>
+    </q-card>
+
+    <q-card flat v-if="showSettings">
+      <div class="row justify-between">
+        <q-toggle v-model="grid" :label="grid ? 'Card' : 'Grid'" />
+        <q-btn-toggle
+          v-model="separator"
+          toggle-color="accent"
+          rounded
           flat
-          :icon="showSettings ? 'expand_less' : 'expand_more'"
-          @click="toggleSettings"
-        >
-        </q-btn>
+          :options="separatorOptions"
+        />
+        <q-option-group
+          v-model="visibleColumns"
+          :options="toggleColumnNames"
+          color="accent"
+          inline
+          type="checkbox"
+        />
+      </div>
+    </q-card>
+
+    <q-table
+      flat
+      :grid="grid"
+      grid-header
+      :rows="tableData"
+      :columns="columns"
+      :filter="filter"
+      :separator="separator"
+      row-key="Name"
+      :loading="loading"
+      rows-per-page-label="Snacks per page"
+      :pagination="pagination"
+      :visible-columns="visibleColumns"
+    >
+      <template #header="props">
+        <q-tr :props="props">
+          <!-- <q-th auto-width></q-th> -->
+          <q-th v-for="col in props.cols" :key="col.name" :props="props">
+            {{ col.label }}
+          </q-th>
+          <!-- <q-th auto-width /> -->
+        </q-tr>
       </template>
-    </q-input>
-  </q-card>
-
-  <q-card flat v-if="showSettings" class="q-ma-xs">
-    <div class="row justify-between">
-      <q-toggle v-model="grid" :label="grid ? 'Card' : 'Grid'" />
-      <q-btn-toggle
-        v-model="separator"
-        toggle-color="accent"
-        rounded
-        flat
-        :options="separatorOptions"
-      />
-      <q-option-group
-        v-model="visibleColumns"
-        :options="toggleColumnNames"
-        color="accent"
-        inline
-        type="checkbox"
-      />
-    </div>
-  </q-card>
-
-  <q-table
-    flat
-    :grid="grid"
-    grid-header
-    :rows="tableData"
-    :columns="columns"
-    :filter="filter"
-    :separator="separator"
-    row-key="Name"
-    :loading="loading"
-    rows-per-page-label="Snacks per page"
-    :pagination="pagination"
-    :visible-columns="visibleColumns"
-  >
-    <template #header="props">
-      <q-tr :props="props">
-        <!-- <q-th auto-width></q-th> -->
-        <q-th v-for="col in props.cols" :key="col.name" :props="props">
-          {{ col.label }}
-        </q-th>
-        <!-- <q-th auto-width /> -->
-      </q-tr>
-    </template>
-    <template #body="props">
-      <q-tr :props="props">
-        <!-- <q-td auto-width>
+      <template #body="props">
+        <q-tr :props="props">
+          <!-- <q-td auto-width>
           <q-btn
             v-if="props['In Stock'] === 'FALSE'"
             size="xs"
@@ -103,30 +103,30 @@
             >
           </q-btn>
         </q-td> -->
-        <q-td key="Name" :props="props">
-          <div class="text-subtitle2">{{ props.row.Name }}</div>
-        </q-td>
-        <q-td key="Price" :props="props">
-          <q-badge :color="`${priceGradient(props.row.Price)}-2`">
-            <div
-              :class="`text-subtitle2 text-bold
+          <q-td key="Name" :props="props">
+            <div class="text-subtitle2">{{ props.row.Name }}</div>
+          </q-td>
+          <q-td key="Price" :props="props">
+            <q-badge :color="`${priceGradient(props.row.Price)}-2`">
+              <div
+                :class="`text-subtitle2 text-bold
               text-${priceGradient(props.row.Price)}-6`"
-            >
-              {{ props.row.Price }}
+              >
+                {{ props.row.Price }}
+              </div>
+            </q-badge>
+          </q-td>
+          <q-td key="Residential College" :props="props">
+            <div class="text-subtitle2">
+              {{ props.row['Residential College'] }}
             </div>
-          </q-badge>
-        </q-td>
-        <q-td key="Residential College" :props="props">
-          <div class="text-subtitle2">
-            {{ props.row['Residential College'] }}
-          </div>
-        </q-td>
-        <q-td key="Category" :props="props">
-          <div class="text-subtitle2">
-            {{ props.row['Category'] }}
-          </div>
-        </q-td>
-        <!-- <q-td auto-width>
+          </q-td>
+          <q-td key="Category" :props="props">
+            <div class="text-subtitle2">
+              {{ props.row['Category'] }}
+            </div>
+          </q-td>
+          <!-- <q-td auto-width>
           <q-btn
             size="xs"
             color="accent"
@@ -136,24 +136,25 @@
             :icon="props.expand ? 'remove' : 'description'"
           />
         </q-td> -->
-      </q-tr>
-      <q-tr v-show="props.expand" :props="props">
-        <q-td colspan="100%">
-          <q-card flat>
-            <!-- {{
+        </q-tr>
+        <q-tr v-show="props.expand" :props="props">
+          <q-td colspan="100%">
+            <q-card flat>
+              <!-- {{
                 props.row['In Stock'] === 'FALSE' ? 'Out of Stock' : 'In Stock'
               }} -->
-            <p v-if="props.row.Description">
-              Description: {{ props.row.Description }}
-            </p>
-            <p v-if="props.row.Ingredients">
-              Ingredients: {{ props.row.Ingredients }}
-            </p>
-          </q-card>
-        </q-td>
-      </q-tr>
-    </template>
-  </q-table>
+              <p v-if="props.row.Description">
+                Description: {{ props.row.Description }}
+              </p>
+              <p v-if="props.row.Ingredients">
+                Ingredients: {{ props.row.Ingredients }}
+              </p>
+            </q-card>
+          </q-td>
+        </q-tr>
+      </template>
+    </q-table>
+  </div>
 </template>
 
 <script setup lang="ts">
