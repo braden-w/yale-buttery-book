@@ -1,4 +1,4 @@
-import { Buttery, TimeRemaining, TimeUntil } from 'src/shared/types-butteries';
+import { Buttery, TimeRemaining, TimeUntil } from 'src/shared/butteries';
 import { butterySchedule } from './useButterySchedule';
 
 const ERROR = null;

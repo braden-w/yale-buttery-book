@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import { Buttery, TimeRemaining, TimeUntil } from 'src/shared/types-butteries';
+import { Buttery, TimeRemaining, TimeUntil } from 'src/shared/butteries';
 import { PropType } from 'vue';
 import ButteryCard from './ButteryCard.vue';
 
