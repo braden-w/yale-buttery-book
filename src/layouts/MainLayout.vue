@@ -12,7 +12,10 @@
         /> -->
 
         <q-btn
-          class="text-h6 text-weight-light"
+          :class="{
+            'text-h6 text-weight-light': $q.screen.gt.sm,
+            'text-subtitle1 text-weight-regular': $q.screen.lt.sm,
+          }"
           no-caps
           flat
           to="/"
@@ -39,6 +42,7 @@
           icon="code"
           href="https://github.com/braden-w/yale-buttery-book"
           target="_blank"
+          v-if="$q.screen.gt.sm"
         />
         <q-btn round flat icon="info" to="/about" />
         <!-- <q-btn
