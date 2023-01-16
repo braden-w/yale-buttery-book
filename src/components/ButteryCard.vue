@@ -26,7 +26,6 @@
           </span>
         </q-item-label>
       </q-item-section>
-
       <q-space />
       <q-btn
         v-if="$q.screen.width >= 455"
