@@ -1,7 +1,7 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header>
-      <q-toolbar :class="isMobile ? 'q-px-none' : ''">
+      <q-toolbar :class="isMobile() ? 'q-px-none' : ''">
         <!-- <q-btn
           flat
           dense
@@ -13,7 +13,7 @@
 
         <q-btn
           :class="
-            isMobile
+            isMobile()
               ? 'text-subtitle1 text-weight-regular'
               : 'text-h6 text-weight-light'
           "
