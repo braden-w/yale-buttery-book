@@ -92,16 +92,14 @@ import { ref, watch } from 'vue';
 import InstallDialog from 'src/components/InstallDialog.vue';
 import ButteryCardList from 'src/components/ButteryCardList.vue';
 import { useQuasar } from 'quasar';
-import { useButterySchedule } from './useButterySchedule';
 import { onBeforeRouteLeave } from 'vue-router';
-
-const {
+import {
   OpenButteryCardList,
   ClosedButteryCardList,
   refresh,
   startSync,
   stopSync,
-} = useButterySchedule();
+} from 'src/pages/useButterySchedule';
 
 const openInstallDialog = () => {
   $q.dialog({
