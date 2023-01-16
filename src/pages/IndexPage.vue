@@ -45,6 +45,7 @@
 
       <q-card flat class="q-mb-md">
         <q-card-section class="text-h5">Currently Open</q-card-section>
+        <q-separator inset />
         <q-card-section v-if="OpenButteryCardList.length !== 0">
           <ButteryCardList :butteries="OpenButteryCardList" />
         </q-card-section>
@@ -65,6 +66,7 @@
 
       <q-card flat>
         <q-card-section class="text-h5">Currently Closed</q-card-section>
+        <q-separator inset />
         <q-card-section v-if="ClosedButteryCardList.length !== 0">
           <ButteryCardList :butteries="ClosedButteryCardList" />
         </q-card-section>
