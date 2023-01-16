@@ -60,11 +60,9 @@
 
       <q-tabs
         v-model="tab"
-        dense
-        active-color="white"
         indicator-color="primary"
         align="justify"
-        narrow-indicator
+        switch-indicator
       >
         <q-tab name="photo" label="Photo" />
         <q-tab name="menu" label="Menu" />
