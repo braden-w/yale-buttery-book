@@ -82,6 +82,7 @@
               :src="`/menu_photos/${props.buttery?.pictureUrl}.jpg`"
               :alt="props.buttery?.pictureUrl"
               draggable
+              v-viewer
             >
             </q-img>
           </div>
