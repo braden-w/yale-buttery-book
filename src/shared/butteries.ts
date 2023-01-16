@@ -1,8 +1,7 @@
 import { Buttery } from './types-butteries';
-import { reactive } from 'vue';
 
 export const butteries: Buttery[] = [
-  reactive({
+  {
     name: 'Benjamin Franklin',
     calendarID: 'c_qh7c9stu3qr3hh7nj68gvc12nc@group.calendar.google.com',
     nickname: "Ben's Butt",
@@ -10,8 +9,8 @@ export const butteries: Buttery[] = [
     recommend: 'Vegan Quesadilla, Fries',
     textTime: 'Sun-Th, 10 PM - 1 AM',
     startTime: '22:00:00',
-  }),
-  reactive({
+  },
+  {
     name: 'Berkeley',
     calendarID: 'c_18ghppn0o4coealtrqf4m876jo@group.calendar.google.com',
     nickname: "Marvin's",
@@ -19,8 +18,8 @@ export const butteries: Buttery[] = [
     recommend: 'BK Special, Pancakes, Nutellawich',
     textTime: 'Sun-Fri, 10 PM - 1 AM',
     startTime: '22:00:00',
-  }),
-  reactive({
+  },
+  {
     name: 'Branford',
     calendarID: 'c_0vl82r4qhr2sshm97s843g9ju8@group.calendar.google.com',
     nickname: 'The Nuttery',
@@ -28,8 +27,8 @@ export const butteries: Buttery[] = [
     recommend: 'The Chin, Circle of Life, Mario Melt',
     textTime: 'Sun-Th, 10:30 PM - 12:45 AM',
     startTime: '22:30:00',
-  }),
-  reactive({
+  },
+  {
     name: 'Davenport',
     calendarID: 'c_ljjasqrqmi61clcb7q8grhmh5o@group.calendar.google.com',
     nickname: 'The Dive',
@@ -37,8 +36,8 @@ export const butteries: Buttery[] = [
     recommend: 'RJR, BBQQ, Goldilocks Waffles',
     textTime: 'Everyday, 10 PM - 12:30 AM',
     startTime: '22:00:00',
-  }),
-  reactive({
+  },
+  {
     name: 'Ezra Stiles',
     calendarID: 'c_2sd6ipbve5qecpbvjk6n4krm88@group.calendar.google.com',
     nickname: 'Moose Butt',
@@ -46,26 +45,26 @@ export const butteries: Buttery[] = [
     recommend: 'The Ezra, Jambler, Monkey Madness',
     textTime: 'Sun-Th, 10 PM - 12:50 AM',
     startTime: '22:00:00',
-  }),
-  reactive({
+  },
+  {
     name: 'Grace Hopper',
     calendarID: 'c_jpohh0fj3bjf9oa50uqhdsn210@group.calendar.google.com',
     nickname: 'The Trolley Stop',
     pictureUrl: 'GraceHopper',
-    recommend: 'Flying Pig, Buff Chik Ques, Cup O’ Crack',
+    recommend: "Flying Pig, Buff Chik Ques, Cup O' Crack",
     textTime: 'Sun-Th, 10 PM - 1 AM',
     startTime: '22:00:00',
-  }),
-  reactive({
+  },
+  {
     name: 'Jonathan Edwards',
     calendarID: 'c_vidd8mkjnfknj5gf2qvsdo35o0@group.calendar.google.com',
     nickname: 'JE Buttery',
     pictureUrl: 'JonathanEdwards',
-    recommend: 'Allie’s Cookies & Cream, The Fernandilla, Chicken Tenders',
+    recommend: "Allie's Cookies & Cream, The Fernandilla, Chicken Tenders",
     textTime: 'Sun-Th, 9:30 PM - 12:30 AM',
     startTime: '21:30:00',
-  }),
-  reactive({
+  },
+  {
     name: 'Morse',
     calendarID: 'c_t94grhoctefff88he108qrfrks@group.calendar.google.com',
     nickname: 'The Morsel',
@@ -73,8 +72,8 @@ export const butteries: Buttery[] = [
     recommend: 'Jim Stanley, The Thing Joe Gets, Bagels, The Austin',
     textTime: 'Sun-Th, 10 PM - 12 AM',
     startTime: '22:00:00',
-  }),
-  reactive({
+  },
+  {
     name: 'Pauli Murray',
     calendarID: 'c_v7d6qo6iu5s3dnq2hj852ccvkc@group.calendar.google.com',
     nickname: 'MY Butt',
@@ -82,8 +81,8 @@ export const butteries: Buttery[] = [
     recommend: 'Fried Rice w/ Kimchi, Boba, French Toast',
     textTime: 'Sun-Th, 10 PM - 1 AM',
     startTime: '22:00:00',
-  }),
-  reactive({
+  },
+  {
     name: 'Pierson',
     calendarID: 'c_be16luiqg08s5fjbtl48klg0qg@group.calendar.google.com',
     nickname: 'Pierson Knight Club',
@@ -91,8 +90,8 @@ export const butteries: Buttery[] = [
     recommend: 'the PCK Ques, CJ Wrap, Mango Smoothie',
     textTime: 'Sun-Th, 10:30 PM - 12:30 AM',
     startTime: '22:30:00',
-  }),
-  reactive({
+  },
+  {
     name: 'Saybrook',
     calendarID: 'c_h4k4tdrsial6if89k2qmuq0sic@group.calendar.google.com',
     nickname: 'The Squiche',
@@ -100,8 +99,8 @@ export const butteries: Buttery[] = [
     recommend: 'Manliestwich, Mozzliestwich, Crepe w/ Ice Cream',
     textTime: 'Sun-Th, 10 PM - 12:45 AM',
     startTime: '22:00:00',
-  }),
-  reactive({
+  },
+  {
     name: 'Silliman',
     calendarID: 'c_g2hs55m8rdnjo7ulvdm97k6jpk@group.calendar.google.com',
     nickname: 'Sillicafe',
@@ -109,28 +108,28 @@ export const butteries: Buttery[] = [
     recommend: 'Curly Fries, Hot Chocolate, Apple Cider',
     textTime: 'Sun-Th, 10 PM - 1 AM',
     startTime: '22:00:00',
-  }),
-  reactive({
+  },
+  {
     name: 'Timothy Dwight',
     calendarID: 'c_5se1ib9s1al5e2vmtn7sgjrfmk@group.calendar.google.com',
     nickname: 'TD Butt',
     pictureUrl: 'TimothyDwight',
     recommend:
       'Grilled Cheese w/ Popcorn Chicken, Tortizza, Anything fried (they have a fryer!)',
-    textTime: 'Sun-Th, 10 PM - 1 AM', // ??
+    textTime: 'Sun-Th, 10 PM - 1 AM',
     startTime: '22:00:00',
-  }),
-  reactive({
+  },
+  {
     name: 'Trumbull',
     calendarID: 'c_fqjk0og8tsg22m9c5hpjochn9k@group.calendar.google.com',
     nickname: 'The TrumButt',
     pictureUrl: 'Trumbull',
     recommend: 'Dino Grilled Cheese, Cookies, Ice Cream Sandwich',
-    textTime: 'Sun, M, W, 10 PM - 11:30 PM; T, Th 10 PM - 1 AM', // ??
+    textTime: 'Sun, M, W, 10 PM - 11:30 PM; T, Th 10 PM - 1 AM',
     startTime: '22:00:00',
-    //textTime: 'Sun-Th, 9 PM - 10:30 PM; T, Th 11:30 PM - 1 AM' // ??
-  }),
-  reactive({
+    //textTime: "Sun-Th, 9 PM - 10:30 PM; T, Th 11:30 PM - 1 AM"
+  },
+  {
     name: 'Silliman',
     calendarID: 'c_v18l89ksargnv5mo088c5urc14@group.calendar.google.com',
     nickname: 'The Acorn',
@@ -138,8 +137,8 @@ export const butteries: Buttery[] = [
     recommend: 'Basic #1 Toast, Basic #2 Toast, Espresso',
     textTime: 'Everyday, 9 AM - 8 PM',
     startTime: '09:00:00',
-  }),
-  reactive({
+  },
+  {
     name: 'Benjamin Franklin',
     calendarID: 'c_ksuav38sq7npf9g4f054p7680o@group.calendar.google.com',
     nickname: 'Beanjamin',
@@ -147,7 +146,7 @@ export const butteries: Buttery[] = [
     recommend: 'Matcha Latte, Tea Lemonade, Toasts',
     textTime: 'Everyday, 2 PM - 5 PM',
     startTime: '14:00:00',
-  }),
+  },
 ];
 
 export const residentialColleges = [
