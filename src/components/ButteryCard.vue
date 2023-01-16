@@ -49,7 +49,7 @@
       class="q-py-md"
       style="display: flex; flex-direction: column; gap: 1rem"
     >
-      <q-banner class="bg-primary" style="width: 100%" rounded>
+      <q-banner class="bg-primary text-white" style="width: 100%" rounded>
         <template #avatar>
           <q-icon name="breakfast_dining" color="white" />
         </template>
