@@ -7,13 +7,13 @@
             :color="
               butteriesWithDarkMode.includes(props.buttery.nickname)
                 ? 'white'
-                : 'dark'
+                : ''
             "
           >
             <img
               :src="
-                $q.dark.isActive
-                  ? `/buttery_shields_svgs/${props.buttery.pictureUrl}.svg`
+                props.buttery?.pictureUrl === 'BenjaminFranklin'
+                  ? `/buttery_shields/${props.buttery?.pictureUrl}.png`
                   : `/buttery_shields_svgs/${props.buttery?.pictureUrl}.svg`
               "
               :alt="props.buttery?.pictureUrl"
