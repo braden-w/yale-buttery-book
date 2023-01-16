@@ -158,7 +158,6 @@
 
 <script setup lang="ts">
 import { ref, Ref, onMounted } from 'vue';
-import axios from 'axios';
 export interface MenuItem {
   Name: string;
   Price?: boolean;
@@ -220,11 +219,9 @@ const visibleColumns = ref(columns.map((column) => column.field));
 const loading = ref(true);
 async function getTableData() {
   loading.value = true;
-  const res = await axios({
-    url: 'https://opensheet.elk.sh/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/Dashboard',
-    method: 'get',
-  });
-  tableData.value = res.data as MenuItem[];
+  const res = await fetch( 'https://opensheet.elk.sh/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/Dashboard');
+  const data = await res.json();
+  tableData.value = data as MenuItem[];
   loading.value = false;
 }
 
