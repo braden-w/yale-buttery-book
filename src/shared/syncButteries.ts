@@ -1,7 +1,7 @@
 import { formatDistance } from 'date-fns';
 import { ref, Ref } from 'vue';
 import axios from 'axios';
-import { Buttery, butteries } from '../shared/butteries';
+import { Buttery, butteries } from './butteries';
 import { GCalAPIResponse } from 'src/types/GCalAPIResponse';
 
 export const gcalButterySchedule = ref<GCalAPIResponse>();
