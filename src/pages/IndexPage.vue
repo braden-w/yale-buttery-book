@@ -96,10 +96,11 @@ import { onBeforeRouteLeave } from 'vue-router';
 import {
   OpenButteryCardList,
   ClosedButteryCardList,
-  refreshGcalAndButteries,
   startSync,
   stopSync,
-} from 'src/pages/useButterySchedule';
+  refreshGcalButterySchedule,
+  clearButteryCardListAndRefreshButteries,
+} from 'src/shared/syncButteries';
 
 const openInstallDialog = () => {
   $q.dialog({
@@ -110,7 +111,8 @@ const openInstallDialog = () => {
 startSync();
 
 async function pullRefresh(done: () => void): Promise<void> {
-  await refreshGcalAndButteries();
+  await refreshGcalButterySchedule();
+  clearButteryCardListAndRefreshButteries();
   done();
 }
 
