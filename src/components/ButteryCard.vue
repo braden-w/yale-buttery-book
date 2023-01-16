@@ -1,7 +1,7 @@
 <template>
   <q-expansion-item
     group="butteries"
-    :style="{ margin: isMobile() ? '0 -1rem 0.5rem' : '0 0.5rem 0.5rem 0' }"
+    :style="{ margin: isMobile() ? '0 -1rem 0.75rem' : '0 0.5rem 0.75rem 0' }"
   >
     <template #header>
       <q-item-section avatar :class="!isMobile() ? 'q-mr-md' : ''">
