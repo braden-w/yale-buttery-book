@@ -9,13 +9,13 @@
 </template>
 
 <script setup lang="ts">
-import { Buttery, TimeRemaining, TimeUntil } from 'src/shared/butteries';
+import { Buttery } from 'src/shared/butteries';
 import { PropType } from 'vue';
 import ButteryCard from './ButteryCard.vue';
 
 const props = defineProps({
   butteries: {
-    type: Array as PropType<(Buttery & Partial<TimeRemaining & TimeUntil>)[]>,
+    type: Array as PropType<Buttery[]>,
     default: () => [],
   },
 });

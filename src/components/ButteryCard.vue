@@ -106,11 +106,12 @@
       </q-tab-panels>
     </div>
   </q-expansion-item>
+  {{ props.buttery }}
 </template>
 
 <script setup lang="ts">
 import { ref, PropType } from 'vue';
-import { Buttery, TimeRemaining, TimeUntil } from 'src/shared/butteries';
+import { Buttery } from 'src/shared/butteries';
 import MenusTable from 'src/components/MenusTable.vue';
 import ButteryCardCalendar from 'src/components/ButteryCardCalendar.vue';
 import { useQuasar } from 'quasar';
@@ -119,7 +120,7 @@ import { isMobile } from 'src/shared/screen';
 
 const props = defineProps({
   buttery: {
-    type: Object as PropType<Buttery & Partial<TimeRemaining & TimeUntil>>,
+    type: Object as PropType<Buttery>,
     required: true,
   },
 });

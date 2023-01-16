@@ -1,11 +1,3 @@
-export type TimeUntil = {
-  timeUntil: number | null;
-};
-
-export type TimeRemaining = {
-  timeRemaining: number | null;
-};
-
 const cachedButteries = [
   {
     name: 'Benjamin Franklin',
