@@ -1,27 +1,29 @@
 <template>
-  <q-input
-    class="q-mb-md"
-    filled
-    dense
-    debounce="300"
-    v-model="filter"
-    placeholder="Search Menus..."
-    ref="searchInput"
-  >
-    <template #append>
-      <q-icon name="search" />
-    </template>
-    <template #after>
-      <q-btn flat icon="refresh" @click="getTableData"></q-btn>
-      <q-btn
-        flat
-        :icon="showSettings ? 'expand_less' : 'expand_more'"
-        @click="toggleSettings"
-      >
-      </q-btn>
-    </template>
-  </q-input>
-  <q-card v-if="showSettings" class="q-ma-xs" style="width: 100%">
+  <q-card flat>
+    <q-input
+      class="q-mb-md"
+      filled
+      dense
+      debounce="300"
+      v-model="filter"
+      placeholder="Search Menus..."
+      ref="searchInput"
+    >
+      <template #append>
+        <q-icon name="search" />
+      </template>
+      <template #after>
+        <q-btn flat icon="refresh" @click="getTableData"></q-btn>
+        <q-btn
+          flat
+          :icon="showSettings ? 'expand_less' : 'expand_more'"
+          @click="toggleSettings"
+        >
+        </q-btn>
+      </template>
+    </q-input>
+  </q-card>
+  <q-card flat v-if="showSettings" class="q-ma-xs">
     <div class="row justify-between">
       <q-toggle
         v-model="grid"
