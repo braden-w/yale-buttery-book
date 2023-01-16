@@ -6,20 +6,22 @@
       color="white"
       bg-color="primary"
     >
-      <q-input
-        class="q-mb-md"
-        filled
-        dense
-        debounce="300"
-        @click="$router.push('/menus')"
-        placeholder="I'm Feeling Like Eating..."
-        style="width: 100%"
-        model-value=""
-      >
-        <template #append>
-          <q-icon name="search" />
-        </template>
-      </q-input>
+      <q-card flat>
+        <q-input
+          class="q-mb-md"
+          filled
+          dense
+          debounce="300"
+          @click="$router.push('/menus')"
+          placeholder="I'm Feeling Like Eating..."
+          style="width: 100%"
+          model-value=""
+        >
+          <template #append>
+            <q-icon name="search" />
+          </template>
+        </q-input>
+      </q-card>
 
       <q-banner
         inline-actions
