@@ -6,7 +6,7 @@ export type TimeRemaining = {
   timeRemaining: number | null;
 };
 
-export const butteries = [
+const cachedButteries = [
   {
     name: 'Benjamin Franklin',
     calendarID: 'c_qh7c9stu3qr3hh7nj68gvc12nc@group.calendar.google.com',
@@ -156,18 +156,20 @@ export const butteries = [
 ] as const;
 
 export type Buttery = {
-  name: (typeof butteries)[number]['name'];
-  calendarID: (typeof butteries)[number]['calendarID'];
+  name: (typeof cachedButteries)[number]['name'];
+  calendarID: (typeof cachedButteries)[number]['calendarID'];
   /*** Unique key that we'll use to identify this buttery */
-  nickname: (typeof butteries)[number]['nickname'];
-  pictureUrl: (typeof butteries)[number]['pictureUrl'];
-  recommend: (typeof butteries)[number]['recommend'];
-  textTime: (typeof butteries)[number]['textTime'];
+  nickname: (typeof cachedButteries)[number]['nickname'];
+  pictureUrl: (typeof cachedButteries)[number]['pictureUrl'];
+  recommend: (typeof cachedButteries)[number]['recommend'];
+  textTime: (typeof cachedButteries)[number]['textTime'];
   /*** The daily start time represented in 00:00:00 format. This is used to focus the calendar view on the appropriate time of day without scrolling for each buttery. */
-  startTime: (typeof butteries)[number]['startTime'];
+  startTime: (typeof cachedButteries)[number]['startTime'];
   isOpen?: boolean;
   opensIn?: string;
 };
+
+export const butteries: Buttery[] = [...cachedButteries];
 
 export const residentialColleges = [
   'Errors or Suggestions',
