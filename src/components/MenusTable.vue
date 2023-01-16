@@ -158,12 +158,12 @@
 
 <script setup lang="ts">
 import { ref, Ref, onMounted } from 'vue';
-export interface MenuItem {
+type MenuItem = {
   Name: string;
   Price?: boolean;
   'Residential College'?: string;
   Category?: string;
-}
+};
 
 const props = defineProps({
   search: {
@@ -219,7 +219,9 @@ const visibleColumns = ref(columns.map((column) => column.field));
 const loading = ref(true);
 async function getTableData() {
   loading.value = true;
-  const res = await fetch( 'https://opensheet.elk.sh/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/Dashboard');
+  const res = await fetch(
+    'https://opensheet.elk.sh/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/Dashboard'
+  );
   const data = await res.json();
   tableData.value = data as MenuItem[];
   loading.value = false;
