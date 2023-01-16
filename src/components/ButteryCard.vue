@@ -1,33 +1,32 @@
 <template>
-  <q-expansion-item group="butteries">
+  <q-expansion-item group="butteries" class="q-ma-sm">
     <template #header>
-      <q-item>
-        <q-item-section avatar>
-          <q-avatar
-            :color="
-              butteriesWithDarkMode.includes(props.buttery.nickname)
-                ? 'white'
-                : ''
-            "
-          >
-            <img
-              :src="`/buttery_shields_svgs/${props.buttery?.pictureUrl}.svg`"
-              :alt="props.buttery?.pictureUrl"
-            />
-          </q-avatar>
-        </q-item-section>
-        <q-item-section>
-          <q-item-label overline>{{ props.buttery?.name }}</q-item-label>
-          <q-item-label>{{ props.buttery?.nickname }}</q-item-label>
-          <q-item-label caption>
-            {{ props.buttery?.textTime }}
-            <br />
-            <span class="text-warning">
-              {{ props.buttery?.opensIn }}
-            </span>
-          </q-item-label>
-        </q-item-section>
-      </q-item>
+      <q-item-section avatar class="q-mr-md">
+        <q-avatar
+          :color="
+            butteriesWithDarkMode.includes(props.buttery.nickname)
+              ? 'white'
+              : ''
+          "
+        >
+          <img
+            :src="`/buttery_shields_svgs/${props.buttery?.pictureUrl}.svg`"
+            :alt="props.buttery?.pictureUrl"
+          />
+        </q-avatar>
+      </q-item-section>
+      <q-item-section>
+        <q-item-label overline>{{ props.buttery?.name }}</q-item-label>
+        <q-item-label>{{ props.buttery?.nickname }}</q-item-label>
+        <q-item-label caption>
+          {{ props.buttery?.textTime }}
+          <br />
+          <span class="text-warning">
+            {{ props.buttery?.opensIn }}
+          </span>
+        </q-item-label>
+      </q-item-section>
+
       <q-space />
       <q-btn
         v-if="$q.screen.width >= 455"
