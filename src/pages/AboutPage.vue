@@ -9,7 +9,7 @@
 
       <q-timeline-entry title="" subtitle="">
         <div>
-          <q-card>
+          <q-card flat>
             <q-card-section class="text-h6 bg-primary">
               <div class="text-white">
                 At 12:53 AM, four famished friends wondered, “What buttery is
@@ -39,7 +39,7 @@
       </q-timeline-entry>
 
       <q-timeline-entry title="" subtitle="">
-        <q-card>
+        <q-card flat>
           <q-card-section class="text-h6 bg-primary">
             <div class="text-white">
               DCommune is proud to present: The Yale Buttery Book
@@ -58,7 +58,7 @@
         </q-card>
       </q-timeline-entry>
       <q-timeline-entry title="" subtitle="">
-        <q-card>
+        <q-card flat>
           <q-card-section class="text-h6 bg-primary">
             <div class="text-white">Copyright</div>
             <!-- <strong>DCommune</strong> is proud to present: <div class="text-h6">The Yale Buttery Book</div> -->
@@ -77,12 +77,12 @@
         </q-card>
       </q-timeline-entry>
     </q-timeline>
-    <!-- <q-card>
+    <!-- <q-card flat>
       <q-card-section class="text-h5">
       </q-card-section>
     </q-card> -->
 
-    <!-- <q-card>
+    <!-- <q-card flat>
       <q-card-section>
         >“Yale” and “Yale University” are registered trademarks of Yale
             University. This application is maintained, hosted, and operated
