@@ -29,9 +29,8 @@
         rounded
         class="q-mb-md bg-accent text-white"
         v-if="banner && !$q.platform.is.capacitor"
-        style="width: 100%"
       >
-        <template #avatar>
+        <template #avatar v-if="$q.screen.gt.sm">
           <q-icon name="shopping_bag" />
         </template>
         <div class="text-subtitle2 text-center">
