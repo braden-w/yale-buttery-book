@@ -1,5 +1,5 @@
 <template>
-  <q-page class="q-pa-md">
+  <q-page :class="$q.screen.gt.sm ? 'q-pa-md' : ''">
     <q-pull-to-refresh
       @refresh="pullRefresh"
       icon="breakfast_dining"
