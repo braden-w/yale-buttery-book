@@ -55,21 +55,17 @@
           />
         </q-card-section>
         <q-card-section v-else>
-          <q-expansion-item>
-            <template #header>
-              <q-item>
-                <q-item-section avatar>
-                  <q-avatar font-size="30px" icon="schedule" size="40px" />
-                </q-item-section>
-                <q-item-section>
-                  <q-item-label overline> Oops! </q-item-label>
-                  <q-item-label>No Butteries Open</q-item-label>
-                  <q-item-label caption> Maybe try snackpass :( </q-item-label>
-                </q-item-section>
-              </q-item>
-              <q-space />
-            </template>
-          </q-expansion-item>
+          <q-item>
+            <q-item-section avatar>
+              <q-avatar font-size="30px" icon="schedule" size="40px" />
+            </q-item-section>
+            <q-item-section>
+              <q-item-label overline> Oops! </q-item-label>
+              <q-item-label>No Butteries Open</q-item-label>
+              <q-item-label caption> Maybe try snackpass :( </q-item-label>
+            </q-item-section>
+          </q-item>
+          <q-space />
         </q-card-section>
       </q-card>
 
@@ -86,21 +82,17 @@
           />
         </q-card-section>
         <q-card-section v-else>
-          <q-expansion-item>
-            <template #header>
-              <q-item>
-                <q-item-section avatar>
-                  <q-avatar font-size="30px" icon="schedule" size="40px" />
-                </q-item-section>
-                <q-item-section>
-                  <q-item-label overline>Yay!</q-item-label>
-                  <q-item-label>No Butteries Closed</q-item-label>
-                  <q-item-label caption> Today is a good day! </q-item-label>
-                </q-item-section>
-              </q-item>
-              <q-space />
-            </template>
-          </q-expansion-item>
+          <q-item>
+            <q-item-section avatar>
+              <q-avatar font-size="30px" icon="schedule" size="40px" />
+            </q-item-section>
+            <q-item-section>
+              <q-item-label overline>Yay!</q-item-label>
+              <q-item-label>No Butteries Closed</q-item-label>
+              <q-item-label caption> Today is a good day! </q-item-label>
+            </q-item-section>
+          </q-item>
+          <q-space />
         </q-card-section>
       </q-card>
     </q-pull-to-refresh>
