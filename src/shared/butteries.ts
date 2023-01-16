@@ -13,7 +13,7 @@ const cachedButteries = [
     nickname: "Ben's Butt",
     pictureUrl: 'BenjaminFranklin',
     recommend: 'Vegan Quesadilla, Fries',
-    textTime: 'Sun-Th, 10 PM - 1 AM',
+    textTime: '10 PM - 1 AM | Sun-Th',
     startTime: '22:00:00',
   },
   {
@@ -22,7 +22,7 @@ const cachedButteries = [
     nickname: "Marvin's",
     pictureUrl: 'Berkeley',
     recommend: 'BK Special, Pancakes, Nutellawich',
-    textTime: 'Sun-Fri, 10 PM - 1 AM',
+    textTime: '10 PM - 1 AM | Sun-Fri',
     startTime: '22:00:00',
   },
   {
@@ -31,7 +31,7 @@ const cachedButteries = [
     nickname: 'The Nuttery',
     pictureUrl: 'Branford',
     recommend: 'The Chin, Circle of Life, Mario Melt',
-    textTime: 'Sun-Th, 10:30 PM - 12:45 AM',
+    textTime: '10:30 PM - 12:45 AM | Sun-Fri',
     startTime: '22:30:00',
   },
   {
@@ -40,7 +40,7 @@ const cachedButteries = [
     nickname: 'The Dive',
     pictureUrl: 'Davenport',
     recommend: 'RJR, BBQQ, Goldilocks Waffles',
-    textTime: 'Everyday, 10 PM - 12:30 AM',
+    textTime: '10 PM - 12:30 AM | Daily',
     startTime: '22:00:00',
   },
   {
@@ -49,7 +49,7 @@ const cachedButteries = [
     nickname: 'Moose Butt',
     pictureUrl: 'EzraStiles',
     recommend: 'The Ezra, Jambler, Monkey Madness',
-    textTime: 'Sun-Th, 10 PM - 12:50 AM',
+    textTime: '10 PM - 12:50 AM | Sun-Th',
     startTime: '22:00:00',
   },
   {
@@ -58,7 +58,7 @@ const cachedButteries = [
     nickname: 'The Trolley Stop',
     pictureUrl: 'GraceHopper',
     recommend: "Flying Pig, Buff Chik Ques, Cup O' Crack",
-    textTime: 'Sun-Th, 10 PM - 1 AM',
+    textTime: '10 PM - 1 AM | Sun-Th',
     startTime: '22:00:00',
   },
   {
@@ -67,7 +67,7 @@ const cachedButteries = [
     nickname: 'JE Buttery',
     pictureUrl: 'JonathanEdwards',
     recommend: "Allie's Cookies & Cream, The Fernandilla, Chicken Tenders",
-    textTime: 'Sun-Th, 9:30 PM - 12:30 AM',
+    textTime: '9:30 PM - 12:30 AM | Sun-Th',
     startTime: '21:30:00',
   },
   {
@@ -76,7 +76,7 @@ const cachedButteries = [
     nickname: 'The Morsel',
     pictureUrl: 'Morse',
     recommend: 'Jim Stanley, The Thing Joe Gets, Bagels, The Austin',
-    textTime: 'Sun-Th, 10 PM - 12 AM',
+    textTime: '10 PM - 12 AM | Sun-Th',
     startTime: '22:00:00',
   },
   {
@@ -85,7 +85,7 @@ const cachedButteries = [
     nickname: 'MY Butt',
     pictureUrl: 'PauliMurray',
     recommend: 'Fried Rice w/ Kimchi, Boba, French Toast',
-    textTime: 'Sun-Th, 10 PM - 1 AM',
+    textTime: '10 PM - 1 AM | Sun-Th',
     startTime: '22:00:00',
   },
   {
@@ -94,7 +94,7 @@ const cachedButteries = [
     nickname: 'Pierson Knight Club',
     pictureUrl: 'Pierson',
     recommend: 'the PCK Ques, CJ Wrap, Mango Smoothie',
-    textTime: 'Sun-Th, 10:30 PM - 12:30 AM',
+    textTime: '10:30 PM - 12:30 AM | Sun-Th',
     startTime: '22:30:00',
   },
   {
@@ -103,7 +103,7 @@ const cachedButteries = [
     nickname: 'The Squiche',
     pictureUrl: 'Saybrook',
     recommend: 'Manliestwich, Mozzliestwich, Crepe w/ Ice Cream',
-    textTime: 'Sun-Th, 10 PM - 12:45 AM',
+    textTime: '10 PM - 12:45 AM | Sun-Th',
     startTime: '22:00:00',
   },
   {
@@ -112,7 +112,7 @@ const cachedButteries = [
     nickname: 'Sillicafe',
     pictureUrl: 'Silliman',
     recommend: 'Curly Fries, Hot Chocolate, Apple Cider',
-    textTime: 'Sun-Th, 10 PM - 1 AM',
+    textTime: '10 PM - 1 AM | Sun-Th',
     startTime: '22:00:00',
   },
   {
@@ -122,7 +122,7 @@ const cachedButteries = [
     pictureUrl: 'TimothyDwight',
     recommend:
       'Grilled Cheese w/ Popcorn Chicken, Tortizza, Anything fried (they have a fryer!)',
-    textTime: 'Sun-Th, 10 PM - 1 AM',
+    textTime: '10 PM - 1 AM | Sun-Th',
     startTime: '22:00:00',
   },
   {
@@ -131,7 +131,7 @@ const cachedButteries = [
     nickname: 'The TrumButt',
     pictureUrl: 'Trumbull',
     recommend: 'Dino Grilled Cheese, Cookies, Ice Cream Sandwich',
-    textTime: 'Sun, M, W, 10 PM - 11:30 PM; T, Th 10 PM - 1 AM',
+    textTime: '10 PM - 11:30 PM | Sun, M, W; 10 PM - 1 AM | T, Th',
     startTime: '22:00:00',
     //textTime: "Sun-Th, 9 PM - 10:30 PM; T, Th 11:30 PM - 1 AM"
   },
@@ -141,7 +141,7 @@ const cachedButteries = [
     nickname: 'The Acorn',
     pictureUrl: 'Acorn',
     recommend: 'Basic #1 Toast, Basic #2 Toast, Espresso',
-    textTime: 'Everyday, 9 AM - 8 PM',
+    textTime: '9 AM - 8 PM | Daily',
     startTime: '09:00:00',
   },
   {
@@ -150,7 +150,7 @@ const cachedButteries = [
     nickname: 'Beanjamin',
     pictureUrl: 'Beanjamin',
     recommend: 'Matcha Latte, Tea Lemonade, Toasts',
-    textTime: 'Everyday, 2 PM - 5 PM',
+    textTime: '2 PM - 5 PM | Daily',
     startTime: '14:00:00',
   },
 ] as const;
