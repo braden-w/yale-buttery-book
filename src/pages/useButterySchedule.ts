@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Buttery, butteries } from '../shared/butteries';
 import { GCalAPIResponse } from 'src/types/GCalAPIResponse';
 
-export const butterySchedule = ref<GCalAPIResponse>();
+export const gcalButterySchedule = ref<GCalAPIResponse>();
 
 /*** List of butteries that are currently open */
 export const OpenButteryCardList: Ref<Buttery[]> = ref([]);
@@ -14,7 +14,8 @@ export const ClosedButteryCardList: Ref<Buttery[]> = ref([]);
 let scheduleSyncInterval: NodeJS.Timeout | null = null;
 let calendarSyncInterval: NodeJS.Timeout | null = null;
 
-async function refreshButterySchedule() {
+/*** Fetch the Google Calendar schedule and save it into gcalButterySchedule */
+async function refreshGcalButterySchedule() {
   const startRange = new Date(new Date().setDate(new Date().getDate() - 1));
   const endRange = new Date(new Date().setDate(new Date().getDate() + 30));
   const startRangeISO = startRange.toISOString();
@@ -33,14 +34,14 @@ async function refreshButterySchedule() {
     method: 'POST',
     data: requestBody,
   });
-  butterySchedule.value = res.data as GCalAPIResponse;
+  gcalButterySchedule.value = res.data as GCalAPIResponse;
 }
 
 function updateTimeToOpenAndClose(buttery: Buttery) {
   const now = new Date();
   const butteryScheduleBusy =
     /* Creating a schedule for the buttery. */
-    butterySchedule.value?.calendars[buttery.calendarID].busy;
+    gcalButterySchedule.value?.calendars[buttery.calendarID].busy;
   if (!butteryScheduleBusy) {
     return;
   }
@@ -53,7 +54,7 @@ function updateTimeToOpenAndClose(buttery: Buttery) {
       start: new Date(event.start),
       end: new Date(event.end),
     };
-    // If Open
+    // If buttery is open
     if (eventRange.start <= now && eventRange.end >= now) {
       buttery.isOpen = true;
       const millisecondsToClose = eventRange.end.getTime() - now.getTime();
@@ -64,7 +65,7 @@ function updateTimeToOpenAndClose(buttery: Buttery) {
 
       buttery.opensIn = `Closes ${humanReadable}`;
     }
-    // If closed
+    // If buttery is closed
     if (eventRange.start >= now && previousEventRange.end <= now) {
       buttery.isOpen = false;
       const millisecondsToOpen = eventRange.start.getTime() - now.getTime();
@@ -96,7 +97,7 @@ function clearButteryCardList() {
 }
 
 export async function refresh(): Promise<void> {
-  await refreshButterySchedule();
+  await refreshGcalButterySchedule();
   clearButteryCardList();
   updateButteriesStatus();
 }
@@ -106,10 +107,13 @@ export function startSync() {
   stopSync();
   console.log('starting sync');
   void refresh();
-  calendarSyncInterval = setInterval(() => {
-    void refreshButterySchedule();
+
+  // Refresh GCal schedule every minute
+  calendarSyncInterval = setInterval(async () => {
+    await refreshGcalButterySchedule();
   }, 60 * 1000);
 
+  // Refresh open and closed butteries every second
   scheduleSyncInterval = setInterval(() => {
     clearButteryCardList();
     updateButteriesStatus();
