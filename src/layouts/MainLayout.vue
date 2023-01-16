@@ -22,9 +22,6 @@
           icon="breakfast_dining"
           label="Yale Buttery Book"
         />
-        <q-avatar>
-          <!-- TODO: <img src="../../public/Icon.png" alt="" /> -->
-        </q-avatar>
         <!-- <q-btn
           v-if="$q.screen.gt.md"
           color="accent"
@@ -42,7 +39,6 @@
           icon="code"
           href="https://github.com/braden-w/yale-buttery-book"
           target="_blank"
-          v-if="$q.screen.gt.sm"
         />
         <q-btn round flat icon="info" to="/about" />
         <!-- <q-btn
