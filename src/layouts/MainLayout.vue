@@ -16,6 +16,7 @@
             'text-h6 text-weight-light': $q.screen.gt.sm,
             'text-subtitle1 text-weight-regular': $q.screen.lt.sm,
           }"
+          stretch
           no-caps
           flat
           to="/"
