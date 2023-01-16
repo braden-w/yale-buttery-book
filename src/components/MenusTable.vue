@@ -45,6 +45,7 @@
   </q-card>
 
   <q-table
+    flat
     :grid="grid"
     grid-header
     :rows="tableData"
@@ -138,7 +139,7 @@
       </q-tr>
       <q-tr v-show="props.expand" :props="props">
         <q-td colspan="100%">
-          <q-card>
+          <q-card flat>
             <!-- {{
                 props.row['In Stock'] === 'FALSE' ? 'Out of Stock' : 'In Stock'
               }} -->
