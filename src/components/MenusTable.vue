@@ -35,6 +35,7 @@
           :options="separatorOptions"
         />
         <q-option-group
+          class="q-mr-md"
           v-model="visibleColumns"
           :options="toggleColumnNames"
           color="accent"
