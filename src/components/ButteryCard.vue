@@ -1,5 +1,8 @@
 <template>
-  <q-expansion-item group="butteries" class="q-ma-sm">
+  <q-expansion-item
+    group="butteries"
+    :class="$q.screen.width >= 455 ? 'q-ma-sm' : ''"
+  >
     <template #header>
       <q-item-section avatar class="q-mr-md">
         <q-avatar
