@@ -8,7 +8,7 @@
 
 <script setup lang="ts">
 import { PropType } from 'vue';
-import { Buttery, TimeRemaining, TimeUntil } from 'src/shared/butteries';
+import { Buttery } from 'src/shared/butteries';
 import '@fullcalendar/core/vdom';
 import FullCalendar from '@fullcalendar/vue3';
 import googleCalendarPlugin from '@fullcalendar/google-calendar';
@@ -16,7 +16,7 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 
 const props = defineProps({
   buttery: {
-    type: Object as PropType<Buttery & Partial<TimeRemaining & TimeUntil>>,
+    type: Object as PropType<Buttery>,
     required: true,
   },
 });
