@@ -2,7 +2,7 @@ import { formatDistance } from 'date-fns';
 import { ref, Ref } from 'vue';
 import axios from 'axios';
 import { Buttery, butteries } from '../shared/butteries';
-import { GCalAPIResponse } from 'src/shared/types-gcal-api';
+import { GCalAPIResponse } from 'src/types/GCalAPIResponse';
 
 export const butterySchedule = ref<GCalAPIResponse>();
 
@@ -14,7 +14,7 @@ export const ClosedButteryCardList: Ref<Buttery[]> = ref([]);
 let scheduleSyncInterval: NodeJS.Timeout | null = null;
 let calendarSyncInterval: NodeJS.Timeout | null = null;
 
-async function getButterySchedule() {
+async function refreshButterySchedule() {
   const startRange = new Date(new Date().setDate(new Date().getDate() - 1));
   const endRange = new Date(new Date().setDate(new Date().getDate() + 30));
   const startRangeISO = startRange.toISOString();
@@ -96,7 +96,7 @@ function clearButteryCardList() {
 }
 
 export async function refresh(): Promise<void> {
-  await getButterySchedule();
+  await refreshButterySchedule();
   clearButteryCardList();
   updateButteriesStatus();
 }
@@ -107,7 +107,7 @@ export function startSync() {
   console.log('starting sync');
   void refresh();
   calendarSyncInterval = setInterval(() => {
-    void getButterySchedule();
+    void refreshButterySchedule();
   }, 60 * 1000);
 
   scheduleSyncInterval = setInterval(() => {
