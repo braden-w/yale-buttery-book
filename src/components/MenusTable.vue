@@ -23,13 +23,10 @@
       </template>
     </q-input>
   </q-card>
+
   <q-card flat v-if="showSettings" class="q-ma-xs">
     <div class="row justify-between">
-      <q-toggle
-        v-model="grid"
-        :icon="grid ? 'view_day' : 'table_chart'"
-        :label="grid ? 'Card' : 'Grid'"
-      />
+      <q-toggle v-model="grid" :label="grid ? 'Card' : 'Grid'" />
       <q-btn-toggle
         v-model="separator"
         toggle-color="accent"
@@ -109,8 +106,13 @@
           <div class="text-subtitle2">{{ props.row.Name }}</div>
         </q-td>
         <q-td key="Price" :props="props">
-          <q-badge :color="priceGradient(props.row.Price)">
-            <div class="text-subtitle2 text-bold">{{ props.row.Price }}</div>
+          <q-badge :color="`${priceGradient(props.row.Price)}-2`">
+            <div
+              :class="`text-subtitle2 text-bold
+              text-${priceGradient(props.row.Price)}-6`"
+            >
+              {{ props.row.Price }}
+            </div>
           </q-badge>
         </q-td>
         <q-td key="Residential College" :props="props">
@@ -225,12 +227,9 @@ async function getTableData() {
   loading.value = false;
 }
 
-void getTableData();
+getTableData();
 
-// setInterval(() => {
-//   void getTableData();
-
-const showSettings = ref(false); // }, 10000);
+const showSettings = ref(false);
 function toggleSettings() {
   showSettings.value = !showSettings.value;
 }
