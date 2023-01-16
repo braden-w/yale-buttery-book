@@ -11,11 +11,7 @@
             "
           >
             <img
-              :src="
-                props.buttery?.pictureUrl === 'BenjaminFranklin'
-                  ? `/buttery_shields/${props.buttery?.pictureUrl}.png`
-                  : `/buttery_shields_svgs/${props.buttery?.pictureUrl}.svg`
-              "
+              :src="`/buttery_shields_svgs/${props.buttery?.pictureUrl}.svg`"
               :alt="props.buttery?.pictureUrl"
             />
           </q-avatar>
