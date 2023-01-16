@@ -15,7 +15,7 @@ let scheduleSyncInterval: NodeJS.Timeout | null = null;
 let calendarSyncInterval: NodeJS.Timeout | null = null;
 
 /*** Fetch the Google Calendar schedule and save it into gcalButterySchedule */
-async function refreshGcalButterySchedule() {
+export async function refreshGcalButterySchedule() {
   const startRange = new Date(new Date().setDate(new Date().getDate() - 1));
   const endRange = new Date(new Date().setDate(new Date().getDate() + 30));
   const startRangeISO = startRange.toISOString();
@@ -80,7 +80,7 @@ function updateTimeToOpenAndClose(buttery: Buttery) {
   }
 }
 
-function clearButteryCardListAndRefreshButteries() {
+export function clearButteryCardListAndRefreshButteries() {
   OpenButteryCardList.value = [];
   ClosedButteryCardList.value = [];
   for (const buttery of butteries) {
@@ -93,16 +93,14 @@ function clearButteryCardListAndRefreshButteries() {
   }
 }
 
-export async function refreshGcalAndButteries(): Promise<void> {
-  await refreshGcalButterySchedule();
-  clearButteryCardListAndRefreshButteries();
-}
-
 export function startSync() {
   // Stop sync if residual
   stopSync();
   console.log('starting sync');
-  refreshGcalAndButteries();
+  (async () => {
+    await refreshGcalButterySchedule();
+    clearButteryCardListAndRefreshButteries();
+  })();
 
   // Refresh GCal schedule every minute
   calendarSyncInterval = setInterval(async () => {
