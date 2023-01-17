@@ -10,7 +10,9 @@
     "test": "echo \"No test specified\" && exit 0",
     "generateIcons": "icongenie g  --theme-color 00356b -i public/Icon.png",
     "generateIOS": "quasar build -ide -m capacitor -T ios",
-    "generateAndroid": "quasar build -m pwa && bubblewrap build"
+    "generateAndroid": "quasar build -m pwa && bubblewrap build",
+    "build": "quasar build",
+    "deploy": "vercel"
   },
   "dependencies": {
     "@fullcalendar/core": "^5.11.2",
