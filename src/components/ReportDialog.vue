@@ -19,7 +19,7 @@
         <q-card-section>
           <q-select
             v-model="reportCollege"
-            :options="residentialColleges"
+            :options="butteryDropdownOptions"
             label="Topic"
           >
           </q-select>
@@ -59,7 +59,7 @@ import axios from 'axios';
 import { createClient } from '@supabase/supabase-js';
 import { useQuasar } from 'quasar';
 import { ref } from 'vue';
-import { residentialColleges } from 'src/shared/butteries';
+import { butteryDropdownOptions } from 'src/shared/butteries';
 import { useDialogPluginComponent } from 'quasar';
 
 const props = defineProps({
