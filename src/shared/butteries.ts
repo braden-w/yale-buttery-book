@@ -6,6 +6,8 @@ const cachedButteries = [
     recommend: 'Vegan Quesadilla, Fries',
     textTime: '10 PM - 1 AM | Sun-Th',
     startTime: '22:00:00',
+    menu_photo_url:
+      'https://res.cloudinary.com/djwhupcus/image/upload/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Benjamin Franklin.jpg',
   },
   {
     id: 'Berkeley',
@@ -14,6 +16,8 @@ const cachedButteries = [
     recommend: 'BK Special, Pancakes, Nutellawich',
     textTime: '10 PM - 1 AM | Sun-Fri',
     startTime: '22:00:00',
+    menu_photo_url:
+      'https://res.cloudinary.com/djwhupcus/image/upload/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Berkeley.jpg',
   },
   {
     id: 'Branford',
@@ -22,6 +26,8 @@ const cachedButteries = [
     recommend: 'The Chin, Circle of Life, Mario Melt',
     textTime: '10:30 PM - 12:45 AM | Sun-Fri',
     startTime: '22:30:00',
+    menu_photo_url:
+      'https://res.cloudinary.com/djwhupcus/image/upload/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Branford.jpg',
   },
   {
     id: 'Davenport',
@@ -30,6 +36,8 @@ const cachedButteries = [
     recommend: 'RJR, BBQQ, Goldilocks Waffles',
     textTime: '10 PM - 12:30 AM | Daily',
     startTime: '22:00:00',
+    menu_photo_url:
+      'https://res.cloudinary.com/djwhupcus/image/upload/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Davenport.jpg',
   },
   {
     id: 'Ezra Stiles',
@@ -38,6 +46,8 @@ const cachedButteries = [
     recommend: 'The Ezra, Jambler, Monkey Madness',
     textTime: '10 PM - 12:50 AM | Sun-Th',
     startTime: '22:00:00',
+    menu_photo_url:
+      'https://res.cloudinary.com/djwhupcus/image/upload/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Ezra Stiles.jpg',
   },
   {
     id: 'Grace Hopper',
@@ -46,6 +56,8 @@ const cachedButteries = [
     recommend: "Flying Pig, Buff Chik Ques, Cup O' Crack",
     textTime: '10 PM - 1 AM | Sun-Th',
     startTime: '22:00:00',
+    menu_photo_url:
+      'https://res.cloudinary.com/djwhupcus/image/upload/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Grace Hopper.jpg',
   },
   {
     id: 'Jonathan Edwards',
@@ -54,6 +66,8 @@ const cachedButteries = [
     recommend: "Allie's Cookies & Cream, The Fernandilla, Chicken Tenders",
     textTime: '9:30 PM - 12:30 AM | Sun-Th',
     startTime: '21:30:00',
+    menu_photo_url:
+      'https://res.cloudinary.com/djwhupcus/image/upload/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Jonathan Edwards.jpg',
   },
   {
     id: 'Morse',
@@ -62,6 +76,8 @@ const cachedButteries = [
     recommend: 'Jim Stanley, The Thing Joe Gets, Bagels, The Austin',
     textTime: '10 PM - 12 AM | Sun-Th',
     startTime: '22:00:00',
+    menu_photo_url:
+      'https://res.cloudinary.com/djwhupcus/image/upload/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Morse.jpg',
   },
   {
     id: 'Pauli Murray',
@@ -70,6 +86,8 @@ const cachedButteries = [
     recommend: 'Fried Rice w/ Kimchi, Boba, French Toast',
     textTime: '10 PM - 1 AM | Sun-Th',
     startTime: '22:00:00',
+    menu_photo_url:
+      'https://res.cloudinary.com/djwhupcus/image/upload/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Pauli Murray.jpg',
   },
   {
     id: 'Pierson',
@@ -78,6 +96,8 @@ const cachedButteries = [
     recommend: 'the PCK Ques, CJ Wrap, Mango Smoothie',
     textTime: '10:30 PM - 12:30 AM | Sun-Th',
     startTime: '22:30:00',
+    menu_photo_url:
+      'https://res.cloudinary.com/djwhupcus/image/upload/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Pierson.jpg',
   },
   {
     id: 'Saybrook',
@@ -86,6 +106,8 @@ const cachedButteries = [
     recommend: 'Manliestwich, Mozzliestwich, Crepe w/ Ice Cream',
     textTime: '10 PM - 12:45 AM | Sun-Th',
     startTime: '22:00:00',
+    menu_photo_url:
+      'https://res.cloudinary.com/djwhupcus/image/upload/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Saybrook.jpg',
   },
   {
     id: 'Silliman',
@@ -94,6 +116,8 @@ const cachedButteries = [
     recommend: 'Curly Fries, Hot Chocolate, Apple Cider',
     textTime: '10 PM - 1 AM | Sun-Th',
     startTime: '22:00:00',
+    menu_photo_url:
+      'https://res.cloudinary.com/djwhupcus/image/upload/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Silliman.jpg',
   },
   {
     id: 'Timothy Dwight',
@@ -103,6 +127,8 @@ const cachedButteries = [
       'Grilled Cheese w/ Popcorn Chicken, Tortizza, Anything fried (they have a fryer!)',
     textTime: '10 PM - 1 AM | Sun-Th',
     startTime: '22:00:00',
+    menu_photo_url:
+      'https://res.cloudinary.com/djwhupcus/image/upload/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Timothy Dwight.jpg',
   },
   {
     id: 'Trumbull',
@@ -111,6 +137,8 @@ const cachedButteries = [
     recommend: 'Dino Grilled Cheese, Cookies, Ice Cream Sandwich',
     textTime: '10 PM - 11:30 PM | Sun, M, W; 10 PM - 1 AM | T, Th',
     startTime: '22:00:00',
+    menu_photo_url:
+      'https://res.cloudinary.com/djwhupcus/image/upload/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Trumbull.jpg',
     //textTime: "Sun-Th, 9 PM - 10:30 PM; T, Th 11:30 PM - 1 AM"
   },
   {
@@ -120,6 +148,8 @@ const cachedButteries = [
     recommend: 'Basic #1 Toast, Basic #2 Toast, Espresso',
     textTime: '9 AM - 8 PM | Daily',
     startTime: '09:00:00',
+    menu_photo_url:
+      'https://res.cloudinary.com/djwhupcus/image/upload/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/The Acorn.jpg',
   },
   {
     id: 'The Beanjamin',
@@ -128,6 +158,8 @@ const cachedButteries = [
     recommend: 'Matcha Latte, Tea Lemonade, Toasts',
     textTime: '2 PM - 5 PM | Daily',
     startTime: '14:00:00',
+    menu_photo_url:
+      'https://res.cloudinary.com/djwhupcus/image/upload/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/The Beanjamin.jpg',
   },
 ] as const;
 
@@ -141,6 +173,7 @@ type CachedButtery = {
   textTime: typeof cachedButteries[number]['textTime'];
   /*** The daily start time represented in 00:00:00 format. This is used to focus the calendar view on the appropriate time of day without scrolling for each buttery. */
   startTime: typeof cachedButteries[number]['startTime'];
+  menu_photo_url: typeof cachedButteries[number]['menu_photo_url'];
 };
 export type Buttery = CachedButtery & ButteryAdditions;
 
@@ -158,7 +191,7 @@ async function loadButteriesFromSheet() {
       'https://opensheet.elk.sh/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/Calendars'
     );
     const json = await res.json();
-    return json;
+    return cachedButteries;
   } catch (err) {
     return cachedButteries;
   }
