@@ -7,7 +7,7 @@
       <q-item-section avatar :class="!isMobile() ? 'q-mr-md' : ''">
         <q-avatar
           :color="
-            butteriesWithDarkMode.includes(props.buttery.nickname)
+            butteriesWithDarkMode.includes(props.buttery.pictureUrl)
               ? 'white'
               : ''
           "
@@ -90,7 +90,7 @@
         </q-tab-panel>
 
         <q-tab-panel name="menu">
-          <MenusTable :search="props.buttery.name" />
+          <MenusTable :filterCollege="props.buttery.nickname" />
         </q-tab-panel>
 
         <q-tab-panel name="calendar">
@@ -146,5 +146,5 @@ function reportClosed(buttery: Buttery) {
     });
 }
 
-const butteriesWithDarkMode = ['The Acorn', 'Beanjamin'];
+const butteriesWithDarkMode = ['Acorn', 'Beanjamin'];
 </script>
