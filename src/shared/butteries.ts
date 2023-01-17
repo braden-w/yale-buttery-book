@@ -147,21 +147,34 @@ const cachedButteries = [
   },
 ] as const;
 
-export type Buttery = {
-  name: (typeof cachedButteries)[number]['name'];
-  calendarID: (typeof cachedButteries)[number]['calendarID'];
+type ButteryAdditions = { isOpen?: boolean; opensIn?: string };
+type CachedButtery = {
+  name: typeof cachedButteries[number]['name'];
+  calendarID: typeof cachedButteries[number]['calendarID'];
   /*** Unique key that we'll use to identify this buttery */
-  nickname: (typeof cachedButteries)[number]['nickname'];
-  pictureUrl: (typeof cachedButteries)[number]['pictureUrl'];
-  recommend: (typeof cachedButteries)[number]['recommend'];
-  textTime: (typeof cachedButteries)[number]['textTime'];
+  nickname: typeof cachedButteries[number]['nickname'];
+  pictureUrl: typeof cachedButteries[number]['pictureUrl'];
+  recommend: typeof cachedButteries[number]['recommend'];
+  textTime: typeof cachedButteries[number]['textTime'];
   /*** The daily start time represented in 00:00:00 format. This is used to focus the calendar view on the appropriate time of day without scrolling for each buttery. */
-  startTime: (typeof cachedButteries)[number]['startTime'];
-  isOpen?: boolean;
-  opensIn?: string;
+  startTime: typeof cachedButteries[number]['startTime'];
 };
+export type Buttery = CachedButtery & ButteryAdditions;
 
-export const butteries: Buttery[] = [...cachedButteries];
+export let butteries: Buttery[] = [...cachedButteries];
+
+async function loadButteriesFromSheet() {
+  const res = await fetch(
+    'https://opensheet.elk.sh/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/Calendars'
+  );
+  const json = await res.json();
+  console.log(
+    '🚀 ~ file: butteries.ts:174 ~ loadButteriesFromSheet ~ json',
+    json
+  );
+  return json;
+}
+(async () => (butteries = await loadButteriesFromSheet()))();
 
 export const residentialColleges = [
   'Errors or Suggestions',
