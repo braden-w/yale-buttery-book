@@ -71,7 +71,6 @@
 
       <q-separator />
 
-      {{ props.buttery?.menu_photo_url }}
       <q-tab-panels v-model="tab" animated>
         <q-tab-panel name="photo">
           <!-- Center the image -->
