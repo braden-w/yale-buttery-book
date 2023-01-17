@@ -26,12 +26,14 @@
 
     <q-card flat v-if="showSettings">
       <div class="row justify-between">
-        <q-toggle v-model="grid" :label="grid ? 'Card' : 'Grid'" />
+        <q-btn-toggle
+          v-model="gridCard"
+          toggle-color="accent"
+          :options="gridCardOptions"
+        />
         <q-btn-toggle
           v-model="separator"
           toggle-color="accent"
-          rounded
-          flat
           :options="separatorOptions"
         />
         <q-option-group
@@ -47,7 +49,7 @@
 
     <q-table
       flat
-      :grid="grid"
+      :grid="gridCard"
       grid-header
       card-class="bg-grey-10 text-white"
       :rows="tableData"
@@ -257,7 +259,11 @@ function toggleSettings() {
 }
 
 const filter = ref('');
-const grid = ref($q.screen.lt.md);
+const gridCard = ref($q.screen.lt.md);
+const gridCardOptions = [
+  { label: '', value: true, icon: 'view_module' },
+  { label: '', value: false, icon: 'view_list' },
+];
 const separator = ref('vertical') as Ref<
   'vertical' | 'horizontal' | 'cell' | 'none'
 >;
