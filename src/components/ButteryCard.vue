@@ -7,19 +7,17 @@
       <q-item-section avatar :class="!isMobile() ? 'q-mr-md' : ''">
         <q-avatar
           :color="
-            butteriesWithDarkMode.includes(props.buttery.pictureUrl)
-              ? 'white'
-              : ''
+            butteriesWithDarkMode.includes(props.buttery.id) ? 'white' : ''
           "
         >
           <img
-            :src="`/buttery_shields_svgs/${props.buttery?.pictureUrl}.svg`"
-            :alt="props.buttery?.pictureUrl"
+            :src="`/buttery_shields_svgs/${props.buttery?.id}.svg`"
+            :alt="props.buttery?.id"
           />
         </q-avatar>
       </q-item-section>
       <q-item-section>
-        <q-item-label overline>{{ props.buttery?.name }}</q-item-label>
+        <q-item-label overline>{{ props.buttery?.id }}</q-item-label>
         <q-item-label>{{ props.buttery?.nickname }}</q-item-label>
         <q-item-label caption>
           <span>{{ props.buttery?.textTime }}</span>
@@ -80,8 +78,8 @@
             <q-img
               style="max-width: 640px; max-height: 80vh"
               fit="contain"
-              :src="`/menu_photos/${props.buttery?.pictureUrl}.jpg`"
-              :alt="props.buttery?.pictureUrl"
+              :src="`/menu_photos/${props.buttery?.id}.jpg`"
+              :alt="props.buttery?.id"
               draggable
               v-viewer
             >
@@ -90,7 +88,7 @@
         </q-tab-panel>
 
         <q-tab-panel name="menu">
-          <MenusTable :filterCollege="props.buttery.name" />
+          <MenusTable :filterCollege="props.buttery.id" />
         </q-tab-panel>
 
         <q-tab-panel name="calendar">
@@ -146,5 +144,5 @@ function reportClosed(buttery: Buttery) {
     });
 }
 
-const butteriesWithDarkMode = ['Acorn', 'Beanjamin'];
+const butteriesWithDarkMode = ['The Acorn', 'The Beanjamin'];
 </script>
