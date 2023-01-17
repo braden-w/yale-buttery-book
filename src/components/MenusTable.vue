@@ -262,10 +262,10 @@ const separator = ref('vertical') as Ref<
   'vertical' | 'horizontal' | 'cell' | 'none'
 >;
 const separatorOptions = [
-  { label: 'Horizontal', value: 'horizontal', icon: 'view_headline' },
-  { label: 'Vertical', value: 'vertical', icon: 'calendar_view_week' },
-  { label: 'Grid', value: 'cell', icon: 'view_comfy' },
-  { label: 'None', value: 'none', icon: 'grid_off' },
+  { label: '', value: 'horizontal', icon: 'view_headline' },
+  { label: '', value: 'vertical', icon: 'calendar_view_week' },
+  { label: '', value: 'cell', icon: 'view_comfy' },
+  { label: '', value: 'none', icon: 'grid_off' },
 ];
 
 function priceGradient(price: string) {
