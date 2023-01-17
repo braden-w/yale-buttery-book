@@ -162,21 +162,17 @@ type CachedButtery = {
 export type Buttery = CachedButtery & ButteryAdditions;
 
 export let butteries: Buttery[] = [...cachedButteries];
-
-async function loadButteriesFromSheet() {
-  const res = await fetch(
-    'https://opensheet.elk.sh/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/Calendars'
-  );
-  const json = await res.json();
-  console.log(
-    '🚀 ~ file: butteries.ts:174 ~ loadButteriesFromSheet ~ json',
-    json
-  );
-  return json;
-}
 (async () => (butteries = await loadButteriesFromSheet()))();
 
 export const residentialColleges = [
   'Errors or Suggestions',
   ...Array.from(new Set(butteries.map((buttery) => buttery.name))),
 ];
+
+async function loadButteriesFromSheet() {
+  const res = await fetch(
+    'https://opensheet.elk.sh/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/Calendars'
+  );
+  const json = await res.json();
+  return json;
+}
