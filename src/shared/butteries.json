@@ -1,6 +1,7 @@
 [
   {
     "id": "Benjamin Franklin",
+    "residentialCollegeLocation": "Benjamin Franklin",
     "calendarID": "c_qh7c9stu3qr3hh7nj68gvc12nc@group.calendar.google.com",
     "nickname": "Ben's Butt",
     "recommend": "Vegan Quesadilla, Fries",
@@ -10,6 +11,7 @@
   },
   {
     "id": "Berkeley",
+    "residentialCollegeLocation": "Berkeley",
     "calendarID": "c_18ghppn0o4coealtrqf4m876jo@group.calendar.google.com",
     "nickname": "Marvin's",
     "recommend": "BK Special, Pancakes, Nutellawich",
@@ -19,6 +21,7 @@
   },
   {
     "id": "Branford",
+    "residentialCollegeLocation": "Branford",
     "calendarID": "c_0vl82r4qhr2sshm97s843g9ju8@group.calendar.google.com",
     "nickname": "The Nuttery",
     "recommend": "The Chin, Circle of Life, Mario Melt",
@@ -28,6 +31,7 @@
   },
   {
     "id": "Davenport",
+    "residentialCollegeLocation": "Davenport",
     "calendarID": "c_ljjasqrqmi61clcb7q8grhmh5o@group.calendar.google.com",
     "nickname": "The Dive",
     "recommend": "RJR, BBQQ, Goldilocks Waffles",
@@ -37,6 +41,7 @@
   },
   {
     "id": "Ezra Stiles",
+    "residentialCollegeLocation": "Ezra Stiles",
     "calendarID": "c_2sd6ipbve5qecpbvjk6n4krm88@group.calendar.google.com",
     "nickname": "Moose Butt",
     "recommend": "The Ezra, Jambler, Monkey Madness",
@@ -46,6 +51,7 @@
   },
   {
     "id": "Grace Hopper",
+    "residentialCollegeLocation": "Grace Hopper",
     "calendarID": "c_jpohh0fj3bjf9oa50uqhdsn210@group.calendar.google.com",
     "nickname": "The Trolley Stop",
     "recommend": "Flying Pig, Buff Chik Ques, Cup O' Crack",
@@ -55,6 +61,7 @@
   },
   {
     "id": "Jonathan Edwards",
+    "residentialCollegeLocation": "Jonathan Edwards",
     "calendarID": "c_vidd8mkjnfknj5gf2qvsdo35o0@group.calendar.google.com",
     "nickname": "JE Buttery",
     "recommend": "Allie's Cookies & Cream, The Fernandilla, Chicken Tenders",
@@ -64,6 +71,7 @@
   },
   {
     "id": "Morse",
+    "residentialCollegeLocation": "Morse",
     "calendarID": "c_t94grhoctefff88he108qrfrks@group.calendar.google.com",
     "nickname": "The Morsel",
     "recommend": "Jim Stanley, The Thing Joe Gets, Bagels, The Austin",
@@ -73,6 +81,7 @@
   },
   {
     "id": "Pauli Murray",
+    "residentialCollegeLocation": "Pauli Murray",
     "calendarID": "c_v7d6qo6iu5s3dnq2hj852ccvkc@group.calendar.google.com",
     "nickname": "MY Butt",
     "recommend": "Fried Rice w/ Kimchi, Boba, French Toast",
@@ -82,6 +91,7 @@
   },
   {
     "id": "Pierson",
+    "residentialCollegeLocation": "Pierson",
     "calendarID": "c_be16luiqg08s5fjbtl48klg0qg@group.calendar.google.com",
     "nickname": "Pierson Knight Club",
     "recommend": "the PCK Ques, CJ Wrap, Mango Smoothie",
@@ -91,6 +101,7 @@
   },
   {
     "id": "Saybrook",
+    "residentialCollegeLocation": "Saybrook",
     "calendarID": "c_h4k4tdrsial6if89k2qmuq0sic@group.calendar.google.com",
     "nickname": "The Squiche",
     "recommend": "Manliestwich, Mozzliestwich, Crepe w/ Ice Cream",
@@ -100,6 +111,7 @@
   },
   {
     "id": "Silliman",
+    "residentialCollegeLocation": "Silliman",
     "calendarID": "c_g2hs55m8rdnjo7ulvdm97k6jpk@group.calendar.google.com",
     "nickname": "Sillicafe",
     "recommend": "Curly Fries, Hot Chocolate, Apple Cider",
@@ -109,6 +121,7 @@
   },
   {
     "id": "Timothy Dwight",
+    "residentialCollegeLocation": "Timothy Dwight",
     "calendarID": "c_5se1ib9s1al5e2vmtn7sgjrfmk@group.calendar.google.com",
     "nickname": "TD Butt",
     "recommend": "Grilled Cheese w/ Popcorn Chicken, Tortizza, Anything fried (they have a fryer!)",
@@ -118,6 +131,7 @@
   },
   {
     "id": "Trumbull",
+    "residentialCollegeLocation": "Trumbull",
     "calendarID": "c_fqjk0og8tsg22m9c5hpjochn9k@group.calendar.google.com",
     "nickname": "The TrumButt",
     "recommend": "Dino Grilled Cheese, Cookies, Ice Cream Sandwich",
@@ -127,6 +141,7 @@
   },
   {
     "id": "The Acorn",
+    "residentialCollegeLocation": "Silliman",
     "calendarID": "c_v18l89ksargnv5mo088c5urc14@group.calendar.google.com",
     "nickname": "The Acorn",
     "recommend": "Basic #1 Toast, Basic #2 Toast, Espresso",
@@ -136,6 +151,7 @@
   },
   {
     "id": "The Beanjamin",
+    "residentialCollegeLocation": "Benjamin Franklin",
     "calendarID": "c_ksuav38sq7npf9g4f054p7680o@group.calendar.google.com",
     "nickname": "The Beanjamin",
     "recommend": "Matcha Latte, Tea Lemonade, Toasts",

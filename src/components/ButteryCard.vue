@@ -17,7 +17,9 @@
         </q-avatar>
       </q-item-section>
       <q-item-section>
-        <q-item-label overline>{{ props.buttery?.id }}</q-item-label>
+        <q-item-label overline>{{
+          props.buttery.residentialCollegeLocation
+        }}</q-item-label>
         <q-item-label>{{ props.buttery?.nickname }}</q-item-label>
         <q-item-label caption>
           <span>{{ props.buttery?.textTime }}</span>
