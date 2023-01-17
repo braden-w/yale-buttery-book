@@ -13,7 +13,7 @@
           dense
           debounce="300"
           @click="$router.push('/menus')"
-          placeholder="I'm Feeling Like Eating..."
+          placeholder="I Feel Like Eating..."
           style="width: 100%"
           model-value=""
         >
