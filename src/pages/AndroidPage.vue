@@ -2,7 +2,7 @@
   <q-page>
     <div class="row">
       <q-space></q-space>
-      <q-card style="width: 400px">
+      <q-card flat style="width: 400px">
         <q-card-section>
           <div class="text-h6">Install the App On Android</div>
         </q-card-section>
