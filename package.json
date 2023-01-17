@@ -1,6 +1,6 @@
 {
   "name": "buttery-book-vite",
-  "version": "0.0.1",
+  "version": "1.3",
   "description": "An app that answers one simple question: which butteries are open right now?",
   "productName": "Yale Buttery Book",
   "author": "Braden Wong <bmw02002turbo@gmail.com>",
