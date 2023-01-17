@@ -49,6 +49,7 @@
       flat
       :grid="grid"
       grid-header
+      card-class="bg-grey-10 text-white"
       :rows="tableData"
       :columns="columns"
       :filter="filter"
