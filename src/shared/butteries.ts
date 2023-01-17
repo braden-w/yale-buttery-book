@@ -139,7 +139,7 @@ const cachedButteries = [
   {
     name: 'Benjamin Franklin',
     calendarID: 'c_ksuav38sq7npf9g4f054p7680o@group.calendar.google.com',
-    nickname: 'Beanjamin',
+    nickname: 'The Beanjamin',
     pictureUrl: 'Beanjamin',
     recommend: 'Matcha Latte, Tea Lemonade, Toasts',
     textTime: '2 PM - 5 PM | Daily',
