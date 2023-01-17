@@ -1,6 +1,6 @@
 <template>
   <q-page>
-    <MenusTable search="" />
+    <MenusTable />
   </q-page>
 </template>
 

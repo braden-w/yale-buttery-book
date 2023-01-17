@@ -90,7 +90,7 @@
         </q-tab-panel>
 
         <q-tab-panel name="menu">
-          <MenusTable :filterCollege="props.buttery.nickname" />
+          <MenusTable :filterCollege="props.buttery.name" />
         </q-tab-panel>
 
         <q-tab-panel name="calendar">
