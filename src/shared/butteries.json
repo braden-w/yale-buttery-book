@@ -5,7 +5,8 @@
     "nickname": "Ben's Butt",
     "recommend": "Vegan Quesadilla, Fries",
     "textTime": "10 PM - 1 AM | Sun-Th",
-    "startTime": "22:00:00"
+    "startTime": "22:00:00",
+    "menu_photo_url": "https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Benjamin Franklin.jpg"
   },
   {
     "id": "Berkeley",
@@ -13,7 +14,8 @@
     "nickname": "Marvin's",
     "recommend": "BK Special, Pancakes, Nutellawich",
     "textTime": "10 PM - 1 AM | Sun-Fri",
-    "startTime": "22:00:00"
+    "startTime": "22:00:00",
+    "menu_photo_url": "https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Berkeley.jpg"
   },
   {
     "id": "Branford",
@@ -21,7 +23,8 @@
     "nickname": "The Nuttery",
     "recommend": "The Chin, Circle of Life, Mario Melt",
     "textTime": "10:30 PM - 12:45 AM | Sun-Fri",
-    "startTime": "22:30:00"
+    "startTime": "22:30:00",
+    "menu_photo_url": "https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Branford.jpg"
   },
   {
     "id": "Davenport",
@@ -29,7 +32,8 @@
     "nickname": "The Dive",
     "recommend": "RJR, BBQQ, Goldilocks Waffles",
     "textTime": "10 PM - 12:30 AM | Daily",
-    "startTime": "22:00:00"
+    "startTime": "22:00:00",
+    "menu_photo_url": "https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Davenport.jpg"
   },
   {
     "id": "Ezra Stiles",
@@ -37,7 +41,8 @@
     "nickname": "Moose Butt",
     "recommend": "The Ezra, Jambler, Monkey Madness",
     "textTime": "10 PM - 12:50 AM | Sun-Th",
-    "startTime": "22:00:00"
+    "startTime": "22:00:00",
+    "menu_photo_url": "https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Ezra Stiles.jpg"
   },
   {
     "id": "Grace Hopper",
@@ -45,7 +50,8 @@
     "nickname": "The Trolley Stop",
     "recommend": "Flying Pig, Buff Chik Ques, Cup O' Crack",
     "textTime": "10 PM - 1 AM | Sun-Th",
-    "startTime": "22:00:00"
+    "startTime": "22:00:00",
+    "menu_photo_url": "https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Grace Hopper.jpg"
   },
   {
     "id": "Jonathan Edwards",
@@ -53,7 +59,8 @@
     "nickname": "JE Buttery",
     "recommend": "Allie's Cookies & Cream, The Fernandilla, Chicken Tenders",
     "textTime": "9:30 PM - 12:30 AM | Sun-Th",
-    "startTime": "21:30:00"
+    "startTime": "21:30:00",
+    "menu_photo_url": "https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Jonathan Edwards.jpg"
   },
   {
     "id": "Morse",
@@ -61,7 +68,8 @@
     "nickname": "The Morsel",
     "recommend": "Jim Stanley, The Thing Joe Gets, Bagels, The Austin",
     "textTime": "10 PM - 12 AM | Sun-Th",
-    "startTime": "22:00:00"
+    "startTime": "22:00:00",
+    "menu_photo_url": "https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Morse.jpg"
   },
   {
     "id": "Pauli Murray",
@@ -69,7 +77,8 @@
     "nickname": "MY Butt",
     "recommend": "Fried Rice w/ Kimchi, Boba, French Toast",
     "textTime": "10 PM - 1 AM | Sun-Th",
-    "startTime": "22:00:00"
+    "startTime": "22:00:00",
+    "menu_photo_url": "https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Pauli Murray.jpg"
   },
   {
     "id": "Pierson",
@@ -77,7 +86,8 @@
     "nickname": "Pierson Knight Club",
     "recommend": "the PCK Ques, CJ Wrap, Mango Smoothie",
     "textTime": "10:30 PM - 12:30 AM | Sun-Th",
-    "startTime": "22:30:00"
+    "startTime": "22:30:00",
+    "menu_photo_url": "https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Pierson.jpg"
   },
   {
     "id": "Saybrook",
@@ -85,7 +95,8 @@
     "nickname": "The Squiche",
     "recommend": "Manliestwich, Mozzliestwich, Crepe w/ Ice Cream",
     "textTime": "10 PM - 12:45 AM | Sun-Th",
-    "startTime": "22:00:00"
+    "startTime": "22:00:00",
+    "menu_photo_url": "https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Saybrook.jpg"
   },
   {
     "id": "Silliman",
@@ -93,7 +104,8 @@
     "nickname": "Sillicafe",
     "recommend": "Curly Fries, Hot Chocolate, Apple Cider",
     "textTime": "10 PM - 1 AM | Sun-Th",
-    "startTime": "22:00:00"
+    "startTime": "22:00:00",
+    "menu_photo_url": "https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Silliman.jpg"
   },
   {
     "id": "Timothy Dwight",
@@ -101,7 +113,8 @@
     "nickname": "TD Butt",
     "recommend": "Grilled Cheese w/ Popcorn Chicken, Tortizza, Anything fried (they have a fryer!)",
     "textTime": "10 PM - 1 AM | Sun-Th",
-    "startTime": "22:00:00"
+    "startTime": "22:00:00",
+    "menu_photo_url": "https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Timothy Dwight.jpg"
   },
   {
     "id": "Trumbull",
@@ -109,7 +122,8 @@
     "nickname": "The TrumButt",
     "recommend": "Dino Grilled Cheese, Cookies, Ice Cream Sandwich",
     "textTime": "10 PM - 11:30 PM | Sun, M, W; 10 PM - 1 AM | T, Th",
-    "startTime": "22:00:00"
+    "startTime": "22:00:00",
+    "menu_photo_url": "https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Trumbull.jpg"
   },
   {
     "id": "The Acorn",
@@ -117,7 +131,8 @@
     "nickname": "The Acorn",
     "recommend": "Basic #1 Toast, Basic #2 Toast, Espresso",
     "textTime": "9 AM - 8 PM | Daily",
-    "startTime": "09:00:00"
+    "startTime": "09:00:00",
+    "menu_photo_url": "https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/The Acorn.jpg"
   },
   {
     "id": "The Beanjamin",
@@ -125,6 +140,7 @@
     "nickname": "The Beanjamin",
     "recommend": "Matcha Latte, Tea Lemonade, Toasts",
     "textTime": "2 PM - 5 PM | Daily",
-    "startTime": "14:00:00"
+    "startTime": "14:00:00",
+    "menu_photo_url": "https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/The Beanjamin.jpg"
   }
 ]
