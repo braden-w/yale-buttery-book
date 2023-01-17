@@ -160,6 +160,9 @@
 
 <script setup lang="ts">
 import { ref, Ref, onMounted } from 'vue';
+import { useQuasar } from 'quasar';
+const $q = useQuasar();
+
 type MenuItem = {
   Name: string;
   Price?: boolean;
@@ -237,7 +240,7 @@ function toggleSettings() {
 }
 
 const filter = ref(props.search);
-const grid = ref(false);
+const grid = ref($q.screen.lt.md);
 const separator = ref('vertical') as Ref<
   'vertical' | 'horizontal' | 'cell' | 'none'
 >;
