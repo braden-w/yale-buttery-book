@@ -103,7 +103,7 @@
 import { useQuasar } from 'quasar';
 import InstallDialog from 'src/components/InstallDialog.vue';
 import ReportDialog from 'src/components/ReportDialog.vue';
-import { residentialColleges } from 'src/shared/butteries';
+import { butteryDropdownOptions } from 'src/shared/butteries';
 import { isMobile } from 'src/shared/screen';
 
 const $q = useQuasar();
@@ -111,7 +111,7 @@ function reportGeneral() {
   $q.dialog({
     component: ReportDialog,
     componentProps: {
-      placeHolderCollege: residentialColleges[0],
+      placeHolderCollege: butteryDropdownOptions[0],
       placeHolderMessage: 'It would be great if...',
     },
   })

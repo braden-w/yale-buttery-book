@@ -164,15 +164,19 @@ export type Buttery = CachedButtery & ButteryAdditions;
 export let butteries: Buttery[] = [...cachedButteries];
 (async () => (butteries = await loadButteriesFromSheet()))();
 
-export const residentialColleges = [
+export const butteryDropdownOptions = [
   'Errors or Suggestions',
   ...butteries.map((buttery) => `${buttery.nickname} | ${buttery.name}`),
 ];
 
 async function loadButteriesFromSheet() {
-  const res = await fetch(
-    'https://opensheet.elk.sh/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/Calendars'
-  );
-  const json = await res.json();
-  return json;
+  try {
+    const res = await fetch(
+      'https://opensheet.elk.sh/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/Calendars'
+    );
+    const json = await res.json();
+    return json;
+  } catch (err) {
+    return cachedButteries;
+  }
 }
