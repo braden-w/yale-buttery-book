@@ -172,9 +172,9 @@ type MenuItem = {
 };
 
 const props = defineProps({
-  search: {
+  filterCollege: {
     type: String,
-    default: '',
+    default: null,
   },
 });
 
@@ -220,7 +220,12 @@ const toggleColumnNames = columns.map((column) => ({
   label: column.field,
   value: column.field,
 }));
-const visibleColumns = ref(columns.map((column) => column.field));
+const visibleColumns = ref([
+  'Name',
+  'Price',
+  'Residential College',
+  // 'Category',
+]);
 
 const loading = ref(true);
 async function getTableData() {
@@ -228,8 +233,13 @@ async function getTableData() {
   const res = await fetch(
     'https://opensheet.elk.sh/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/Dashboard'
   );
-  const data = await res.json();
-  tableData.value = data as MenuItem[];
+  const data = (await res.json()) as MenuItem[];
+  tableData.value = !props.filterCollege
+    ? data
+    : data.filter(
+        (item: MenuItem) => item['Residential College'] === props.filterCollege
+      );
+
   loading.value = false;
 }
 
@@ -240,7 +250,7 @@ function toggleSettings() {
   showSettings.value = !showSettings.value;
 }
 
-const filter = ref(props.search);
+const filter = ref('');
 const grid = ref($q.screen.lt.md);
 const separator = ref('vertical') as Ref<
   'vertical' | 'horizontal' | 'cell' | 'none'

@@ -89,6 +89,7 @@ module.exports = configure(function (ctx) {
         dark: true,
         brand: {
           primary: '#00356b',
+          secondary: '#BEB7A4',
           accent: '#5f712d',
           'yale-blue-1': '#00356b',
           'yale-blue-2': '#286dc0',
