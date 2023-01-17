@@ -166,7 +166,7 @@ export let butteries: Buttery[] = [...cachedButteries];
 
 export const residentialColleges = [
   'Errors or Suggestions',
-  ...Array.from(new Set(butteries.map((buttery) => buttery.name))),
+  ...butteries.map((buttery) => `${buttery.nickname} | ${buttery.name}`),
 ];
 
 async function loadButteriesFromSheet() {
