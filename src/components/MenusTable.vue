@@ -162,12 +162,13 @@
 <script setup lang="ts">
 import { ref, Ref, onMounted } from 'vue';
 import { useQuasar } from 'quasar';
+import { Buttery } from 'src/shared/butteries';
 const $q = useQuasar();
 
 type MenuItem = {
   Name: string;
   Price?: boolean;
-  'Residential College'?: string;
+  'Residential College'?: Buttery['id'];
   Category?: string;
 };
 
