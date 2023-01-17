@@ -88,7 +88,10 @@
         </q-tab-panel>
 
         <q-tab-panel name="menu">
-          <MenusTable :filterCollege="props.buttery.id" />
+          <MenusTable
+            :filterCollege="props.buttery.id"
+            :visibleColumns="['Name', 'Price', 'Category']"
+          />
         </q-tab-panel>
 
         <q-tab-panel name="calendar">

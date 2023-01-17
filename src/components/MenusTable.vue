@@ -160,10 +160,16 @@
 </template>
 
 <script setup lang="ts">
-import { ref, Ref, onMounted } from 'vue';
+import { ref, Ref, onMounted, PropType } from 'vue';
 import { useQuasar } from 'quasar';
 import { Buttery } from 'src/shared/butteries';
 const $q = useQuasar();
+
+type VisibleColumnChoices =
+  | 'Name'
+  | 'Price'
+  | 'Residential College'
+  | 'Category';
 
 type MenuItem = {
   Name: string;
@@ -176,6 +182,10 @@ const props = defineProps({
   filterCollege: {
     type: String,
     default: null,
+  },
+  visibleColumns: {
+    type: Array as PropType<VisibleColumnChoices[]>,
+    default: () => ['Name', 'Price', 'Residential College'],
   },
 });
 
@@ -221,12 +231,7 @@ const toggleColumnNames = columns.map((column) => ({
   label: column.field,
   value: column.field,
 }));
-const visibleColumns = ref([
-  'Name',
-  'Price',
-  'Residential College',
-  // 'Category',
-]);
+const visibleColumns = ref(props.visibleColumns);
 
 const loading = ref(true);
 async function getTableData() {
