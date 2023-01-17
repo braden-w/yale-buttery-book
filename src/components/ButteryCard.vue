@@ -11,7 +11,7 @@
           "
         >
           <img
-            :src="`/buttery_shields_svgs/${props.buttery?.id}.svg`"
+            :src="`/buttery-shields/${props.buttery?.id}.svg`"
             :alt="props.buttery?.id"
           />
         </q-avatar>
@@ -71,6 +71,7 @@
 
       <q-separator />
 
+      {{ props.buttery?.menu_photo_url }}
       <q-tab-panels v-model="tab" animated>
         <q-tab-panel name="photo">
           <!-- Center the image -->
@@ -78,7 +79,7 @@
             <q-img
               style="max-width: 640px; max-height: 80vh"
               fit="contain"
-              :src="`/menu_photos/${props.buttery?.id}.jpg`"
+              :src="`${props.buttery?.menu_photo_url}`"
               :alt="props.buttery?.id"
               draggable
               v-viewer
@@ -129,7 +130,7 @@ function reportClosed(buttery: Buttery) {
   $q.dialog({
     component: ReportDialog,
     componentProps: {
-      placeHolderCollege: buttery.name,
+      placeHolderCollege: buttery.id,
       placeHolderMessage: 'Closed for today.',
     },
   })
