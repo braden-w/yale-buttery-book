@@ -13,7 +13,7 @@
             App'.
           </p>
           <q-card>
-            <q-img src="~assets/android_install_instructions.png"> </q-img>
+            <q-img src="~assets/AndroidPWAInstallInstructions.png"> </q-img>
           </q-card>
         </q-card-section>
         <q-card-section>
