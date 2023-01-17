@@ -7,7 +7,7 @@ const cachedButteries = [
     textTime: '10 PM - 1 AM | Sun-Th',
     startTime: '22:00:00',
     menu_photo_url:
-      'https://res.cloudinary.com/djwhupcus/image/upload/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Benjamin Franklin.jpg',
+      'https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Benjamin Franklin.jpg',
   },
   {
     id: 'Berkeley',
@@ -17,7 +17,7 @@ const cachedButteries = [
     textTime: '10 PM - 1 AM | Sun-Fri',
     startTime: '22:00:00',
     menu_photo_url:
-      'https://res.cloudinary.com/djwhupcus/image/upload/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Berkeley.jpg',
+      'https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Berkeley.jpg',
   },
   {
     id: 'Branford',
@@ -27,7 +27,7 @@ const cachedButteries = [
     textTime: '10:30 PM - 12:45 AM | Sun-Fri',
     startTime: '22:30:00',
     menu_photo_url:
-      'https://res.cloudinary.com/djwhupcus/image/upload/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Branford.jpg',
+      'https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Branford.jpg',
   },
   {
     id: 'Davenport',
@@ -37,7 +37,7 @@ const cachedButteries = [
     textTime: '10 PM - 12:30 AM | Daily',
     startTime: '22:00:00',
     menu_photo_url:
-      'https://res.cloudinary.com/djwhupcus/image/upload/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Davenport.jpg',
+      'https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Davenport.jpg',
   },
   {
     id: 'Ezra Stiles',
@@ -47,7 +47,7 @@ const cachedButteries = [
     textTime: '10 PM - 12:50 AM | Sun-Th',
     startTime: '22:00:00',
     menu_photo_url:
-      'https://res.cloudinary.com/djwhupcus/image/upload/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Ezra Stiles.jpg',
+      'https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Ezra Stiles.jpg',
   },
   {
     id: 'Grace Hopper',
@@ -57,7 +57,7 @@ const cachedButteries = [
     textTime: '10 PM - 1 AM | Sun-Th',
     startTime: '22:00:00',
     menu_photo_url:
-      'https://res.cloudinary.com/djwhupcus/image/upload/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Grace Hopper.jpg',
+      'https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Grace Hopper.jpg',
   },
   {
     id: 'Jonathan Edwards',
@@ -67,7 +67,7 @@ const cachedButteries = [
     textTime: '9:30 PM - 12:30 AM | Sun-Th',
     startTime: '21:30:00',
     menu_photo_url:
-      'https://res.cloudinary.com/djwhupcus/image/upload/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Jonathan Edwards.jpg',
+      'https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Jonathan Edwards.jpg',
   },
   {
     id: 'Morse',
@@ -77,7 +77,7 @@ const cachedButteries = [
     textTime: '10 PM - 12 AM | Sun-Th',
     startTime: '22:00:00',
     menu_photo_url:
-      'https://res.cloudinary.com/djwhupcus/image/upload/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Morse.jpg',
+      'https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Morse.jpg',
   },
   {
     id: 'Pauli Murray',
@@ -87,7 +87,7 @@ const cachedButteries = [
     textTime: '10 PM - 1 AM | Sun-Th',
     startTime: '22:00:00',
     menu_photo_url:
-      'https://res.cloudinary.com/djwhupcus/image/upload/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Pauli Murray.jpg',
+      'https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Pauli Murray.jpg',
   },
   {
     id: 'Pierson',
@@ -97,7 +97,7 @@ const cachedButteries = [
     textTime: '10:30 PM - 12:30 AM | Sun-Th',
     startTime: '22:30:00',
     menu_photo_url:
-      'https://res.cloudinary.com/djwhupcus/image/upload/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Pierson.jpg',
+      'https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Pierson.jpg',
   },
   {
     id: 'Saybrook',
@@ -107,7 +107,7 @@ const cachedButteries = [
     textTime: '10 PM - 12:45 AM | Sun-Th',
     startTime: '22:00:00',
     menu_photo_url:
-      'https://res.cloudinary.com/djwhupcus/image/upload/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Saybrook.jpg',
+      'https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Saybrook.jpg',
   },
   {
     id: 'Silliman',
@@ -117,7 +117,7 @@ const cachedButteries = [
     textTime: '10 PM - 1 AM | Sun-Th',
     startTime: '22:00:00',
     menu_photo_url:
-      'https://res.cloudinary.com/djwhupcus/image/upload/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Silliman.jpg',
+      'https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Silliman.jpg',
   },
   {
     id: 'Timothy Dwight',
@@ -128,7 +128,7 @@ const cachedButteries = [
     textTime: '10 PM - 1 AM | Sun-Th',
     startTime: '22:00:00',
     menu_photo_url:
-      'https://res.cloudinary.com/djwhupcus/image/upload/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Timothy Dwight.jpg',
+      'https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Timothy Dwight.jpg',
   },
   {
     id: 'Trumbull',
@@ -138,7 +138,7 @@ const cachedButteries = [
     textTime: '10 PM - 11:30 PM | Sun, M, W; 10 PM - 1 AM | T, Th',
     startTime: '22:00:00',
     menu_photo_url:
-      'https://res.cloudinary.com/djwhupcus/image/upload/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Trumbull.jpg',
+      'https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Trumbull.jpg',
     //textTime: "Sun-Th, 9 PM - 10:30 PM; T, Th 11:30 PM - 1 AM"
   },
   {
@@ -149,7 +149,7 @@ const cachedButteries = [
     textTime: '9 AM - 8 PM | Daily',
     startTime: '09:00:00',
     menu_photo_url:
-      'https://res.cloudinary.com/djwhupcus/image/upload/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/The Acorn.jpg',
+      'https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/The Acorn.jpg',
   },
   {
     id: 'The Beanjamin',
@@ -159,7 +159,7 @@ const cachedButteries = [
     textTime: '2 PM - 5 PM | Daily',
     startTime: '14:00:00',
     menu_photo_url:
-      'https://res.cloudinary.com/djwhupcus/image/upload/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/The Beanjamin.jpg',
+      'https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/The Beanjamin.jpg',
   },
 ] as const;
 
@@ -191,7 +191,7 @@ async function loadButteriesFromSheet() {
       'https://opensheet.elk.sh/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/Calendars'
     );
     const json = await res.json();
-    return cachedButteries;
+    return json;
   } catch (err) {
     return cachedButteries;
   }
