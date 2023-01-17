@@ -1,6 +1,81 @@
-const cachedButteries = [
+const residentialColleges = [
+  'Benjamin Franklin',
+  'Berkeley',
+  'Branford',
+  'Davenport',
+  'Ezra Stiles',
+  'Grace Hopper',
+  'Jonathan Edwards',
+  'Morse',
+  'Pauli Murray',
+  'Pierson',
+  'Saybrook',
+  'Silliman',
+  'Timothy Dwight',
+  'Trumbull',
+] as const;
+
+const butteryIds = [
+  'Benjamin Franklin',
+  'Berkeley',
+  'Branford',
+  'Davenport',
+  'Ezra Stiles',
+  'Grace Hopper',
+  'Jonathan Edwards',
+  'Morse',
+  'Pauli Murray',
+  'Pierson',
+  'Saybrook',
+  'Silliman',
+  'Timothy Dwight',
+  'Trumbull',
+  'The Acorn',
+  'The Beanjamin',
+] as const;
+
+const butteryNicknames = [
+  "Ben's Butt",
+  "Marvin's",
+  'The Nuttery',
+  'The Dive',
+  'Moose Butt',
+  'The Trolley Stop',
+  'JE Buttery',
+  'The Morsel',
+  'MY Butt',
+  'Pierson Knight Club',
+  'The Squiche',
+  'Sillicafe',
+  'TD Butt',
+  'The TrumButt',
+  'The Acorn',
+  'The Beanjamin',
+] as const;
+
+type ButteryId = typeof butteryIds[number];
+type ResidentialCollege = typeof residentialColleges[number];
+type ButteryNickname = typeof butteryNicknames[number];
+
+export type Buttery = {
+  id: ButteryId;
+  residentialCollegeLocation: ResidentialCollege;
+  calendarID: string;
+  /*** Unique key that we'll use to identify this buttery */
+  nickname: ButteryNickname;
+  recommend: string;
+  textTime: string;
+  /*** The daily start time represented in 00:00:00 format. This is used to focus the calendar view on the appropriate time of day without scrolling for each buttery. */
+  startTime: string;
+  menu_photo_url: string;
+  isOpen?: boolean;
+  opensIn?: string;
+};
+
+const cachedButteries: Buttery[] = [
   {
     id: 'Benjamin Franklin',
+    residentialCollegeLocation: 'Benjamin Franklin',
     calendarID: 'c_qh7c9stu3qr3hh7nj68gvc12nc@group.calendar.google.com',
     nickname: "Ben's Butt",
     recommend: 'Vegan Quesadilla, Fries',
@@ -11,6 +86,7 @@ const cachedButteries = [
   },
   {
     id: 'Berkeley',
+    residentialCollegeLocation: 'Berkeley',
     calendarID: 'c_18ghppn0o4coealtrqf4m876jo@group.calendar.google.com',
     nickname: "Marvin's",
     recommend: 'BK Special, Pancakes, Nutellawich',
@@ -21,6 +97,7 @@ const cachedButteries = [
   },
   {
     id: 'Branford',
+    residentialCollegeLocation: 'Branford',
     calendarID: 'c_0vl82r4qhr2sshm97s843g9ju8@group.calendar.google.com',
     nickname: 'The Nuttery',
     recommend: 'The Chin, Circle of Life, Mario Melt',
@@ -31,6 +108,7 @@ const cachedButteries = [
   },
   {
     id: 'Davenport',
+    residentialCollegeLocation: 'Davenport',
     calendarID: 'c_ljjasqrqmi61clcb7q8grhmh5o@group.calendar.google.com',
     nickname: 'The Dive',
     recommend: 'RJR, BBQQ, Goldilocks Waffles',
@@ -41,6 +119,7 @@ const cachedButteries = [
   },
   {
     id: 'Ezra Stiles',
+    residentialCollegeLocation: 'Ezra Stiles',
     calendarID: 'c_2sd6ipbve5qecpbvjk6n4krm88@group.calendar.google.com',
     nickname: 'Moose Butt',
     recommend: 'The Ezra, Jambler, Monkey Madness',
@@ -51,6 +130,7 @@ const cachedButteries = [
   },
   {
     id: 'Grace Hopper',
+    residentialCollegeLocation: 'Grace Hopper',
     calendarID: 'c_jpohh0fj3bjf9oa50uqhdsn210@group.calendar.google.com',
     nickname: 'The Trolley Stop',
     recommend: "Flying Pig, Buff Chik Ques, Cup O' Crack",
@@ -61,6 +141,7 @@ const cachedButteries = [
   },
   {
     id: 'Jonathan Edwards',
+    residentialCollegeLocation: 'Jonathan Edwards',
     calendarID: 'c_vidd8mkjnfknj5gf2qvsdo35o0@group.calendar.google.com',
     nickname: 'JE Buttery',
     recommend: "Allie's Cookies & Cream, The Fernandilla, Chicken Tenders",
@@ -71,6 +152,7 @@ const cachedButteries = [
   },
   {
     id: 'Morse',
+    residentialCollegeLocation: 'Morse',
     calendarID: 'c_t94grhoctefff88he108qrfrks@group.calendar.google.com',
     nickname: 'The Morsel',
     recommend: 'Jim Stanley, The Thing Joe Gets, Bagels, The Austin',
@@ -81,6 +163,7 @@ const cachedButteries = [
   },
   {
     id: 'Pauli Murray',
+    residentialCollegeLocation: 'Pauli Murray',
     calendarID: 'c_v7d6qo6iu5s3dnq2hj852ccvkc@group.calendar.google.com',
     nickname: 'MY Butt',
     recommend: 'Fried Rice w/ Kimchi, Boba, French Toast',
@@ -91,6 +174,7 @@ const cachedButteries = [
   },
   {
     id: 'Pierson',
+    residentialCollegeLocation: 'Pierson',
     calendarID: 'c_be16luiqg08s5fjbtl48klg0qg@group.calendar.google.com',
     nickname: 'Pierson Knight Club',
     recommend: 'the PCK Ques, CJ Wrap, Mango Smoothie',
@@ -101,6 +185,7 @@ const cachedButteries = [
   },
   {
     id: 'Saybrook',
+    residentialCollegeLocation: 'Saybrook',
     calendarID: 'c_h4k4tdrsial6if89k2qmuq0sic@group.calendar.google.com',
     nickname: 'The Squiche',
     recommend: 'Manliestwich, Mozzliestwich, Crepe w/ Ice Cream',
@@ -111,6 +196,7 @@ const cachedButteries = [
   },
   {
     id: 'Silliman',
+    residentialCollegeLocation: 'Silliman',
     calendarID: 'c_g2hs55m8rdnjo7ulvdm97k6jpk@group.calendar.google.com',
     nickname: 'Sillicafe',
     recommend: 'Curly Fries, Hot Chocolate, Apple Cider',
@@ -121,6 +207,7 @@ const cachedButteries = [
   },
   {
     id: 'Timothy Dwight',
+    residentialCollegeLocation: 'Timothy Dwight',
     calendarID: 'c_5se1ib9s1al5e2vmtn7sgjrfmk@group.calendar.google.com',
     nickname: 'TD Butt',
     recommend:
@@ -132,6 +219,7 @@ const cachedButteries = [
   },
   {
     id: 'Trumbull',
+    residentialCollegeLocation: 'Trumbull',
     calendarID: 'c_fqjk0og8tsg22m9c5hpjochn9k@group.calendar.google.com',
     nickname: 'The TrumButt',
     recommend: 'Dino Grilled Cheese, Cookies, Ice Cream Sandwich',
@@ -143,6 +231,7 @@ const cachedButteries = [
   },
   {
     id: 'The Acorn',
+    residentialCollegeLocation: 'Silliman',
     calendarID: 'c_v18l89ksargnv5mo088c5urc14@group.calendar.google.com',
     nickname: 'The Acorn',
     recommend: 'Basic #1 Toast, Basic #2 Toast, Espresso',
@@ -153,6 +242,7 @@ const cachedButteries = [
   },
   {
     id: 'The Beanjamin',
+    residentialCollegeLocation: 'Benjamin Franklin',
     calendarID: 'c_ksuav38sq7npf9g4f054p7680o@group.calendar.google.com',
     nickname: 'The Beanjamin',
     recommend: 'Matcha Latte, Tea Lemonade, Toasts',
@@ -161,21 +251,7 @@ const cachedButteries = [
     menu_photo_url:
       'https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/The Beanjamin.jpg',
   },
-] as const;
-
-type ButteryAdditions = { isOpen?: boolean; opensIn?: string };
-type CachedButtery = {
-  id: typeof cachedButteries[number]['id'];
-  calendarID: typeof cachedButteries[number]['calendarID'];
-  /*** Unique key that we'll use to identify this buttery */
-  nickname: typeof cachedButteries[number]['nickname'];
-  recommend: typeof cachedButteries[number]['recommend'];
-  textTime: typeof cachedButteries[number]['textTime'];
-  /*** The daily start time represented in 00:00:00 format. This is used to focus the calendar view on the appropriate time of day without scrolling for each buttery. */
-  startTime: typeof cachedButteries[number]['startTime'];
-  menu_photo_url: typeof cachedButteries[number]['menu_photo_url'];
-};
-export type Buttery = CachedButtery & ButteryAdditions;
+];
 
 export let butteries: Buttery[] = [...cachedButteries];
 (async () => (butteries = await loadButteriesFromSheet()))();
