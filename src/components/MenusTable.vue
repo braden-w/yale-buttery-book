@@ -239,7 +239,7 @@ const loading = ref(true);
 async function getTableData() {
   loading.value = true;
   const res = await fetch(
-    'https://opensheet.elk.sh/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/Dashboard'
+    'https://opensheet.elk.sh/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/Menus'
   );
   const data = (await res.json()) as MenuItem[];
   tableData.value = !props.filterCollege
