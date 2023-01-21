@@ -19,48 +19,7 @@
       <q-item-section>
         <q-item-label overline>
           {{ props.buttery.id }}
-          <q-badge
-            v-if="props.buttery.verified === 'OPEN'"
-            rounded
-            color="blue"
-          >
-            <q-icon name="check" size="0.75em" />
-            <q-tooltip
-              class="text-body2"
-              :anchor="!isMobile() ? 'center right' : undefined"
-              :self="!isMobile() ? 'center left' : undefined"
-              @click.stop
-            >
-              Buttery Staff verifies that today is open
-            </q-tooltip>
-          </q-badge>
-          <q-badge
-            v-else-if="props.buttery.verified === 'CLOSED'"
-            rounded
-            color="red"
-          >
-            <q-icon name="close" size="0.75em" />
-            <q-tooltip
-              class="text-body2"
-              :anchor="!isMobile() ? 'center right' : undefined"
-              :self="!isMobile() ? 'center left' : undefined"
-              @click.stop
-            >
-              Buttery Staff verifies that today is closed
-            </q-tooltip>
-          </q-badge>
-          <q-badge v-else rounded color="amber">
-            <q-icon name="" size="0.75em" />
-            <q-tooltip
-              class="text-body2"
-              :anchor="!isMobile() ? 'center right' : undefined"
-              :self="!isMobile() ? 'center left' : undefined"
-              @click.stop
-            >
-              Buttery Staff has not yet verified today, going by default
-              schedule
-            </q-tooltip>
-          </q-badge>
+          <ButteryCardVerifiedTooltips :verified="props.buttery.verified"/>
         </q-item-label>
         <q-item-label>
           {{ props.buttery.nickname }}
@@ -172,10 +131,11 @@
 import { ref, PropType } from 'vue';
 import { Buttery } from 'src/shared/butteries';
 import MenusTable from 'src/components/MenusTable/MenusTable.vue';
-import ButteryCardCalendar from 'src/components/ButteryCardCalendar.vue';
-import { useQuasar } from 'quasar';
+import ButteryCardCalendar from 'src/components/ButteryCard/ButteryCardCalendar.vue';
+import ButteryCardVerifiedTooltips from 'src/components/ButteryCard/ButteryCardVerifiedTooltips.vue';
 import ReportDialog from 'src/components/ReportDialog.vue';
 import { isMobile } from 'src/shared/screen';
+import { useQuasar } from 'quasar';
 
 const props = defineProps({
   buttery: {
