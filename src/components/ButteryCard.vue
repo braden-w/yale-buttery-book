@@ -27,8 +27,8 @@
             <q-icon name="check" size="0.75em" />
             <q-tooltip
               class="text-body2"
-              anchor="center right"
-              self="center left"
+              :anchor="!isMobile() ? 'center right' : undefined"
+              :self="!isMobile() ? 'center left' : undefined"
               @click.stop
             >
               Buttery Staff verifies that today is open
@@ -42,8 +42,8 @@
             <q-icon name="close" size="0.75em" />
             <q-tooltip
               class="text-body2"
-              anchor="center right"
-              self="center left"
+              :anchor="!isMobile() ? 'center right' : undefined"
+              :self="!isMobile() ? 'center left' : undefined"
               @click.stop
             >
               Buttery Staff verifies that today is closed
@@ -53,8 +53,8 @@
             <q-icon name="" size="0.75em" />
             <q-tooltip
               class="text-body2"
-              anchor="center right"
-              self="center left"
+              :anchor="!isMobile() ? 'center right' : undefined"
+              :self="!isMobile() ? 'center left' : undefined"
               @click.stop
             >
               Buttery Staff has not yet verified today, going by default
