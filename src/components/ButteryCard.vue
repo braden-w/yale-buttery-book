@@ -25,7 +25,12 @@
             color="blue"
           >
             <q-icon name="check" size="0.75em" />
-            <q-tooltip class="text-body2" @click.stop>
+            <q-tooltip
+              class="text-body2"
+              anchor="center right"
+              self="center left"
+              @click.stop
+            >
               Buttery Staff verifies that today is open
             </q-tooltip>
           </q-badge>
@@ -35,13 +40,23 @@
             color="red"
           >
             <q-icon name="close" size="0.75em" />
-            <q-tooltip class="text-body2" @click.stop>
+            <q-tooltip
+              class="text-body2"
+              anchor="center right"
+              self="center left"
+              @click.stop
+            >
               Buttery Staff verifies that today is closed
             </q-tooltip>
           </q-badge>
           <q-badge v-else rounded color="amber">
             <q-icon name="" size="0.75em" />
-            <q-tooltip class="text-body2" @click.stop>
+            <q-tooltip
+              class="text-body2"
+              anchor="center right"
+              self="center left"
+              @click.stop
+            >
               Buttery Staff has not yet verified today, going by default
               schedule
             </q-tooltip>
