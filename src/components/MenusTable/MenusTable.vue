@@ -175,10 +175,17 @@ const props = defineProps({
     default: null,
   },
   visibleColumns: {
-    type: Array as PropType<VisibleColumnChoices[]>,
+    type: Array as PropType<ColumnName[]>,
     default: () => ['Name', 'Price', 'Residential College'],
   },
 });
+
+const { isLoading, data: tableData } = useQuery({
+  queryKey: ['menus', props.filterId] as [string, Buttery['id']],
+  queryFn: ({ queryKey }) => getTableData(queryKey[1]),
+});
+const queryClient = useQueryClient();
+const refresh = () => queryClient.invalidateQueries({ queryKey: ['todos'] });
 
 const pagination = ref({
   sortBy: 'desc',
@@ -217,22 +224,11 @@ const columns: Column[] = [
     sortable: true,
   },
 ];
-
 const toggleColumnNames = columns.map((column) => ({
   label: column.field,
   value: column.field,
 }));
 const visibleColumns = ref(props.visibleColumns);
-
-const {
-  isLoading,
-  data: tableData,
-} = useQuery({
-  queryKey: ['menus', props.filterId] as [string, Buttery['id']],
-  queryFn: ({ queryKey }) => getTableData(queryKey[1]),
-});
-const queryClient = useQueryClient();
-const refresh = () => queryClient.invalidateQueries({ queryKey: ['todos'] });
 
 const showSettings = ref(false);
 function toggleSettings() {
