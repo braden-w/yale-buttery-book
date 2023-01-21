@@ -6,7 +6,7 @@ type RowMenuItem = {
   'Residential College'?: Buttery['id'];
   Category?: string;
 };
-export type VisibleColumnChoices = keyof RowMenuItem;
+export type ColumnName = keyof RowMenuItem;
 export async function getTableData(filterId: Buttery['id'] | null = null) {
   const res = await fetch(
     'https://opensheet.elk.sh/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/Menus'
@@ -20,9 +20,9 @@ export async function getTableData(filterId: Buttery['id'] | null = null) {
 }
 
 export type Column = {
-  name: VisibleColumnChoices;
-  label: VisibleColumnChoices;
-  field: VisibleColumnChoices;
+  name: ColumnName;
+  label: ColumnName;
+  field: ColumnName;
   align?: 'left' | 'right' | 'center';
   sortable?: boolean;
   required?: boolean;
