@@ -168,19 +168,6 @@ import { Buttery } from 'src/shared/butteries';
 import { useQuery } from '@tanstack/vue-query';
 const $q = useQuasar();
 
-type VisibleColumnChoices =
-  | 'Name'
-  | 'Price'
-  | 'Residential College'
-  | 'Category';
-
-type MenuItem = {
-  Name: string;
-  Price?: boolean;
-  'Residential College'?: Buttery['id'];
-  Category?: string;
-};
-
 const props = defineProps({
   filterCollege: {
     type: String,
@@ -192,12 +179,22 @@ const props = defineProps({
   },
 });
 
+type MenuItem = {
+  Name: string;
+  Price?: boolean;
+  'Residential College'?: Buttery['id'];
+  Category?: string;
+};
+
+type VisibleColumnChoices = keyof MenuItem;
+
 const pagination = ref({
   sortBy: 'desc',
   descending: false,
   page: 1,
   rowsPerPage: 300,
 });
+
 type Column = {
   name: VisibleColumnChoices;
   label: VisibleColumnChoices;
