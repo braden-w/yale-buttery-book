@@ -11,14 +11,14 @@
           "
         >
           <img
-            :src="`/buttery-shields/${props.buttery?.id}.svg`"
-            :alt="props.buttery?.id"
+            :src="`/buttery-shields/${props.buttery.id}.svg`"
+            :alt="props.buttery.id"
           />
         </q-avatar>
       </q-item-section>
       <q-item-section>
         <q-item-label overline>
-          {{ props.buttery?.id }}
+          {{ props.buttery.id }}
           <q-badge
             v-if="props.buttery.verified === 'OPEN'"
             rounded
@@ -48,13 +48,13 @@
           </q-badge>
         </q-item-label>
         <q-item-label>
-          {{ props.buttery?.nickname }}
+          {{ props.buttery.nickname }}
         </q-item-label>
         <q-item-label caption>
-          <span>{{ props.buttery?.textTime }}</span>
+          <span>{{ props.buttery.textTime }}</span>
           <br />
           <span class="text-warning">
-            {{ props.buttery?.opensIn }}
+            {{ props.buttery.opensIn }}
           </span>
         </q-item-label>
       </q-item-section>
@@ -85,7 +85,7 @@
           <q-icon name="breakfast_dining" color="white" />
         </template>
         <div class="text-subtitle2 text-center">
-          Buttery Book Recommends: {{ props.buttery?.recommend }}
+          Buttery Book Recommends: {{ props.buttery.recommend }}
         </div>
       </q-banner>
 
@@ -109,8 +109,8 @@
             <q-img
               style="max-width: 640px; max-height: 80vh"
               fit="contain"
-              :src="`${props.buttery?.menu_photo_url}`"
-              :alt="props.buttery?.id"
+              :src="`${props.buttery.menu_photo_url}`"
+              :alt="props.buttery.id"
               v-viewer="{
                 inline: false,
                 button: true,
