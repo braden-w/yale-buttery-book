@@ -19,7 +19,7 @@
       <q-item-section>
         <q-item-label overline>
           {{ props.buttery.id }}
-          <ButteryCardVerifiedTooltips :verified="props.buttery.verified"/>
+          <ButteryCardVerifiedTooltips :verified="props.buttery.verified" />
         </q-item-label>
         <q-item-label>
           {{ props.buttery.nickname }}
