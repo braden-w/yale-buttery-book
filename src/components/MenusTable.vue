@@ -57,7 +57,7 @@
       :filter="filter"
       :separator="separator"
       row-key="Name"
-      :loading="loading"
+      :loading="isLoading"
       rows-per-page-label="Snacks per page"
       :pagination="pagination"
       :visible-columns="visibleColumns"
@@ -165,6 +165,7 @@
 import { ref, Ref, onMounted, PropType } from 'vue';
 import { useQuasar } from 'quasar';
 import { Buttery } from 'src/shared/butteries';
+import { useQuery } from '@tanstack/vue-query';
 const $q = useQuasar();
 
 type VisibleColumnChoices =
@@ -197,8 +198,15 @@ const pagination = ref({
   page: 1,
   rowsPerPage: 300,
 });
-const tableData: Ref<MenuItem[]> = ref([]);
-const columns = [
+type Column = {
+  name: VisibleColumnChoices;
+  label: VisibleColumnChoices;
+  field: VisibleColumnChoices;
+  align?: 'left' | 'right' | 'center';
+  sortable?: boolean;
+  required?: boolean;
+};
+const columns: Column[] = [
   {
     name: 'Name',
     label: 'Name',
@@ -235,23 +243,28 @@ const toggleColumnNames = columns.map((column) => ({
 }));
 const visibleColumns = ref(props.visibleColumns);
 
-const loading = ref(true);
+const {
+  isLoading,
+  isFetching,
+  isError,
+  data: tableData,
+  error,
+} = useQuery({
+  queryKey: ['menus'],
+  queryFn: getTableData,
+});
+
 async function getTableData() {
-  loading.value = true;
   const res = await fetch(
     'https://opensheet.elk.sh/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/Menus'
   );
   const data = (await res.json()) as MenuItem[];
-  tableData.value = !props.filterCollege
+  return !props.filterCollege
     ? data
     : data.filter(
         (item: MenuItem) => item['Residential College'] === props.filterCollege
       );
-
-  loading.value = false;
 }
-
-getTableData();
 
 const showSettings = ref(false);
 function toggleSettings() {
