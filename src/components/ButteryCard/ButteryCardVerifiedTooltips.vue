@@ -4,6 +4,7 @@
     rounded
     color="blue"
     @click.stop="showTooltip"
+    ref="tooltip"
   >
     <q-icon name="check" size="0.75em" />
     <q-tooltip
@@ -11,7 +12,6 @@
       :anchor="!isMobile() ? 'center right' : undefined"
       :self="!isMobile() ? 'center left' : undefined"
       v-model="showing"
-      ref="tooltip"
     >
       Buttery Staff verifies that today is open
     </q-tooltip>
@@ -21,6 +21,7 @@
     rounded
     color="red"
     @click.stop="showTooltip"
+    ref="tooltip"
   >
     <q-icon name="close" size="0.75em" />
     <q-tooltip
@@ -28,19 +29,17 @@
       :anchor="!isMobile() ? 'center right' : undefined"
       :self="!isMobile() ? 'center left' : undefined"
       v-model="showing"
-      ref="tooltip"
     >
       Buttery Staff verifies that today is closed
     </q-tooltip>
   </q-badge>
-  <q-badge v-else rounded color="amber" @click.stop="showTooltip">
+  <q-badge v-else rounded color="amber" @click.stop="showTooltip" ref="tooltip">
     <q-icon name="" size="0.75em" />
     <q-tooltip
       class="text-body2"
       :anchor="!isMobile() ? 'center right' : undefined"
       :self="!isMobile() ? 'center left' : undefined"
       v-model="showing"
-      ref="tooltip"
     >
       Buttery Staff has not yet verified today, going by default schedule
     </q-tooltip>
