@@ -17,8 +17,39 @@
         </q-avatar>
       </q-item-section>
       <q-item-section>
-        <q-item-label overline>{{ props.buttery?.id }}</q-item-label>
-        <q-item-label>{{ props.buttery?.nickname }}</q-item-label>
+        <q-item-label overline>
+          {{ props.buttery?.id }}
+          <q-badge
+            v-if="props.buttery.verified === 'OPEN'"
+            rounded
+            color="blue"
+          >
+            <q-icon name="check" size="0.75em" />
+            <q-tooltip class="text-body2">
+              Buttery Staff verifies that today is open
+            </q-tooltip>
+          </q-badge>
+          <q-badge
+            v-else-if="props.buttery.verified === 'CLOSED'"
+            rounded
+            color="red"
+          >
+            <q-icon name="close" size="0.75em" />
+            <q-tooltip class="text-body2">
+              Buttery Staff verifies that today is closed
+            </q-tooltip>
+          </q-badge>
+          <q-badge v-else rounded color="amber">
+            <q-icon name="" size="0.75em" />
+            <q-tooltip class="text-body2">
+              Buttery Staff has not verified today yet (going by default
+              schedule)
+            </q-tooltip>
+          </q-badge>
+        </q-item-label>
+        <q-item-label>
+          {{ props.buttery?.nickname }}
+        </q-item-label>
         <q-item-label caption>
           <span>{{ props.buttery?.textTime }}</span>
           <br />
