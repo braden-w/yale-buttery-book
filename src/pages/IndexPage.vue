@@ -45,8 +45,8 @@
       <q-card flat class="q-mb-md">
         <q-card-section class="text-h5">Currently Open</q-card-section>
         <q-separator inset />
-        <q-card-section v-if="OpenButteryCardList.length !== 0">
-          <ButteryCardList :butteries="OpenButteryCardList" />
+        <q-card-section v-if="openButteryCardList.length !== 0">
+          <ButteryCardList :butteries="openButteryCardList" />
         </q-card-section>
         <q-card-section v-else>
           <q-item>
@@ -62,12 +62,11 @@
           <q-space />
         </q-card-section>
       </q-card>
-
       <q-card flat>
         <q-card-section class="text-h5">Currently Closed</q-card-section>
         <q-separator inset />
-        <q-card-section v-if="ClosedButteryCardList.length !== 0">
-          <ButteryCardList :butteries="ClosedButteryCardList" />
+        <q-card-section v-if="closedButteryCardList.length !== 0">
+          <ButteryCardList :butteries="closedButteryCardList" />
         </q-card-section>
         <q-card-section v-else>
           <q-item>
@@ -88,19 +87,15 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue';
+import { computed, ref, watch } from 'vue';
 import InstallDialog from 'src/components/InstallDialog.vue';
 import ButteryCardList from 'src/components/ButteryCardList.vue';
 import { useQuasar } from 'quasar';
-import { onBeforeRouteLeave } from 'vue-router';
-import {
-  OpenButteryCardList,
-  ClosedButteryCardList,
-  startSync,
-  stopSync,
-  refreshGcalButterySchedule,
-  clearButteryCardListAndRefreshButteries,
-} from 'src/shared/syncButteries';
+import { refreshGcalButterySchedule } from 'src/shared/syncButteries';
+import { useQuery, useQueryClient } from '@tanstack/vue-query';
+import { defaultButteries, loadButteriesFromSheet } from 'src/shared/butteries';
+import { Buttery } from 'src/shared/butteries';
+import { formatDistance } from 'date-fns';
 
 const openInstallDialog = () => {
   $q.dialog({
@@ -108,13 +103,87 @@ const openInstallDialog = () => {
   });
 };
 
-startSync();
+const { data: butteries } = useQuery({
+  queryKey: ['butteries'],
+  queryFn: loadButteriesFromSheet,
+  initialData: defaultButteries,
+  refetchInterval: 1000 * 60 * 60 * 24,
+});
 
+const enabled = computed(() => {
+  return !!butteries.value;
+});
+
+const { data: gcalButterySchedule } = useQuery({
+  queryKey: ['gcalButterySchedule', butteries.value] as [string, Buttery[]],
+  queryFn: ({ queryKey }) => refreshGcalButterySchedule(queryKey[1]),
+  initialData: null,
+  refetchInterval: 1000 * 60,
+  enabled,
+});
+
+const queryClient = useQueryClient();
 async function pullRefresh(done: () => void): Promise<void> {
-  await refreshGcalButterySchedule();
-  clearButteryCardListAndRefreshButteries();
+  await queryClient.invalidateQueries({ queryKey: ['gcalButterySchedule'] });
   done();
 }
+
+/*** List of butteries */
+const butteryCardList = computed(() => {
+  const now = new Date();
+  return butteries.value.map((buttery) => {
+    const currentEvent = gcalButterySchedule.value?.[buttery.calendarID].busy
+      .map((event) => {
+        const eventRange = {
+          start: new Date(event.start),
+          end: new Date(event.end),
+        };
+        if (eventRange.start <= now && eventRange.end >= now) return eventRange;
+      })
+      .filter(Boolean)
+      .shift();
+    const nextEvent = gcalButterySchedule.value?.[buttery.calendarID].busy
+      .map((event) => {
+        const eventRange = {
+          start: new Date(event.start),
+          end: new Date(event.end),
+        };
+        if (eventRange.start > now) return eventRange;
+      })
+      .filter(Boolean)
+      .shift();
+    const timeToClose = formatDistance(
+      currentEvent ? currentEvent.end.getTime() - now.getTime() : 0,
+      0,
+      {
+        addSuffix: true,
+        includeSeconds: true,
+      }
+    );
+    const timeToOpen = formatDistance(
+      nextEvent ? nextEvent.start.getTime() - now.getTime() : 0,
+      0,
+      {
+        addSuffix: true,
+        includeSeconds: true,
+      }
+    );
+    return {
+      isOpen: currentEvent ? true : false,
+      opensIn: currentEvent ? `Closes ${timeToClose}` : `Opens ${timeToOpen}`,
+      ...buttery,
+    };
+  });
+});
+
+/*** List of butteries that are currently open */
+const openButteryCardList = computed(() => {
+  return butteryCardList.value.filter((buttery) => buttery.isOpen);
+});
+/*** List of butteries that are currently closed */
+const closedButteryCardList = computed(() => {
+  return butteryCardList.value.filter((buttery) => !buttery.isOpen);
+});
 
 const banner = ref(true);
 
@@ -122,18 +191,18 @@ const banner = ref(true);
 const $q = useQuasar();
 watch(
   () => $q.appVisible,
-  (val) => {
-    console.log(val ? 'App became visible' : 'App went in the background');
-    if (val) {
-      startSync();
-    } else {
-      stopSync();
+  (isVisible) => {
+    console.log(
+      isVisible ? 'App became visible' : 'App went in the background'
+    );
+    if (isVisible) {
+      queryClient.invalidateQueries({
+        queryKey: ['butteries'],
+      });
+      queryClient.invalidateQueries({
+        queryKey: ['gcalButterySchedule'],
+      });
     }
   }
 );
-
-// --- Routing ---
-onBeforeRouteLeave(() => {
-  stopSync();
-});
 </script>

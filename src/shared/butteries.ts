@@ -1,4 +1,52 @@
-const cachedButteries = [
+import { QueryClient } from '@tanstack/vue-query';
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: Infinity,
+    },
+  },
+});
+
+const butteryIds = [
+  'Benjamin Franklin',
+  'Berkeley',
+  'Branford',
+  'Davenport',
+  'Ezra Stiles',
+  'Grace Hopper',
+  'Jonathan Edwards',
+  'Morse',
+  'Pauli Murray',
+  'Pierson',
+  'Saybrook',
+  'Silliman',
+  'Timothy Dwight',
+  'Trumbull',
+  'The Acorn',
+  'The Beanjamin',
+] as const;
+
+const butteryNicknames = [
+  "Ben's Butt",
+  "Marvin's",
+  'The Nuttery',
+  'The Dive',
+  'Moose Butt',
+  'The Trolley Stop',
+  'JE Buttery',
+  'The Morsel',
+  'MY Butt',
+  'Pierson Knight Club',
+  'The Squiche',
+  'Sillicafe',
+  'TD Butt',
+  'The TrumButt',
+  'The Acorn',
+  'The Beanjamin',
+] as const;
+
+export const defaultButteries: Buttery[] = [
   {
     id: 'Benjamin Franklin',
     calendarID: 'c_qh7c9stu3qr3hh7nj68gvc12nc@group.calendar.google.com',
@@ -161,38 +209,36 @@ const cachedButteries = [
     menu_photo_url:
       'https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/The Beanjamin.jpg',
   },
-] as const;
+];
 
-type ButteryAdditions = { isOpen?: boolean; opensIn?: string };
-type CachedButtery = {
-  id: typeof cachedButteries[number]['id'];
-  calendarID: typeof cachedButteries[number]['calendarID'];
+export type Buttery = {
+  id: typeof butteryIds[number];
+  calendarID: string;
   /*** Unique key that we'll use to identify this buttery */
-  nickname: typeof cachedButteries[number]['nickname'];
-  recommend: typeof cachedButteries[number]['recommend'];
-  textTime: typeof cachedButteries[number]['textTime'];
+  nickname: typeof butteryNicknames[number];
+  recommend: string;
+  textTime: string;
   /*** The daily start time represented in 00:00:00 format. This is used to focus the calendar view on the appropriate time of day without scrolling for each buttery. */
-  startTime: typeof cachedButteries[number]['startTime'];
-  menu_photo_url: typeof cachedButteries[number]['menu_photo_url'];
+  startTime: string;
+  menu_photo_url: string;
+  isOpen?: boolean;
+  opensIn?: string;
 };
-export type Buttery = CachedButtery & ButteryAdditions;
 
-export let butteries: Buttery[] = [...cachedButteries];
-(async () => (butteries = await loadButteriesFromSheet()))();
+const butteries = await queryClient.ensureQueryData({
+  queryKey: ['butteries'],
+  queryFn: loadButteriesFromSheet,
+});
 
 export const butteryDropdownOptions = [
   'Errors or Suggestions',
   ...butteries.map((buttery) => `${buttery.nickname} | ${buttery.id}`),
 ];
 
-async function loadButteriesFromSheet() {
-  try {
-    const res = await fetch(
-      'https://opensheet.elk.sh/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/Calendars'
-    );
-    const json = await res.json();
-    return json;
-  } catch (err) {
-    return cachedButteries;
-  }
+export async function loadButteriesFromSheet() {
+  const res = await fetch(
+    'https://opensheet.elk.sh/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/Calendars'
+  );
+  const json = (await res.json()) as Buttery[];
+  return json;
 }
