@@ -91,7 +91,6 @@ import { computed, ref, watch } from 'vue';
 import InstallDialog from 'src/components/InstallDialog.vue';
 import ButteryCardList from 'src/components/ButteryCardList.vue';
 import { useQuasar } from 'quasar';
-import { onBeforeRouteLeave } from 'vue-router';
 import { refreshGcalButterySchedule } from 'src/shared/syncButteries';
 import { useQuery, useQueryClient } from '@tanstack/vue-query';
 import { defaultButteries, loadButteriesFromSheet } from 'src/shared/butteries';
