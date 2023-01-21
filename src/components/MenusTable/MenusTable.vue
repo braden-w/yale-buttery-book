@@ -13,7 +13,7 @@
           <q-icon name="search" />
         </template>
         <template #after>
-          <q-btn flat icon="refresh" @click="getTableData"></q-btn>
+          <q-btn flat icon="refresh" @click="refresh"></q-btn>
           <q-btn
             flat
             :icon="showSettings ? 'expand_less' : 'expand_more'"
@@ -164,13 +164,14 @@
 <script setup lang="ts">
 import { ref, Ref, onMounted, PropType } from 'vue';
 import { useQuasar } from 'quasar';
+import { useQuery, useQueryClient } from '@tanstack/vue-query';
+import { Column, VisibleColumnChoices, getTableData } from './getTableData';
 import { Buttery } from 'src/shared/butteries';
-import { useQuery } from '@tanstack/vue-query';
 const $q = useQuasar();
 
 const props = defineProps({
-  filterCollege: {
-    type: String,
+  filterId: {
+    type: String as PropType<Buttery['id']>,
     default: null,
   },
   visibleColumns: {
@@ -179,27 +180,6 @@ const props = defineProps({
   },
 });
 
-async function getTableData() {
-  const res = await fetch(
-    'https://opensheet.elk.sh/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/Menus'
-  );
-  const data = (await res.json()) as RowMenuItem[];
-  return !props.filterCollege
-    ? data
-    : data.filter(
-        (item: RowMenuItem) =>
-          item['Residential College'] === props.filterCollege
-      );
-}
-
-type RowMenuItem = {
-  Name: string;
-  Price?: boolean;
-  'Residential College'?: Buttery['id'];
-  Category?: string;
-};
-type VisibleColumnChoices = keyof RowMenuItem;
-
 const pagination = ref({
   sortBy: 'desc',
   descending: false,
@@ -207,14 +187,6 @@ const pagination = ref({
   rowsPerPage: 300,
 });
 
-type Column = {
-  name: VisibleColumnChoices;
-  label: VisibleColumnChoices;
-  field: VisibleColumnChoices;
-  align?: 'left' | 'right' | 'center';
-  sortable?: boolean;
-  required?: boolean;
-};
 const columns: Column[] = [
   {
     name: 'Name',
@@ -259,9 +231,11 @@ const {
   data: tableData,
   error,
 } = useQuery({
-  queryKey: ['menus'],
-  queryFn: getTableData,
+  queryKey: ['menus', props.filterId] as [string, Buttery['id']],
+  queryFn: ({ queryKey }) => getTableData(queryKey[1]),
 });
+const queryClient = useQueryClient();
+const refresh = () => queryClient.invalidateQueries({ queryKey: ['todos'] });
 
 const showSettings = ref(false);
 function toggleSettings() {
