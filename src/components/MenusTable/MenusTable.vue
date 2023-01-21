@@ -179,13 +179,25 @@ const props = defineProps({
   },
 });
 
+async function getTableData() {
+  const res = await fetch(
+    'https://opensheet.elk.sh/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/Menus'
+  );
+  const data = (await res.json()) as RowMenuItem[];
+  return !props.filterCollege
+    ? data
+    : data.filter(
+        (item: RowMenuItem) =>
+          item['Residential College'] === props.filterCollege
+      );
+}
+
 type RowMenuItem = {
   Name: string;
   Price?: boolean;
   'Residential College'?: Buttery['id'];
   Category?: string;
 };
-
 type VisibleColumnChoices = keyof RowMenuItem;
 
 const pagination = ref({
@@ -250,18 +262,6 @@ const {
   queryKey: ['menus'],
   queryFn: getTableData,
 });
-
-async function getTableData() {
-  const res = await fetch(
-    'https://opensheet.elk.sh/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/Menus'
-  );
-  const data = (await res.json()) as RowMenuItem[];
-  return !props.filterCollege
-    ? data
-    : data.filter(
-        (item: RowMenuItem) => item['Residential College'] === props.filterCollege
-      );
-}
 
 const showSettings = ref(false);
 function toggleSettings() {
