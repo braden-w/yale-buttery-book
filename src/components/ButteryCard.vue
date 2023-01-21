@@ -80,8 +80,21 @@
               fit="contain"
               :src="`${props.buttery?.menu_photo_url}`"
               :alt="props.buttery?.id"
-              draggable
-              v-viewer
+              v-viewer="{
+                inline: false,
+                button: true,
+                navbar: false,
+                title: true,
+                toolbar: true,
+                tooltip: true,
+                movable: true,
+                zoomable: true,
+                rotatable: true,
+                scalable: true,
+                transition: true,
+                fullscreen: true,
+                keyboard: true,
+              }"
             >
             </q-img>
           </div>
