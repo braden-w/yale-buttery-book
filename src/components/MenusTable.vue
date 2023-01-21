@@ -198,7 +198,15 @@ const pagination = ref({
   rowsPerPage: 300,
 });
 const tableData: Ref<MenuItem[]> = ref([]);
-const columns = [
+type Column = {
+  name: VisibleColumnChoices;
+  label: VisibleColumnChoices;
+  field: VisibleColumnChoices;
+  align?: 'left' | 'right' | 'center';
+  sortable?: boolean;
+  required?: boolean;
+};
+const columns: Column[] = [
   {
     name: 'Name',
     label: 'Name',
