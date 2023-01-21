@@ -206,9 +206,4 @@ watch(
     }
   }
 );
-
-// --- Routing ---
-onBeforeRouteLeave(() => {
-  // stopSync();
-});
 </script>
