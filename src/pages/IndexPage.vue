@@ -178,11 +178,15 @@ const butteryCardList = computed(() => {
 
 /*** List of butteries that are currently open */
 const openButteryCardList = computed(() => {
-  return butteryCardList.value.filter((buttery) => buttery.isOpen);
+  return butteryCardList.value.filter(
+    (buttery) => buttery.isOpen && buttery.verified !== 'CLOSED'
+  );
 });
 /*** List of butteries that are currently closed */
 const closedButteryCardList = computed(() => {
-  return butteryCardList.value.filter((buttery) => !buttery.isOpen);
+  return butteryCardList.value.filter(
+    (buttery) => !buttery.isOpen || buttery.verified === 'CLOSED'
+  );
 });
 
 const banner = ref(true);
