@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/vue-query';
 
-const ids = [
+const butteryIds = [
   'Benjamin Franklin',
   'Berkeley',
   'Branford',
@@ -13,6 +13,25 @@ const ids = [
   'Silliman',
   'Timothy Dwight',
   'Trumbull',
+  'The Acorn',
+  'The Beanjamin',
+] as const;
+
+const butteryNicknames = [
+  "Ben's Butt",
+  "Marvin's",
+  'The Nuttery',
+  'The Dive',
+  'Moose Butt',
+  'The Trolley Stop',
+  'JE Buttery',
+  'The Morsel',
+  'MY Butt',
+  'Pierson Knight Club',
+  'The Squiche',
+  'Sillicafe',
+  'TD Butt',
+  'The TrumButt',
   'The Acorn',
   'The Beanjamin',
 ] as const;
