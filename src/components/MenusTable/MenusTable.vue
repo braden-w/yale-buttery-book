@@ -165,7 +165,7 @@
 import { ref, Ref, onMounted, PropType } from 'vue';
 import { useQuasar } from 'quasar';
 import { useQuery, useQueryClient } from '@tanstack/vue-query';
-import { Column, VisibleColumnChoices, getTableData } from './getTableData';
+import { Column, ColumnName, getTableData } from './getTableData';
 import { Buttery } from 'src/shared/butteries';
 const $q = useQuasar();
 
