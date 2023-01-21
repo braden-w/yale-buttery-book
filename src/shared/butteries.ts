@@ -1,4 +1,12 @@
-import { useQuery } from '@tanstack/vue-query';
+import { QueryClient } from '@tanstack/vue-query';
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: Infinity,
+    },
+  },
+});
 
 const butteryIds = [
   'Benjamin Franklin',
@@ -38,7 +46,7 @@ const butteryNicknames = [
   'The Beanjamin',
 ] as const;
 
-const defaultButteries: Buttery[] = [
+export const defaultButteries: Buttery[] = [
   {
     id: 'Benjamin Franklin',
     calendarID: 'c_qh7c9stu3qr3hh7nj68gvc12nc@group.calendar.google.com',
@@ -217,18 +225,17 @@ export type Buttery = {
   opensIn?: string;
 };
 
-const { data: butteries } = useQuery({
+const butteries = await queryClient.ensureQueryData({
   queryKey: ['butteries'],
   queryFn: loadButteriesFromSheet,
-  initialData: defaultButteries,
 });
 
 export const butteryDropdownOptions = [
   'Errors or Suggestions',
-  ...butteries.value.map((buttery) => `${buttery.nickname} | ${buttery.id}`),
+  ...butteries.map((buttery) => `${buttery.nickname} | ${buttery.id}`),
 ];
 
-async function loadButteriesFromSheet() {
+export async function loadButteriesFromSheet() {
   const res = await fetch(
     'https://opensheet.elk.sh/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/Calendars'
   );
