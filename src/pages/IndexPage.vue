@@ -192,12 +192,17 @@ const banner = ref(true);
 const $q = useQuasar();
 watch(
   () => $q.appVisible,
-  (val) => {
-    console.log(val ? 'App became visible' : 'App went in the background');
-    if (val) {
-      // startSync();
-    } else {
-      // stopSync();
+  (isVisible) => {
+    console.log(
+      isVisible ? 'App became visible' : 'App went in the background'
+    );
+    if (isVisible) {
+      queryClient.invalidateQueries({
+        queryKey: ['butteries'],
+      });
+      queryClient.invalidateQueries({
+        queryKey: ['gcalButterySchedule'],
+      });
     }
   }
 );
