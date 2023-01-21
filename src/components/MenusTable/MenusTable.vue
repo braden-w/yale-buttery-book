@@ -226,10 +226,7 @@ const visibleColumns = ref(props.visibleColumns);
 
 const {
   isLoading,
-  isFetching,
-  isError,
   data: tableData,
-  error,
 } = useQuery({
   queryKey: ['menus', props.filterId] as [string, Buttery['id']],
   queryFn: ({ queryKey }) => getTableData(queryKey[1]),
