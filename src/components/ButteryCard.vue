@@ -148,7 +148,7 @@
 
         <q-tab-panel name="menu">
           <MenusTable
-            :filterCollege="props.buttery.id"
+            :filterId="props.buttery.id"
             :visibleColumns="['Name', 'Price', 'Category']"
           />
         </q-tab-panel>
