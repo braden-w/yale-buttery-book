@@ -37,7 +37,12 @@
           Yale Buttery Book is now available on the App Store!
         </div>
         <template #action>
-          <q-btn flat label="Install" @click="openInstallDialog" />
+          <q-btn
+            flat
+            :icon="$q.screen.lt.sm ? 'get_app' : ''"
+            :label="$q.screen.gt.sm ? 'Install' : ''"
+            @click="openInstallDialog"
+          />
           <q-btn flat icon="close" @click="banner = false" />
         </template>
       </q-banner>
