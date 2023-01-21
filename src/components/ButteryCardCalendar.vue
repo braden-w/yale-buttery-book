@@ -1,6 +1,6 @@
 <template>
   <FullCalendar
-    :id="props.buttery?.calendarID"
+    :id="props.buttery.calendarID"
     :options="calendarOptions"
     :style="`{height:${calendarHeight}}`"
   ></FullCalendar>
@@ -34,7 +34,7 @@ const calendarOptions = {
     center: '', //'title',
     end: 'timeGridDay,timeGrid3Day,timeGridWeek',
   },
-  scrollTime: props.buttery?.startTime,
+  scrollTime: props.buttery.startTime,
   views: {
     timeGrid3Day: {
       type: 'timeGrid',
