@@ -201,19 +201,19 @@ const cachedButteries = [
   },
 ];
 
-type ButteryAdditions = { isOpen?: boolean; opensIn?: string };
-type CachedButtery = {
-  id: typeof ids[number];
+export type Buttery = {
+  id: typeof butteryIds[number];
   calendarID: string;
   /*** Unique key that we'll use to identify this buttery */
-  nickname: typeof cachedButteries[number]['nickname'];
+  nickname: typeof butteryNicknames[number];
   recommend: string;
   textTime: string;
   /*** The daily start time represented in 00:00:00 format. This is used to focus the calendar view on the appropriate time of day without scrolling for each buttery. */
   startTime: string;
-  menu_photo_url: typeof cachedButteries[number]['menu_photo_url'];
+  menu_photo_url: string;
+  isOpen?: boolean;
+  opensIn?: string;
 };
-export type Buttery = CachedButtery & ButteryAdditions;
 
 const { data: butteries } = useQuery({
   queryKey: ['butteries'],
