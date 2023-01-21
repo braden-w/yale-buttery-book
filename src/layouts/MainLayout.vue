@@ -13,7 +13,7 @@
 
         <q-btn
           class="text-weight-light"
-          :class="$q.screen.width > 400 ? 'text-h6' : 'text-subtitle1'"
+          :class="$q.screen.width > 350 ? 'text-h6' : 'text-subtitle1'"
           stretch
           no-caps
           flat
@@ -33,6 +33,7 @@
         <InstallDialog />
         <ReportDialog />
         <q-btn
+          v-if="$q.screen.width > 400"
           round
           flat
           icon="code"
