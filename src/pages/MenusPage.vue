@@ -5,5 +5,5 @@
 </template>
 
 <script setup lang="ts">
-import MenusTable from 'src/components/MenusTable.vue';
+import MenusTable from 'src/components/MenusTable/MenusTable.vue';
 </script>

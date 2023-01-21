@@ -125,7 +125,7 @@
 <script setup lang="ts">
 import { ref, PropType } from 'vue';
 import { Buttery } from 'src/shared/butteries';
-import MenusTable from 'src/components/MenusTable.vue';
+import MenusTable from 'src/components/MenusTable/MenusTable.vue';
 import ButteryCardCalendar from 'src/components/ButteryCardCalendar.vue';
 import { useQuasar } from 'quasar';
 import ReportDialog from 'src/components/ReportDialog.vue';
