@@ -95,6 +95,7 @@ import { onBeforeRouteLeave } from 'vue-router';
 import { refreshGcalButterySchedule } from 'src/shared/syncButteries';
 import { useQuery, useQueryClient } from '@tanstack/vue-query';
 import { defaultButteries, loadButteriesFromSheet } from 'src/shared/butteries';
+import { Buttery } from 'src/shared/butteries';
 import { formatDistance } from 'date-fns';
 
 const openInstallDialog = () => {
@@ -107,6 +108,7 @@ const { data: butteries } = useQuery({
   queryKey: ['butteries'],
   queryFn: loadButteriesFromSheet,
   initialData: defaultButteries,
+  refetchInterval: 1000 * 60 * 60 * 24,
 });
 
 const enabled = computed(() => {
@@ -117,13 +119,13 @@ const { data: gcalButterySchedule } = useQuery({
   queryKey: ['gcalButterySchedule', butteries.value] as [string, Buttery[]],
   queryFn: ({ queryKey }) => refreshGcalButterySchedule(queryKey[1]),
   initialData: null,
+  refetchInterval: 1000 * 60,
   enabled,
 });
 
 const queryClient = useQueryClient();
 async function pullRefresh(done: () => void): Promise<void> {
   await queryClient.invalidateQueries({ queryKey: ['gcalButterySchedule'] });
-  // clearButteryCardListAndRefreshButteries();
   done();
 }
 
