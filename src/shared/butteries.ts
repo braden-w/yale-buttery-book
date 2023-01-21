@@ -36,7 +36,7 @@ const butteryNicknames = [
   'The Beanjamin',
 ] as const;
 
-const cachedButteries = [
+const cachedButteries: Buttery[] = [
   {
     id: 'Benjamin Franklin',
     calendarID: 'c_qh7c9stu3qr3hh7nj68gvc12nc@group.calendar.google.com',
@@ -223,7 +223,7 @@ const { data: butteries } = useQuery({
 
 export const butteryDropdownOptions = [
   'Errors or Suggestions',
-  ...butteries.map((buttery) => `${buttery.nickname} | ${buttery.id}`),
+  ...butteries.value.map((buttery) => `${buttery.nickname} | ${buttery.id}`),
 ];
 
 async function loadButteriesFromSheet() {
