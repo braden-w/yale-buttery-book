@@ -1,8 +1,10 @@
+import { Buttery } from 'src/shared/butteries';
+
 export interface GCalAPIResponse {
   kind: string;
   timeMin: string;
   timeMax: string;
-  calendars: { [key: string]: Calendar };
+  calendars: { [key: Buttery['calendarID']]: Calendar };
 }
 
 export interface Calendar {
