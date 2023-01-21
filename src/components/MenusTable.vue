@@ -179,14 +179,14 @@ const props = defineProps({
   },
 });
 
-type MenuItem = {
+type RowMenuItem = {
   Name: string;
   Price?: boolean;
   'Residential College'?: Buttery['id'];
   Category?: string;
 };
 
-type VisibleColumnChoices = keyof MenuItem;
+type VisibleColumnChoices = keyof RowMenuItem;
 
 const pagination = ref({
   sortBy: 'desc',
@@ -255,11 +255,11 @@ async function getTableData() {
   const res = await fetch(
     'https://opensheet.elk.sh/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/Menus'
   );
-  const data = (await res.json()) as MenuItem[];
+  const data = (await res.json()) as RowMenuItem[];
   return !props.filterCollege
     ? data
     : data.filter(
-        (item: MenuItem) => item['Residential College'] === props.filterCollege
+        (item: RowMenuItem) => item['Residential College'] === props.filterCollege
       );
 }
 
