@@ -42,8 +42,8 @@
           <q-badge v-else rounded color="amber">
             <q-icon name="" size="0.75em" />
             <q-tooltip class="text-body2">
-              Buttery Staff has not verified today yet (going by default
-              schedule)
+              Buttery Staff has not yet verified today, going by default
+              schedule
             </q-tooltip>
           </q-badge>
         </q-item-label>
