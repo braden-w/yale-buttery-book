@@ -12,11 +12,7 @@
         /> -->
 
         <q-btn
-          :class="
-            isMobile()
-              ? 'text-subtitle1 text-weight-regular'
-              : 'text-h6 text-weight-light'
-          "
+          class="text-h6 text-weight-light"
           stretch
           no-caps
           flat
