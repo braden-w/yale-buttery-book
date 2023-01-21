@@ -1,3 +1,22 @@
+import { useQuery } from '@tanstack/vue-query';
+
+const ids = [
+  'Benjamin Franklin',
+  'Berkeley',
+  'Branford',
+  'Davenport',
+  'Grace Hopper',
+  'Jonathan Edwards',
+  'Pauli Murray',
+  'Pierson',
+  'Saybrook',
+  'Silliman',
+  'Timothy Dwight',
+  'Trumbull',
+  'The Acorn',
+  'The Beanjamin',
+] as const;
+
 const cachedButteries = [
   {
     id: 'Benjamin Franklin',
@@ -161,24 +180,27 @@ const cachedButteries = [
     menu_photo_url:
       'https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/The Beanjamin.jpg',
   },
-] as const;
+];
 
 type ButteryAdditions = { isOpen?: boolean; opensIn?: string };
 type CachedButtery = {
-  id: typeof cachedButteries[number]['id'];
-  calendarID: typeof cachedButteries[number]['calendarID'];
+  id: typeof ids[number];
+  calendarID: string;
   /*** Unique key that we'll use to identify this buttery */
   nickname: typeof cachedButteries[number]['nickname'];
-  recommend: typeof cachedButteries[number]['recommend'];
-  textTime: typeof cachedButteries[number]['textTime'];
+  recommend: string;
+  textTime: string;
   /*** The daily start time represented in 00:00:00 format. This is used to focus the calendar view on the appropriate time of day without scrolling for each buttery. */
-  startTime: typeof cachedButteries[number]['startTime'];
+  startTime: string;
   menu_photo_url: typeof cachedButteries[number]['menu_photo_url'];
 };
 export type Buttery = CachedButtery & ButteryAdditions;
 
-export let butteries: Buttery[] = [...cachedButteries];
-(async () => (butteries = await loadButteriesFromSheet()))();
+const { data: butteries } = useQuery({
+  queryKey: ['butteries'],
+  queryFn: loadButteriesFromSheet,
+  initialData: cachedButteries,
+});
 
 export const butteryDropdownOptions = [
   'Errors or Suggestions',
@@ -186,13 +208,9 @@ export const butteryDropdownOptions = [
 ];
 
 async function loadButteriesFromSheet() {
-  try {
-    const res = await fetch(
-      'https://opensheet.elk.sh/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/Calendars'
-    );
-    const json = await res.json();
-    return json;
-  } catch (err) {
-    return cachedButteries;
-  }
+  const res = await fetch(
+    'https://opensheet.elk.sh/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/Calendars'
+  );
+  const json = (await res.json()) as Buttery[];
+  return json;
 }
