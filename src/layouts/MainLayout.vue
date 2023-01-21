@@ -12,7 +12,8 @@
         /> -->
 
         <q-btn
-          class="text-h6 text-weight-light"
+          class="text-weight-light"
+          :class="$q.screen.width > 350 ? 'text-h6' : 'text-subtitle1'"
           stretch
           no-caps
           flat
@@ -32,6 +33,7 @@
         <InstallDialog />
         <ReportDialog />
         <q-btn
+          v-if="$q.screen.width > 400"
           round
           flat
           icon="code"
@@ -85,11 +87,11 @@
 
     <q-page-container>
       <router-view />
-      <div class="text-center">&copy; Buttery Book 2022</div>
+      <div class="text-center q-mt-md">&copy; Buttery Book 2022</div>
       <q-page-sticky position="bottom-right" :offset="[18, 18]">
-        <q-btn fab icon="campaign" @click="reportGeneral()" color="accent"
-          >Suggest</q-btn
-        >
+        <q-btn fab icon="campaign" @click="reportGeneral()" color="accent">
+          Suggest
+        </q-btn>
       </q-page-sticky>
     </q-page-container>
   </q-layout>
