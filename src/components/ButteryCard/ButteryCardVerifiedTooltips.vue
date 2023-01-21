@@ -5,8 +5,7 @@
       class="text-body2"
       :anchor="!isMobile() ? 'center right' : undefined"
       :self="!isMobile() ? 'center left' : undefined"
-      :model-value="isTooltipVisible"
-      @click.stop="toggleTooltip"
+      v-model="showing"
     >
       Buttery Staff verifies that today is open
     </q-tooltip>
@@ -17,8 +16,7 @@
       class="text-body2"
       :anchor="!isMobile() ? 'center right' : undefined"
       :self="!isMobile() ? 'center left' : undefined"
-      :model-value="isTooltipVisible"
-      @click.stop="toggleTooltip"
+      v-model="showing"
     >
       Buttery Staff verifies that today is closed
     </q-tooltip>
@@ -29,8 +27,7 @@
       class="text-body2"
       :anchor="!isMobile() ? 'center right' : undefined"
       :self="!isMobile() ? 'center left' : undefined"
-      :model-value="isTooltipVisible"
-      @click.stop="toggleTooltip"
+      v-model="showing"
     >
       Buttery Staff has not yet verified today, going by default schedule
     </q-tooltip>
@@ -49,8 +46,8 @@ const props = defineProps({
   },
 });
 
-const isTooltipVisible = ref(false);
+const showing = ref(false);
 const toggleTooltip = () => {
-  isTooltipVisible.value = !isTooltipVisible.value;
+  showing.value = !showing.value;
 };
 </script>
