@@ -90,6 +90,39 @@
             </q-img>
             <q-dialog v-model="dialog" maximized auto-close>
               <q-card>
+                <q-bar>
+                  <q-space />
+                  <q-btn
+                    dense
+                    flat
+                    icon="minimize"
+                    @click="maximizedToggle = false"
+                    :disable="!maximizedToggle"
+                  >
+                    <q-tooltip
+                      v-if="maximizedToggle"
+                      class="bg-white text-primary"
+                      >Minimize</q-tooltip
+                    >
+                  </q-btn>
+                  <q-btn
+                    dense
+                    flat
+                    icon="crop_square"
+                    @click="maximizedToggle = true"
+                    :disable="maximizedToggle"
+                  >
+                    <q-tooltip
+                      v-if="!maximizedToggle"
+                      class="bg-white text-primary"
+                      >Maximize</q-tooltip
+                    >
+                  </q-btn>
+
+                  <q-btn dense flat icon="close">
+                    <q-tooltip class="bg-white text-primary">Close</q-tooltip>
+                  </q-btn>
+                </q-bar>
                 <q-img
                   fit="contain"
                   :src="`${props.buttery.menu_photo_url}`"
