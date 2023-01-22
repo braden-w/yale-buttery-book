@@ -129,6 +129,7 @@ const { data: gcalButterySchedule } = useQuery({
 
 const queryClient = useQueryClient();
 async function pullRefresh(done: () => void): Promise<void> {
+  await queryClient.invalidateQueries({ queryKey: ['butteries'] });
   await queryClient.invalidateQueries({ queryKey: ['gcalButterySchedule'] });
   done();
 }
