@@ -80,7 +80,7 @@
         <q-tab-panel name="photo">
           <!-- Center the image -->
           <div class="row justify-center">
-            <ButteryCardImage :buttery="props.buttery"/>
+            <ButteryCardImage :buttery="props.buttery" />
           </div>
         </q-tab-panel>
 
