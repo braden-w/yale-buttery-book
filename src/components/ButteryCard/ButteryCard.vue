@@ -89,12 +89,14 @@
             >
             </q-img>
             <q-dialog v-model="dialog" maximized auto-close>
-              <q-img
-                fit="contain"
-                :src="`${props.buttery.menu_photo_url}`"
-                :alt="props.buttery.id"
-              >
-              </q-img>
+              <q-card>
+                <q-img
+                  fit="contain"
+                  :src="`${props.buttery.menu_photo_url}`"
+                  :alt="props.buttery.id"
+                >
+                </q-img>
+              </q-card>
             </q-dialog>
           </div>
         </q-tab-panel>
