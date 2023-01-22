@@ -27,7 +27,11 @@ module.exports = configure(function (ctx) {
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
     // https://v2.quasar.dev/quasar-cli-vite/boot-files
-    boot: [ctx.mode.capacitor ? 'google-analytics' : '', 'vue-query'],
+    boot: [
+      ctx.mode.capacitor ? 'google-analytics' : '',
+      'vue-query',
+      'addressbar-color',
+    ],
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#css
     css: ['app.css'],
