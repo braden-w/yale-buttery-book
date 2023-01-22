@@ -3,8 +3,5 @@
 	"appName": "Yale Buttery Book",
 	"bundledWebRuntime": false,
 	"npmClient": "yarn",
-	"webDir": "www",
-	"server": {
-		"url": "http://192.168.7.170:9500"
-	}
+	"webDir": "www"
 }

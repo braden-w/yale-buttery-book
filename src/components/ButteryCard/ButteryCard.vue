@@ -80,28 +80,7 @@
         <q-tab-panel name="photo">
           <!-- Center the image -->
           <div class="row justify-center">
-            <q-img
-              style="max-width: 640px; max-height: 80vh"
-              fit="contain"
-              :src="`${props.buttery.menu_photo_url}`"
-              :alt="props.buttery.id"
-              v-viewer="{
-                inline: false,
-                button: true,
-                navbar: false,
-                title: true,
-                toolbar: true,
-                tooltip: true,
-                movable: true,
-                zoomable: true,
-                rotatable: true,
-                scalable: true,
-                transition: true,
-                fullscreen: true,
-                keyboard: true,
-              }"
-            >
-            </q-img>
+            <ButteryCardImage :buttery="props.buttery" />
           </div>
         </q-tab-panel>
 
@@ -133,6 +112,7 @@ import { Buttery } from 'src/shared/butteries';
 import MenusTable from 'src/components/MenusTable/MenusTable.vue';
 import ButteryCardCalendar from 'src/components/ButteryCard/ButteryCardCalendar.vue';
 import ButteryCardVerifiedTooltips from 'src/components/ButteryCard/ButteryCardVerifiedTooltips.vue';
+import ButteryCardImage from 'src/components/ButteryCard/ButteryCardImage.vue';
 import ReportDialog from 'src/components/ReportDialog.vue';
 import { isMobile } from 'src/shared/screen';
 import { useQuasar } from 'quasar';
