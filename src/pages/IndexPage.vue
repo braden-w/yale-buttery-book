@@ -39,8 +39,8 @@
         <template #action>
           <q-btn
             flat
-            :icon="$q.screen.lt.sm ? 'get_app' : ''"
-            :label="$q.screen.gt.sm ? 'Install' : ''"
+            :icon="$q.screen.lt.sm ? 'get_app' : undefined"
+            :label="$q.screen.gt.sm ? 'Install' : undefined"
             @click="openInstallDialog"
           />
           <q-btn flat icon="close" @click="banner = false" />
