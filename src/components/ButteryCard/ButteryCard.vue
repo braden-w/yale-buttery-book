@@ -85,23 +85,17 @@
               fit="contain"
               :src="`${props.buttery.menu_photo_url}`"
               :alt="props.buttery.id"
-              v-viewer="{
-                inline: false,
-                button: true,
-                navbar: false,
-                title: true,
-                toolbar: true,
-                tooltip: true,
-                movable: true,
-                zoomable: true,
-                rotatable: true,
-                scalable: true,
-                transition: true,
-                fullscreen: true,
-                keyboard: true,
-              }"
+              @click="dialog = true"
             >
             </q-img>
+            <q-dialog v-model="dialog" maximized auto-close>
+              <q-img
+                fit="contain"
+                :src="`${props.buttery.menu_photo_url}`"
+                :alt="props.buttery.id"
+              >
+              </q-img>
+            </q-dialog>
           </div>
         </q-tab-panel>
 
@@ -145,6 +139,7 @@ const props = defineProps({
 });
 
 const tab = ref('photo');
+const dialog = ref(false);
 
 const $q = useQuasar();
 function reportClosed(buttery: Buttery) {
