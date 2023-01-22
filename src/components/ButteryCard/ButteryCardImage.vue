@@ -8,7 +8,7 @@
   >
   </q-img>
   <q-dialog v-model="dialog" :maximized="maximizedToggle">
-    <q-card>
+    <q-card style="width: 100vw; max-height: 100vh">
       <q-bar>
         <q-space />
         <q-btn
@@ -42,6 +42,7 @@
         fit="contain"
         :src="`${props.buttery.menu_photo_url}`"
         :alt="props.buttery.id"
+        style="display: block"
       >
       </q-img>
     </q-card>
@@ -60,5 +61,5 @@ const props = defineProps({
 });
 
 const dialog = ref(false);
-const maximizedToggle = ref(true);
+const maximizedToggle = ref(false);
 </script>
