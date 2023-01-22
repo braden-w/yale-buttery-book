@@ -8,7 +8,7 @@
   >
   </q-img>
   <q-dialog v-model="dialog" :maximized="maximizedToggle">
-    <q-card style="width: 100vw; max-height: 100vh">
+    <q-card flat style="width: 100vw; max-height: 100vh">
       <q-bar>
         <q-space />
         <q-btn
@@ -33,8 +33,7 @@
             >Maximize</q-tooltip
           >
         </q-btn>
-
-        <q-btn dense flat icon="close">
+        <q-btn dense flat icon="close" v-close-popup>
           <q-tooltip class="bg-white text-primary">Close</q-tooltip>
         </q-btn>
       </q-bar>
