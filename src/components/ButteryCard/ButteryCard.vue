@@ -80,57 +80,7 @@
         <q-tab-panel name="photo">
           <!-- Center the image -->
           <div class="row justify-center">
-            <q-img
-              style="max-width: 640px; max-height: 80vh"
-              fit="contain"
-              :src="`${props.buttery.menu_photo_url}`"
-              :alt="props.buttery.id"
-              @click="dialog = true"
-            >
-            </q-img>
-            <q-dialog v-model="dialog" maximized auto-close>
-              <q-card>
-                <q-bar>
-                  <q-space />
-                  <q-btn
-                    dense
-                    flat
-                    icon="minimize"
-                    @click="maximizedToggle = false"
-                    :disable="!maximizedToggle"
-                  >
-                    <q-tooltip
-                      v-if="maximizedToggle"
-                      class="bg-white text-primary"
-                      >Minimize</q-tooltip
-                    >
-                  </q-btn>
-                  <q-btn
-                    dense
-                    flat
-                    icon="crop_square"
-                    @click="maximizedToggle = true"
-                    :disable="maximizedToggle"
-                  >
-                    <q-tooltip
-                      v-if="!maximizedToggle"
-                      class="bg-white text-primary"
-                      >Maximize</q-tooltip
-                    >
-                  </q-btn>
-
-                  <q-btn dense flat icon="close">
-                    <q-tooltip class="bg-white text-primary">Close</q-tooltip>
-                  </q-btn>
-                </q-bar>
-                <q-img
-                  fit="contain"
-                  :src="`${props.buttery.menu_photo_url}`"
-                  :alt="props.buttery.id"
-                >
-                </q-img>
-              </q-card>
-            </q-dialog>
+            <ButteryCardImage :buttery="props.buttery"/>
           </div>
         </q-tab-panel>
 
@@ -162,6 +112,7 @@ import { Buttery } from 'src/shared/butteries';
 import MenusTable from 'src/components/MenusTable/MenusTable.vue';
 import ButteryCardCalendar from 'src/components/ButteryCard/ButteryCardCalendar.vue';
 import ButteryCardVerifiedTooltips from 'src/components/ButteryCard/ButteryCardVerifiedTooltips.vue';
+import ButteryCardImage from 'src/components/ButteryCard/ButteryCardImage.vue';
 import ReportDialog from 'src/components/ReportDialog.vue';
 import { isMobile } from 'src/shared/screen';
 import { useQuasar } from 'quasar';
@@ -174,7 +125,6 @@ const props = defineProps({
 });
 
 const tab = ref('photo');
-const dialog = ref(false);
 
 const $q = useQuasar();
 function reportClosed(buttery: Buttery) {
