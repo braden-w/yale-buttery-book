@@ -2,44 +2,33 @@
 
 An app that answers one simple question: which butteries are open right now?
 
-## Install the dependencies
+Access the Calendars and Menus provided by OpenSheet [here (calendars)](https://opensheet.elk.sh/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/Calendars) and [here (menus)](https://opensheet.elk.sh/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/Menus)
+
+## For Local Development
+
+1. Install the dependencies
 
 ```bash
 yarn
 ```
 
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
+2. Start the app in development mode (hot-code reloading, error reporting, etc.)
 
 ```bash
 quasar dev
 ```
 
-#### Android Development
-
-```bash
-npm run generateAndroid
-```
-
-```bash
-cd ~/Library/Android/sdk/build-tools/31.0.0
-./zipalign -v 4 "/Users/braden/My Drive (braden.wong@yale.edu)/Braden Library/Coding/Coding Projects/buttery-book/src-capacitor/android/app/build/outputs/apk/debug/app-debug.apk" YaleButteryBook.apk
-```
-
-### Lint the files
+3. Lint the files (optional)
 
 ```bash
 yarn run lint
 ```
 
-### Build the app for production
+4. Build the app for production
 
 ```bash
 quasar build
 ```
-
-### Customize the configuration
-
-See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).
 
 ### Technologies Used
 
