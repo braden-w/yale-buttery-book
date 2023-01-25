@@ -17,9 +17,14 @@
           </a>
 
           <q-space> </q-space>
-          <router-link to="android" class="col">
+
+          <a
+            href="https://play.google.com/store/apps/details?id=yalebutterybook.com"
+            target="_blank"
+            class="col"
+          >
             <img src="~assets/google.svg" style="width: 100%" />
-          </router-link>
+          </a>
         </div>
       </div>
     </q-card>
