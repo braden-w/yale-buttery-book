@@ -7,20 +7,24 @@
       </q-card-section>
       <q-separator />
       <div class="q-pa-md q-gutter-sm">
-        <div class="row">
-          <q-space></q-space>
-
+        <div class="row justify-between">
           <a
             href="https://apps.apple.com/us/app/yale-buttery-book/id1595499598"
             target="_blank"
+            class="col"
           >
-            <img src="~assets/DownloadToAppStore.svg" />
+            <img src="~assets/DownloadToAppStore.svg" style="width: 88%" />
           </a>
 
           <q-space> </q-space>
-          <q-btn color="accent" icon="android" to="android" label="Android">
-          </q-btn>
-          <q-space></q-space>
+
+          <a
+            href="https://play.google.com/store/apps/details?id=yalebutterybook.com"
+            target="_blank"
+            class="col"
+          >
+            <img src="~assets/google.svg" style="width: 100%" />
+          </a>
         </div>
       </div>
     </q-card>
