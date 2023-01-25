@@ -9,6 +9,11 @@
         <q-separator />
         <q-card-section>
           <p>
+            The YBB Android app is currently awaiting approval in the Googe Play
+            Store! In the meantime, you can install it as a Progressive Web App
+            (PWA).
+          </p>
+          <p>
             In Chrome, tap the <q-icon name="more_vert" /> button, then 'Install
             App'.
           </p>
