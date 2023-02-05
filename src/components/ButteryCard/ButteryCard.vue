@@ -50,7 +50,7 @@
               <q-avatar text-color="blue" icon="verified" />
             </q-item-section>
             <q-item-section>
-              <q-item-label>Open</q-item-label>
+              <q-item-label>Verified Open for Today</q-item-label>
             </q-item-section>
           </q-item>
 
@@ -59,7 +59,7 @@
               <q-avatar text-color="red" icon="cancel" />
             </q-item-section>
             <q-item-section>
-              <q-item-label>Closed</q-item-label>
+              <q-item-label>Verified Closed for Today</q-item-label>
             </q-item-section>
           </q-item>
 
@@ -68,7 +68,7 @@
               <q-avatar text-color="amber" icon="more_vert" />
             </q-item-section>
             <q-item-section>
-              <q-item-label>Report Issue</q-item-label>
+              <q-item-label>Report Other Issue</q-item-label>
             </q-item-section>
           </q-item>
         </q-list>
