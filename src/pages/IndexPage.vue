@@ -28,7 +28,7 @@
         dense
         rounded
         class="q-mb-md bg-accent text-white"
-        v-if="banner && !$q.platform.is.capacitor"
+        v-if="contributeBanner && !$q.platform.is.capacitor"
       >
         <template #avatar v-if="$q.screen.gt.sm">
           <q-icon name="shopping_bag" />
@@ -43,7 +43,31 @@
             :label="$q.screen.gt.sm ? 'Install' : undefined"
             @click="openInstallDialog"
           />
-          <q-btn flat icon="close" @click="banner = false" />
+          <q-btn flat icon="close" @click="contributeBanner = false" />
+        </template>
+      </q-banner>
+
+      <q-banner
+        inline-actions
+        dense
+        rounded
+        class="q-mb-md bg-accent text-white"
+        v-if="contributeBanner && !$q.platform.is.capacitor"
+      >
+        <template #avatar v-if="$q.screen.gt.sm">
+          <q-icon name="rate_review" />
+        </template>
+        <div class="text-subtitle2 text-center">
+          Want to Contribute? Visit the Dashboard
+        </div>
+        <template #action>
+          <q-btn
+            flat
+            :icon="$q.screen.lt.sm ? 'edit' : undefined"
+            :label="$q.screen.gt.sm ? 'Go to Dashboard' : undefined"
+            @click="openInstallDialog"
+          />
+          <q-btn flat icon="close" @click="contributeBanner = false" />
         </template>
       </q-banner>
 
@@ -195,7 +219,8 @@ const closedButteryCardList = computed(() => {
   );
 });
 
-const banner = ref(true);
+const storeBanner = ref(true);
+const contributeBanner = ref(true);
 
 // --- App Visibility Toggles Sync ---
 const $q = useQuasar();
