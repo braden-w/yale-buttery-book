@@ -33,20 +33,46 @@
         </q-item-label>
       </q-item-section>
       <q-space />
-      <q-btn
-        v-if="!isMobile()"
+      <q-btn-dropdown
         flat
-        label="Report Issue"
-        @click.stop="reportClosed(props.buttery)"
+        :label="isMobile() ? undefined : 'Report'"
+        dropdown-icon="feedback"
+        no-icon-animation
       >
-      </q-btn>
-      <q-btn
-        v-else
-        flat
-        icon="feedback"
-        @click.stop="reportClosed(props.buttery)"
-      >
-      </q-btn>
+        <template #label>
+          <q-tooltip anchor="top middle" self="bottom middle">
+            Verify Open, Verify Closed, or Report Issue
+          </q-tooltip>
+        </template>
+        <q-list>
+          <q-item clickable v-close-popup @click="reportOpen(props.buttery)">
+            <q-item-section avatar>
+              <q-avatar text-color="blue" icon="verified" />
+            </q-item-section>
+            <q-item-section>
+              <q-item-label>Verified Open for Today</q-item-label>
+            </q-item-section>
+          </q-item>
+
+          <q-item clickable v-close-popup @click="reportClosed(props.buttery)">
+            <q-item-section avatar>
+              <q-avatar text-color="red" icon="cancel" />
+            </q-item-section>
+            <q-item-section>
+              <q-item-label>Verified Closed for Today</q-item-label>
+            </q-item-section>
+          </q-item>
+
+          <q-item clickable v-close-popup @click="reportIssue(props.buttery)">
+            <q-item-section avatar>
+              <q-avatar text-color="amber" icon="more_vert" />
+            </q-item-section>
+            <q-item-section>
+              <q-item-label>Report Other Issue</q-item-label>
+            </q-item-section>
+          </q-item>
+        </q-list>
+      </q-btn-dropdown>
     </template>
 
     <!-- Make a flex column div with gap 2 -->
@@ -127,6 +153,17 @@ const props = defineProps({
 const tab = ref('photo');
 
 const $q = useQuasar();
+
+function reportOpen(buttery: Buttery) {
+  $q.dialog({
+    component: ReportDialog,
+    componentProps: {
+      placeHolderCollege: buttery.id,
+      placeHolderMessage: 'Open for today.',
+    },
+  });
+}
+
 function reportClosed(buttery: Buttery) {
   $q.dialog({
     component: ReportDialog,
@@ -134,16 +171,17 @@ function reportClosed(buttery: Buttery) {
       placeHolderCollege: buttery.id,
       placeHolderMessage: 'Closed for today.',
     },
-  })
-    .onOk(() => {
-      console.log('OK');
-    })
-    .onCancel(() => {
-      console.log('Cancel');
-    })
-    .onDismiss(() => {
-      console.log('Called on OK or Cancel');
-    });
+  });
+}
+
+function reportIssue(buttery: Buttery) {
+  $q.dialog({
+    component: ReportDialog,
+    componentProps: {
+      placeHolderCollege: buttery.id,
+      placeHolderMessage: 'General issue with the buttery: ',
+    },
+  });
 }
 
 const butteriesWithDarkMode = ['The Acorn', 'The Beanjamin'];
