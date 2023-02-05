@@ -33,20 +33,46 @@
         </q-item-label>
       </q-item-section>
       <q-space />
-      <q-btn
-        v-if="!isMobile()"
+      <q-btn-dropdown
         flat
-        label="Report Issue"
-        @click.stop="reportClosed(props.buttery)"
+        :label="isMobile() ? undefined : 'Report'"
+        dropdown-icon="feedback"
+        no-icon-animation
       >
-      </q-btn>
-      <q-btn
-        v-else
-        flat
-        icon="feedback"
-        @click.stop="reportClosed(props.buttery)"
-      >
-      </q-btn>
+        <template #label>
+          <q-tooltip anchor="top middle" self="bottom middle">
+            Verify Open, Verify Closed, or Report Issue
+          </q-tooltip>
+        </template>
+        <q-list>
+          <q-item clickable v-close-popup @click="reportClosed(props.buttery)">
+            <q-item-section avatar>
+              <q-avatar text-color="blue" icon="verified" />
+            </q-item-section>
+            <q-item-section>
+              <q-item-label>Open</q-item-label>
+            </q-item-section>
+          </q-item>
+
+          <q-item clickable v-close-popup @click="reportClosed(props.buttery)">
+            <q-item-section avatar>
+              <q-avatar text-color="red" icon="cancel" />
+            </q-item-section>
+            <q-item-section>
+              <q-item-label>Closed</q-item-label>
+            </q-item-section>
+          </q-item>
+
+          <q-item clickable v-close-popup @click="reportClosed(props.buttery)">
+            <q-item-section avatar>
+              <q-avatar text-color="amber" icon="more_vert" />
+            </q-item-section>
+            <q-item-section>
+              <q-item-label>Report Issue</q-item-label>
+            </q-item-section>
+          </q-item>
+        </q-list>
+      </q-btn-dropdown>
     </template>
 
     <!-- Make a flex column div with gap 2 -->
