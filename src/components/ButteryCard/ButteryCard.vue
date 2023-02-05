@@ -45,7 +45,7 @@
           </q-tooltip>
         </template>
         <q-list>
-          <q-item clickable v-close-popup @click="reportClosed(props.buttery)">
+          <q-item clickable v-close-popup @click="reportOpen(props.buttery)">
             <q-item-section avatar>
               <q-avatar text-color="blue" icon="verified" />
             </q-item-section>
@@ -63,7 +63,7 @@
             </q-item-section>
           </q-item>
 
-          <q-item clickable v-close-popup @click="reportClosed(props.buttery)">
+          <q-item clickable v-close-popup @click="reportIssue(props.buttery)">
             <q-item-section avatar>
               <q-avatar text-color="amber" icon="more_vert" />
             </q-item-section>
@@ -153,6 +153,17 @@ const props = defineProps({
 const tab = ref('photo');
 
 const $q = useQuasar();
+
+function reportOpen(buttery: Buttery) {
+  $q.dialog({
+    component: ReportDialog,
+    componentProps: {
+      placeHolderCollege: buttery.id,
+      placeHolderMessage: 'Open for today.',
+    },
+  });
+}
+
 function reportClosed(buttery: Buttery) {
   $q.dialog({
     component: ReportDialog,
@@ -160,16 +171,17 @@ function reportClosed(buttery: Buttery) {
       placeHolderCollege: buttery.id,
       placeHolderMessage: 'Closed for today.',
     },
-  })
-    .onOk(() => {
-      console.log('OK');
-    })
-    .onCancel(() => {
-      console.log('Cancel');
-    })
-    .onDismiss(() => {
-      console.log('Called on OK or Cancel');
-    });
+  });
+}
+
+function reportIssue(buttery: Buttery) {
+  $q.dialog({
+    component: ReportDialog,
+    componentProps: {
+      placeHolderCollege: buttery.id,
+      placeHolderMessage: 'General issue with the buttery: ',
+    },
+  });
 }
 
 const butteriesWithDarkMode = ['The Acorn', 'The Beanjamin'];
