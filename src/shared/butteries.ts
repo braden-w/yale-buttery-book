@@ -223,7 +223,7 @@ export type Buttery = {
   menu_photo_url: string;
   isOpen?: boolean;
   opensIn?: string;
-  verified?: 'OPEN' | 'CLOSED';
+  verified?: 'OPEN' | 'CLOSED' | undefined;
 };
 
 const butteries = await queryClient.ensureQueryData({
