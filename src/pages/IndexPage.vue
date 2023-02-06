@@ -55,17 +55,17 @@
         v-if="contributeBanner && !$q.platform.is.capacitor"
       >
         <template #avatar v-if="$q.screen.gt.sm">
-          <q-icon name="rate_review" />
+          <q-icon name="edit_note" />
         </template>
         <div class="text-subtitle2 text-center">
-          Want to Contribute? Visit the Dashboard
+          Want to Contribute? Visit the Notion Dashboard
         </div>
         <template #action>
           <q-btn
             flat
-            :icon="$q.screen.lt.sm ? 'edit' : undefined"
+            :icon="$q.screen.lt.sm ? 'edit_note' : undefined"
             :label="$q.screen.gt.sm ? 'Go to Dashboard' : undefined"
-            @click="openInstallDialog"
+            href="https://bradenwong.notion.site/Contribute-to-Yale-Buttery-Book-8aadc600938c47609dd5b2c84d5935f2"
           />
           <q-btn flat icon="close" @click="contributeBanner = false" />
         </template>

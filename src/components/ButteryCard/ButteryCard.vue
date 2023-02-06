@@ -142,6 +142,7 @@ import ButteryCardImage from 'src/components/ButteryCard/ButteryCardImage.vue';
 import ReportDialog from 'src/components/ReportDialog.vue';
 import { isMobile } from 'src/shared/screen';
 import { useQuasar } from 'quasar';
+import { useQueryClient } from '@tanstack/vue-query';
 
 const props = defineProps({
   buttery: {
@@ -153,25 +154,40 @@ const props = defineProps({
 const tab = ref('photo');
 
 const $q = useQuasar();
+const queryClient = useQueryClient();
 
-function reportOpen(buttery: Buttery) {
-  $q.dialog({
-    component: ReportDialog,
-    componentProps: {
-      placeHolderCollege: buttery.id,
-      placeHolderMessage: 'Open for today.',
-    },
+async function reportOpen(buttery: Buttery) {
+  const loadingNotification = $q.notify({
+    message: 'Marking as open...',
+    classes: 'yale-blue-1',
+    spinner: true,
   });
+  // Fetch setting id query param to buttery.id and value query param to "OPEN"
+  await fetch(`/api/verify?id=${buttery.id}&value=OPEN`);
+  loadingNotification();
+  $q.notify({
+    message: `Thank you, ${buttery.nickname} is now marked as open! `,
+    classes: 'yale-blue-1',
+    icon: 'campaign',
+  });
+  queryClient.invalidateQueries({ queryKey: ['butteries'] });
 }
 
-function reportClosed(buttery: Buttery) {
-  $q.dialog({
-    component: ReportDialog,
-    componentProps: {
-      placeHolderCollege: buttery.id,
-      placeHolderMessage: 'Closed for today.',
-    },
+async function reportClosed(buttery: Buttery) {
+  const loadingNotification = $q.notify({
+    message: 'Marking as closed...',
+    classes: 'yale-blue-1',
+    spinner: true,
   });
+  // Fetch setting id query param to buttery.id and value query param to "CLOSED"
+  await fetch(`/api/verify?id=${buttery.id}&value=CLOSED`);
+  loadingNotification();
+  $q.notify({
+    message: `Thank you, ${buttery.nickname} is now marked as closed! `,
+    classes: 'yale-blue-1',
+    icon: 'campaign',
+  });
+  queryClient.invalidateQueries({ queryKey: ['butteries'] });
 }
 
 function reportIssue(buttery: Buttery) {
