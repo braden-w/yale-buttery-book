@@ -10,9 +10,12 @@ export default function handler(
   request: VercelRequest,
   response: VercelResponse
 ) {
-  const { id, value } = request.query;
-  // Zod validate
-  const calendarId = idSchema.parse(id);
-  const verifiedValue = valueSchema.parse(value);
-  return response.end(`Hello ${calendarId} ${verifiedValue}!`);
+  try {
+    const { id, value } = request.query;
+    // const calendarId = idSchema.parse(id);
+    // const verifiedValue = valueSchema.parse(value);
+    return response.end(`Hello ${id} ${value}!`);
+  } catch (error) {
+    return response.status(400).end(error.message);
+  }
 }
