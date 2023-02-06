@@ -1,10 +1,28 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { z } from 'zod';
-import { butteryIds } from '../src/shared/butteries';
 
 // Zod Types
-const idSchema = z.enum(butteryIds);
-const valueSchema = z.enum(['OPEN', 'CLOSED']);
+const idSchema = z.enum([
+  'Benjamin Franklin',
+  'Berkeley',
+  'Branford',
+  'Davenport',
+  'Ezra Stiles',
+  'Grace Hopper',
+  'Jonathan Edwards',
+  'Morse',
+  'Pauli Murray',
+  'Pierson',
+  'Saybrook',
+  'Silliman',
+  'Timothy Dwight',
+  'Trumbull',
+  'The Acorn',
+  'The Beanjamin',
+]);
+const valueSchema = z.enum(['OPEN', 'CLOSED'], {
+  description: 'Value must be either "OPEN" or "CLOSED"',
+});
 
 export default function handler(
   request: VercelRequest,
@@ -12,9 +30,10 @@ export default function handler(
 ) {
   try {
     const { id, value } = request.query;
-    // const calendarId = idSchema.parse(id);
-    // const verifiedValue = valueSchema.parse(value);
-    return response.end(`Hello ${id} ${value}!`);
+    console.log('🚀 ~ file: verify.ts:17 ~ id', id);
+    const calendarId = idSchema.parse(id);
+    const verifiedValue = valueSchema.parse(value);
+    return response.end(`Hello ${calendarId} ${verifiedValue}!`);
   } catch (error) {
     return response.status(400).end(error.message);
   }
