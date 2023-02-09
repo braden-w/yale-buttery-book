@@ -43,7 +43,7 @@
             :label="$q.screen.gt.sm ? 'Install' : undefined"
             @click="openInstallDialog"
           />
-          <q-btn flat icon="close" @click="contributeBanner = false" />
+          <q-btn flat icon="close" @click="storeBanner = false" />
         </template>
       </q-banner>
 
