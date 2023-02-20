@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { z } from 'zod';
-import { GoogleSpreadsheet } from 'google-spreadsheet';
+import { GoogleSpreadsheet, GoogleSpreadsheetRow } from 'google-spreadsheet';
 
 // Zod Types
 const idSchema = z.enum([
@@ -59,11 +59,8 @@ async function setButteryVerified(
   await doc.loadInfo(); // loads document properties and worksheets
   const sheet = doc.sheetsByIndex[0]; // or use doc.sheetsById[id]
   const rows = await sheet.getRows(); // can pass in { limit, offset }
-  rows.forEach(async (row) => {
-    if (row.id === id) {
-      row.verified = verifiedValue;
-      await row.save();
-    }
-  });
+  const row = rows.find((row) => row.id === id) as GoogleSpreadsheetRow;
+  row.verified = verifiedValue;
+  await row.save();
   return true;
 }
