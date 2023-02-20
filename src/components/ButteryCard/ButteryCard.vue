@@ -184,14 +184,14 @@ const { mutate: reportOpen } = useMutation({
     );
     return { previousButteries, loadingNotification };
   },
-  onSuccess: (response, buttery) => {
+  onSuccess: (_response, buttery) => {
     $q.notify({
       message: `Thank you, ${buttery.nickname} is now marked as open! `,
       classes: 'yale-blue-1',
       icon: 'campaign',
     });
   },
-  onError: (err, newButteries, context) => {
+  onError: (_err, _newButteries, context) => {
     context?.loadingNotification();
     queryClient.setQueryData(['butteries'], context?.previousButteries);
   },
@@ -223,14 +223,14 @@ const { mutate: reportClosed } = useMutation({
     );
     return { previousButteries, loadingNotification };
   },
-  onSuccess: (response, buttery) => {
+  onSuccess: (_response, buttery) => {
     $q.notify({
       message: `Thank you, ${buttery.nickname} is now marked as closed! `,
       classes: 'yale-blue-1',
       icon: 'campaign',
     });
   },
-  onError: (err, newButteries, context) => {
+  onError: (_err, _newButteries, context) => {
     context?.loadingNotification();
     queryClient.setQueryData(['butteries'], context?.previousButteries);
   },
