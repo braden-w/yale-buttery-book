@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { z } from 'zod';
-import { setButteryVerified } from './setButteryVerified';
+import { GoogleSpreadsheet } from 'google-spreadsheet';
 
 // Zod Types
 const idSchema = z.enum([
@@ -38,4 +38,31 @@ export default async function handler(
   } catch (error) {
     return response.status(400).end(error.message);
   }
+}
+
+// In the row where the "id" column matches "id", set the "verified" column to "OPEN"
+async function setButteryVerified(
+  id: string,
+  verifiedValue: 'OPEN' | 'CLOSED'
+) {
+  const { CLIENT_EMAIL, PRIVATE_KEY } = process.env;
+  // Initialize the sheet - doc ID is the long id in the sheets URL
+  const doc = new GoogleSpreadsheet(
+    '1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU'
+  );
+  // Initialize Auth - see https://theoephraim.github.io/node-google-spreadsheet/#/getting-started/authentication
+  await doc.useServiceAccountAuth({
+    client_email: CLIENT_EMAIL as string,
+    private_key: PRIVATE_KEY as string,
+  });
+
+  await doc.loadInfo(); // loads document properties and worksheets
+  const sheet = doc.sheetsByIndex[0]; // or use doc.sheetsById[id]
+  const rows = await sheet.getRows(); // can pass in { limit, offset }
+  rows.forEach((row) => {
+    if (row.id === id) {
+      row.verified = verifiedValue;
+      row.save();
+    }
+  });
 }
