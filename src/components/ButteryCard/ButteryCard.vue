@@ -36,7 +36,7 @@
       <q-btn-dropdown
         flat
         :label="isMobile() ? undefined : 'Report'"
-        dropdown-icon="feedback"
+        dropdown-icon="edit_note"
         no-icon-animation
       >
         <template #label>
@@ -65,7 +65,7 @@
 
           <q-item clickable v-close-popup @click="reportIssue(props.buttery)">
             <q-item-section avatar>
-              <q-avatar text-color="amber" icon="more_vert" />
+              <q-avatar text-color="amber" icon="feedback" />
             </q-item-section>
             <q-item-section>
               <q-item-label>Report Other Issue</q-item-label>
