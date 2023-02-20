@@ -201,38 +201,45 @@ const { mutate: reportOpen } = useMutation({
   },
 });
 
-// async function reportOpen(buttery: Buttery) {
-//   const loadingNotification = $q.notify({
-//     message: 'Marking as open...',
-//     classes: 'yale-blue-1',
-//     spinner: true,
-//   });
-//   // Fetch setting id query param to buttery.id and value query param to "OPEN"
-//   loadingNotification();
-//   $q.notify({
-//     message: `Thank you, ${buttery.nickname} is now marked as open! `,
-//     classes: 'yale-blue-1',
-//     icon: 'campaign',
-//   });
-//   queryClient.invalidateQueries({ queryKey: ['butteries'] });
-// }
-
-async function reportClosed(buttery: Buttery) {
-  const loadingNotification = $q.notify({
-    message: 'Marking as closed...',
-    classes: 'yale-blue-1',
-    spinner: true,
-  });
-  // Fetch setting id query param to buttery.id and value query param to "CLOSED"
-  await fetch(`/api/verify?id=${buttery.id}&value=CLOSED`);
-  loadingNotification();
-  $q.notify({
-    message: `Thank you, ${buttery.nickname} is now marked as closed! `,
-    classes: 'yale-blue-1',
-    icon: 'campaign',
-  });
-  queryClient.invalidateQueries({ queryKey: ['butteries'] });
-}
+const { mutate: reportClosed } = useMutation({
+  mutationFn: markClosed,
+  onMutate: async (buttery: Buttery) => {
+    const loadingNotification = $q.notify({
+      message: `Marking ${buttery.id} as closed...`,
+      classes: 'yale-blue-1',
+      spinner: true,
+    });
+    await queryClient.cancelQueries({ queryKey: ['butteries'] });
+    const previousButteries = queryClient.getQueryData(['butteries']);
+    queryClient.setQueryData(
+      ['butteries'],
+      (old: Buttery[] | undefined): Buttery[] | undefined => {
+        return old?.map((b): Buttery => {
+          if (b.id === buttery.id) {
+            return { ...b, verified: 'CLOSED' };
+          }
+          return b;
+        });
+      }
+    );
+    return { previousButteries, loadingNotification };
+  },
+  onSuccess: (response, buttery) => {
+    $q.notify({
+      message: `Thank you, ${buttery.nickname} is now marked as closed! `,
+      classes: 'yale-blue-1',
+      icon: 'campaign',
+    });
+  },
+  onError: (err, newButteries, context) => {
+    context?.loadingNotification();
+    queryClient.setQueryData(['butteries'], context?.previousButteries);
+  },
+  onSettled: (_, _error, _buttery, context) => {
+    context?.loadingNotification();
+    queryClient.invalidateQueries({ queryKey: ['butteries'] });
+  },
+});
 
 function reportIssue(buttery: Buttery) {
   $q.dialog({
