@@ -41,7 +41,7 @@
       >
         <template #label>
           <q-tooltip anchor="top middle" self="bottom middle">
-            Verify Open, Verify Closed, or Report Issue
+            Edit Status
           </q-tooltip>
         </template>
         <q-list>
