@@ -197,7 +197,6 @@ const { mutate: reportOpen } = useMutation({
   },
   onSettled: (_, _error, _buttery, context) => {
     context?.loadingNotification();
-    queryClient.invalidateQueries({ queryKey: ['butteries'] });
   },
 });
 
@@ -237,7 +236,6 @@ const { mutate: reportClosed } = useMutation({
   },
   onSettled: (_, _error, _buttery, context) => {
     context?.loadingNotification();
-    queryClient.invalidateQueries({ queryKey: ['butteries'] });
   },
 });
 
