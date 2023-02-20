@@ -35,7 +35,7 @@
       <q-space />
       <q-btn-dropdown
         flat
-        :label="isMobile() ? undefined : 'Report'"
+        :label="isMobile() ? undefined : 'Edit Status'"
         dropdown-icon="edit_note"
         no-icon-animation
       >
