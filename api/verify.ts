@@ -65,4 +65,5 @@ async function setButteryVerified(
       await row.save();
     }
   });
+  return true;
 }
