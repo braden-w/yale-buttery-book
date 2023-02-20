@@ -40,7 +40,7 @@
         no-icon-animation
       >
         <template #label>
-          <q-tooltip anchor="top middle" self="bottom middle">
+          <q-tooltip anchor="top middle" self="bottom middle" v-if="isMobile()">
             Edit Status
           </q-tooltip>
         </template>
