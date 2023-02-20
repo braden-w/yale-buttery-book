@@ -12,8 +12,8 @@ export async function setButteryVerified(
 ) {
   // Initialize Auth - see https://theoephraim.github.io/node-google-spreadsheet/#/getting-started/authentication
   await doc.useServiceAccountAuth({
-    client_email: CLIENT_EMAIL,
-    private_key: PRIVATE_KEY,
+    client_email: CLIENT_EMAIL ?? '',
+    private_key: PRIVATE_KEY ?? '',
   });
 
   await doc.loadInfo(); // loads document properties and worksheets
