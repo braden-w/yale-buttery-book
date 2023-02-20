@@ -55,7 +55,7 @@ import { onClickOutside } from '@vueuse/core';
 const props = defineProps({
   verified: {
     type: String as PropType<Buttery['verified']>,
-    required: true,
+    default: undefined,
   },
 });
 

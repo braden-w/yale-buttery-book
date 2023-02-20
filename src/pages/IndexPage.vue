@@ -43,7 +43,7 @@
             :label="$q.screen.gt.sm ? 'Install' : undefined"
             @click="openInstallDialog"
           />
-          <q-btn flat icon="close" @click="contributeBanner = false" />
+          <q-btn flat icon="close" @click="storeBanner = false" />
         </template>
       </q-banner>
 
@@ -66,6 +66,7 @@
             :icon="$q.screen.lt.sm ? 'edit_note' : undefined"
             :label="$q.screen.gt.sm ? 'Go to Dashboard' : undefined"
             href="https://bradenwong.notion.site/Contribute-to-Yale-Buttery-Book-8aadc600938c47609dd5b2c84d5935f2"
+            target="_blank"
           />
           <q-btn flat icon="close" @click="contributeBanner = false" />
         </template>

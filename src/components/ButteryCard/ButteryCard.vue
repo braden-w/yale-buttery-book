@@ -35,13 +35,13 @@
       <q-space />
       <q-btn-dropdown
         flat
-        :label="isMobile() ? undefined : 'Report'"
-        dropdown-icon="feedback"
+        :label="isMobile() ? undefined : 'Edit Status'"
+        dropdown-icon="edit_note"
         no-icon-animation
       >
         <template #label>
-          <q-tooltip anchor="top middle" self="bottom middle">
-            Verify Open, Verify Closed, or Report Issue
+          <q-tooltip anchor="top middle" self="bottom middle" v-if="isMobile()">
+            Edit Status
           </q-tooltip>
         </template>
         <q-list>
@@ -65,7 +65,7 @@
 
           <q-item clickable v-close-popup @click="reportIssue(props.buttery)">
             <q-item-section avatar>
-              <q-avatar text-color="amber" icon="more_vert" />
+              <q-avatar text-color="amber" icon="feedback" />
             </q-item-section>
             <q-item-section>
               <q-item-label>Report Other Issue</q-item-label>
@@ -142,7 +142,7 @@ import ButteryCardImage from 'src/components/ButteryCard/ButteryCardImage.vue';
 import ReportDialog from 'src/components/ReportDialog.vue';
 import { isMobile } from 'src/shared/screen';
 import { useQuasar } from 'quasar';
-import { useQueryClient } from '@tanstack/vue-query';
+import { useMutation, useQueryClient } from '@tanstack/vue-query';
 
 const props = defineProps({
   buttery: {
@@ -156,39 +156,88 @@ const tab = ref('photo');
 const $q = useQuasar();
 const queryClient = useQueryClient();
 
-async function reportOpen(buttery: Buttery) {
-  const loadingNotification = $q.notify({
-    message: 'Marking as open...',
-    classes: 'yale-blue-1',
-    spinner: true,
-  });
-  // Fetch setting id query param to buttery.id and value query param to "OPEN"
+const markOpen = async (buttery: Buttery) =>
   await fetch(`/api/verify?id=${buttery.id}&value=OPEN`);
-  loadingNotification();
-  $q.notify({
-    message: `Thank you, ${buttery.nickname} is now marked as open! `,
-    classes: 'yale-blue-1',
-    icon: 'campaign',
-  });
-  queryClient.invalidateQueries({ queryKey: ['butteries'] });
-}
-
-async function reportClosed(buttery: Buttery) {
-  const loadingNotification = $q.notify({
-    message: 'Marking as closed...',
-    classes: 'yale-blue-1',
-    spinner: true,
-  });
-  // Fetch setting id query param to buttery.id and value query param to "CLOSED"
+const markClosed = async (buttery: Buttery) =>
   await fetch(`/api/verify?id=${buttery.id}&value=CLOSED`);
-  loadingNotification();
-  $q.notify({
-    message: `Thank you, ${buttery.nickname} is now marked as closed! `,
-    classes: 'yale-blue-1',
-    icon: 'campaign',
-  });
-  queryClient.invalidateQueries({ queryKey: ['butteries'] });
-}
+
+const { mutate: reportOpen } = useMutation({
+  mutationFn: markOpen,
+  onMutate: async (buttery: Buttery) => {
+    const loadingNotification = $q.notify({
+      message: `Marking ${buttery.id} as open...`,
+      classes: 'yale-blue-1',
+      spinner: true,
+    });
+    await queryClient.cancelQueries({ queryKey: ['butteries'] });
+    const previousButteries = queryClient.getQueryData(['butteries']);
+    queryClient.setQueryData(
+      ['butteries'],
+      (old: Buttery[] | undefined): Buttery[] | undefined => {
+        return old?.map((b): Buttery => {
+          if (b.id === buttery.id) {
+            return { ...b, verified: 'OPEN' };
+          }
+          return b;
+        });
+      }
+    );
+    return { previousButteries, loadingNotification };
+  },
+  onSuccess: (_response, buttery) => {
+    $q.notify({
+      message: `Thank you, ${buttery.nickname} is now marked as open! `,
+      classes: 'yale-blue-1',
+      icon: 'campaign',
+    });
+  },
+  onError: (_err, _newButteries, context) => {
+    context?.loadingNotification();
+    queryClient.setQueryData(['butteries'], context?.previousButteries);
+  },
+  onSettled: (_, _error, _buttery, context) => {
+    context?.loadingNotification();
+  },
+});
+
+const { mutate: reportClosed } = useMutation({
+  mutationFn: markClosed,
+  onMutate: async (buttery: Buttery) => {
+    const loadingNotification = $q.notify({
+      message: `Marking ${buttery.id} as closed...`,
+      classes: 'yale-blue-1',
+      spinner: true,
+    });
+    await queryClient.cancelQueries({ queryKey: ['butteries'] });
+    const previousButteries = queryClient.getQueryData(['butteries']);
+    queryClient.setQueryData(
+      ['butteries'],
+      (old: Buttery[] | undefined): Buttery[] | undefined => {
+        return old?.map((b): Buttery => {
+          if (b.id === buttery.id) {
+            return { ...b, verified: 'CLOSED' };
+          }
+          return b;
+        });
+      }
+    );
+    return { previousButteries, loadingNotification };
+  },
+  onSuccess: (_response, buttery) => {
+    $q.notify({
+      message: `Thank you, ${buttery.nickname} is now marked as closed! `,
+      classes: 'yale-blue-1',
+      icon: 'campaign',
+    });
+  },
+  onError: (_err, _newButteries, context) => {
+    context?.loadingNotification();
+    queryClient.setQueryData(['butteries'], context?.previousButteries);
+  },
+  onSettled: (_, _error, _buttery, context) => {
+    context?.loadingNotification();
+  },
+});
 
 function reportIssue(buttery: Buttery) {
   $q.dialog({
