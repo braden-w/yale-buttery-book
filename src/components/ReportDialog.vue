@@ -114,8 +114,6 @@ async function submitReportDialog() {
       report_date,
       report_time,
     });
-    if (data) console.log('database write success', data);
-    else console.error('database write failed', error);
     return { data, error };
   };
   const feedbackSendEmail = async () => {
@@ -144,8 +142,6 @@ Yale Buttery Book Team`,
       },
       auth: { username: 'api', password: import.meta.env.VITE_MAILGUN_API_KEY },
     });
-    if (email.status === 200) console.log('email sent', email);
-    else console.error('email failed', email);
     return email.status === 200;
   };
 
