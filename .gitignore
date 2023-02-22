@@ -37,3 +37,6 @@ yarn-error.log*
 .env
 
 .vercel
+
+# Hide this folder since .env is in it
+src-capacitor/android/app/src/main/assets/public/assets

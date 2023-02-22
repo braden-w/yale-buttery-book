@@ -89,12 +89,7 @@
       <router-view />
       <div class="text-center q-mt-md">&copy; Buttery Book 2023</div>
       <q-page-sticky position="bottom-right" :offset="[18, 18]">
-        <q-btn
-          fab
-          icon="campaign"
-          color="accent"
-          :href="`sms:${PHONE_NUMBER}&body=Suggestion%20for%20YBB:%20`"
-        >
+        <q-btn fab icon="campaign" @click="reportGeneral()" color="accent">
           Suggest
         </q-btn>
       </q-page-sticky>
@@ -108,7 +103,6 @@ import InstallDialog from 'src/components/InstallDialog.vue';
 import ReportDialog from 'src/components/ReportDialog.vue';
 import { butteryDropdownOptions } from 'src/shared/butteries';
 import { isMobile } from 'src/shared/screen';
-const PHONE_NUMBER = import.meta.env.VITE_PHONE_NUMBER;
 
 const $q = useQuasar();
 function reportGeneral() {

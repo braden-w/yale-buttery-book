@@ -15,7 +15,15 @@
         </div>
       </q-card-section>
       <q-separator />
-      <q-form @submit="submitReportDialog()">
+      <q-form
+        @submit="
+          submitReportDialog({
+            report_message: reportMessage,
+            report_college: reportCollege,
+            report_contact: reportContact,
+          })
+        "
+      >
         <q-card-section>
           <q-select
             v-model="reportCollege"
@@ -61,6 +69,7 @@ import { useQuasar } from 'quasar';
 import { ref } from 'vue';
 import { butteryDropdownOptions } from 'src/shared/butteries';
 import { useDialogPluginComponent } from 'quasar';
+import { useMutation, useQueryClient } from '@tanstack/vue-query';
 
 const props = defineProps({
   placeHolderCollege: {
@@ -84,8 +93,8 @@ const reportContact = ref('');
 
 // const openReportDialog = () => (dialogRef.value = true);
 const closeReportDialog = onDialogCancel;
-// const setReportCollege = (college: string) => (reportCollege.value = college);
-// const setReportMessage = (message: string) => (reportMessage.value = message);
+// const setReportCollege = (college: string) => (report_college = college);
+// const setReportMessage = (message: string) => (report_message = message);
 
 const supabase = createClient(
   import.meta.env.VITE_SUPABASE_URL,
@@ -101,16 +110,62 @@ const isValidEmailOrPhone = (text: string): boolean =>
   /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(text) ||
   /^\d{10}$/.test(text);
 
-async function submitReportDialog() {
+const PHONE_NUMBER = import.meta.env.VITE_PHONE_NUMBER;
+const { mutate: submitReportDialog } = useMutation({
+  mutationFn: submitReport,
+  onSuccess: (_response, { report_message }) => {
+    $q.notify({
+      message: 'Thank you, issue reported!',
+      caption: report_message,
+      classes: 'yale-blue-1',
+      icon: 'campaign',
+    });
+  },
+  onError: (error, { report_message }) => {
+    $q.notify({
+      message: 'Error submitting report',
+      caption: (error as Error).message,
+      color: 'negative',
+      classes: 'yale-blue-1',
+      icon: 'campaign',
+    });
+    open(
+      `sms:${PHONE_NUMBER}&body=${encodeURIComponent(
+        `YBB Report: ${report_message}`
+      )}`
+    );
+  },
+  onMutate: ({ report_college }) => {
+    const loadingNotification = $q.notify({
+      message: `Sending report for ${report_college}...`,
+      spinner: true,
+    });
+    return { loadingNotification };
+  },
+  onSettled: (_, _error, _variables, context) => {
+    context?.loadingNotification();
+  },
+});
+
+type SubmitReport = {
+  report_college?: string;
+  report_message?: string;
+  report_contact: string;
+};
+async function submitReport({
+  report_college,
+  report_message,
+  report_contact,
+}: SubmitReport) {
   onDialogOK();
   const report_date = new Date().toDateString();
   const report_time = new Date().toTimeString();
 
   const feedbackUploadToSupabase = async () => {
     const { data, error } = await supabase.from('reports').insert({
-      name: reportCollege.value,
-      report_message: reportMessage.value,
-      report_contact: reportContact.value,
+      name: report_college,
+      report_message: report_message,
+      report_contact: report_contact,
       report_date,
       report_time,
     });
@@ -122,18 +177,18 @@ async function submitReportDialog() {
       url: 'https://api.mailgun.net/v3/yalebutterybook.com/messages',
       params: {
         from: 'Yale Buttery Book <yalebutterybook@gmail.com>',
-        to: isEmail(reportContact.value)
-          ? reportContact.value
+        to: isEmail(report_contact)
+          ? report_contact
           : 'yalebutterybook@gmail.com',
         cc: 'braden.wong@yale.edu',
-        subject: `Yale Buttery Book Report: ${reportMessage.value}`,
+        subject: `Yale Buttery Book Report: ${report_message}`,
         text: `To whom it may concern,
 
 This email confirms receipt of your report on ${report_date} at ${report_time} with the following details:
 
-        College: ${reportCollege.value}
-        Message: ${reportMessage.value}
-        Contact: ${reportContact.value}
+        College: ${report_college}
+        Message: ${report_message}
+        Contact: ${report_contact}
 
 We'll respond to you shortly.
 
@@ -145,31 +200,13 @@ Yale Buttery Book Team`,
     return email.status === 200;
   };
 
-  const loadingNotification = $q.notify({
-    message: 'Sending report...',
-    classes: 'yale-blue-1',
-    spinner: true,
-  });
-
   const [{ error }, emailSent] = await Promise.all([
     feedbackUploadToSupabase(),
     feedbackSendEmail(),
   ]);
-  if (error && !emailSent) {
-    $q.notify({
-      message: 'Error sending report',
-      caption: `Details: ${error?.message}` ?? 'Error sending email',
-      color: 'negative',
-      icon: 'error',
-    });
+  if (error || !emailSent) {
+    throw new Error(error?.message ?? 'Error sending email');
   }
-  loadingNotification();
   closeReportDialog();
-  $q.notify({
-    message: 'Thank you, issue reported!',
-    caption: reportMessage.value,
-    classes: 'yale-blue-1',
-    icon: 'campaign',
-  });
 }
 </script>
