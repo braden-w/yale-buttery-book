@@ -124,7 +124,7 @@ const { mutate: submitReportDialog } = useMutation({
   onError: (error) => {
     $q.notify({
       message: 'Error submitting report',
-      caption: error.message,
+      caption: (error as Error).message,
       color: 'negative',
       classes: 'yale-blue-1',
       icon: 'campaign',
