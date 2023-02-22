@@ -79,8 +79,7 @@
           <q-item
             clickable
             v-close-popup
-            :href="props.buttery.menu_link"
-            target="_blank"
+            :href="`sms:import.meta.env.VITE_PHONE_NUMBER&body=Update%20to%20the%20YBB%20Menu%20for%20${props.buttery.id}%20(image%20or%20text):%20`"
           >
             <q-item-section avatar>
               <q-avatar text-color="green" icon="description" />
