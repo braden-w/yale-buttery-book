@@ -35,13 +35,13 @@
       <q-space />
       <q-btn-dropdown
         flat
-        :label="isMobile() ? undefined : 'Edit Status'"
+        :label="isMobile() ? undefined : 'Update'"
         dropdown-icon="edit_note"
         no-icon-animation
       >
         <template #label>
           <q-tooltip anchor="top middle" self="bottom middle" v-if="isMobile()">
-            Edit Status
+            Update
           </q-tooltip>
         </template>
         <q-list>
@@ -68,16 +68,21 @@
               <q-avatar text-color="amber" icon="edit_calendar" />
             </q-item-section>
             <q-item-section>
-              <q-item-label>Edit Schedule</q-item-label>
+              <q-item-label>Update Schedule</q-item-label>
             </q-item-section>
           </q-item>
 
-          <q-item clickable v-close-popup :to="props.buttery.menu_link">
+          <q-item
+            clickable
+            v-close-popup
+            :href="props.buttery.menu_link"
+            target="_blank"
+          >
             <q-item-section avatar>
               <q-avatar text-color="green" icon="description" />
             </q-item-section>
             <q-item-section>
-              <q-item-label>Edit Menu</q-item-label>
+              <q-item-label>Update Menu</q-item-label>
             </q-item-section>
           </q-item>
 
