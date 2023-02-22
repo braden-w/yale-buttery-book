@@ -63,7 +63,11 @@
             </q-item-section>
           </q-item>
 
-          <q-item clickable v-close-popup @click="showDialog = true">
+          <q-item
+            clickable
+            v-close-popup
+            :href="`sms:import.meta.env.VITE_PHONE_NUMBER&body=Update%20to%20the%20YBB%20Schedule%20for%20${props.buttery.id}: `"
+          >
             <q-item-section avatar>
               <q-avatar text-color="amber" icon="edit_calendar" />
             </q-item-section>
@@ -96,31 +100,6 @@
           </q-item> -->
         </q-list>
       </q-btn-dropdown>
-      <q-dialog v-model="showDialog">
-        <q-card>
-          <q-card-section class="text-subtitle2">
-            To update {{ props.buttery.id }}'s' Calendar, please:
-          </q-card-section>
-          <q-card-section class="q-pt-none">
-            <ol>
-              <li>
-                Edit
-                <a
-                  href="https://docs.google.com/spreadsheets/d/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/edit?usp=sharing"
-                  target="_blank"
-                  style="color: #1976d2; text-decoration: none"
-                >
-                  the schedule here.
-                </a>
-              </li>
-              <li>Text me an update</li>
-            </ol>
-          </q-card-section>
-          <q-card-actions>
-            <q-btn label="Close" color="primary" @click="showDialog = false" />
-          </q-card-actions>
-        </q-card>
-      </q-dialog>
     </template>
 
     <!-- Make a flex column div with gap 2 -->
@@ -200,7 +179,6 @@ const props = defineProps({
 });
 
 const tab = ref('photo');
-const showDialog = ref(false);
 
 const $q = useQuasar();
 const queryClient = useQueryClient();
