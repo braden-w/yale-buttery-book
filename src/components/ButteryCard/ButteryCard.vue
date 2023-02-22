@@ -66,7 +66,7 @@
           <q-item
             clickable
             v-close-popup
-            :href="`sms:import.meta.env.VITE_PHONE_NUMBER&body=Update%20to%20the%20YBB%20Schedule%20for%20${props.buttery.id}: `"
+            :href="`sms:import.meta.env.VITE_PHONE_NUMBER&body=Update%20to%20the%20YBB%20Schedule%20for%20${props.buttery.id}:%20`"
           >
             <q-item-section avatar>
               <q-avatar text-color="amber" icon="edit_calendar" />
