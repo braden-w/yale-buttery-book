@@ -184,13 +184,9 @@ const $q = useQuasar();
 const queryClient = useQueryClient();
 
 const markOpen = async (buttery: Buttery) =>
-  await fetch(
-    `https://www.yalebutterybook.com/api/verify?id=${buttery.id}&value=OPEN`
-  );
+  await fetch(`/api/verify?id=${buttery.id}&value=OPEN`);
 const markClosed = async (buttery: Buttery) =>
-  await fetch(
-    `https://www.yalebutterybook.com/api/verify?id=${buttery.id}&value=CLOSED`
-  );
+  await fetch(`/api/verify?id=${buttery.id}&value=CLOSED`);
 
 const { mutate: reportOpen } = useMutation({
   mutationFn: markOpen,
