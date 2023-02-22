@@ -201,12 +201,7 @@ Yale Buttery Book Team`,
     feedbackSendEmail(),
   ]);
   if (error || !emailSent) {
-    $q.notify({
-      message: 'Error sending report',
-      caption: `Details: ${error?.message}` ?? 'Error sending email',
-      color: 'negative',
-      icon: 'error',
-    });
+    throw new Error(error?.message ?? 'Error sending email');
   }
   closeReportDialog();
 }
