@@ -61,6 +61,7 @@ import { useQuasar } from 'quasar';
 import { ref } from 'vue';
 import { butteryDropdownOptions } from 'src/shared/butteries';
 import { useDialogPluginComponent } from 'quasar';
+import { useMutation, useQueryClient } from '@tanstack/vue-query';
 
 const props = defineProps({
   placeHolderCollege: {
@@ -101,7 +102,40 @@ const isValidEmailOrPhone = (text: string): boolean =>
   /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(text) ||
   /^\d{10}$/.test(text);
 
-async function submitReportDialog() {
+const { mutate: submitReportDialog } = useMutation({
+  mutationFn: submitReport,
+  onSuccess: () => {
+    $q.notify({
+      message: 'Thank you, issue reported!',
+      caption: reportMessage.value,
+      color: 'positive',
+      classes: 'yale-blue-1',
+      icon: 'campaign',
+    });
+  },
+  onError: (error) => {
+    $q.notify({
+      message: 'Error submitting report',
+      caption: error.message,
+      color: 'negative',
+      classes: 'yale-blue-1',
+      icon: 'campaign',
+    });
+  },
+  onMutate: () => {
+    const loadingNotification = $q.notify({
+      message: 'Sending report...',
+      classes: 'yale-blue-1',
+      spinner: true,
+    });
+    return { loadingNotification };
+  },
+  onSettled: (_, _error, _variables, context) => {
+    context?.loadingNotification();
+  },
+});
+
+async function submitReport() {
   onDialogOK();
   const report_date = new Date().toDateString();
   const report_time = new Date().toTimeString();
@@ -145,12 +179,6 @@ Yale Buttery Book Team`,
     return email.status === 200;
   };
 
-  const loadingNotification = $q.notify({
-    message: 'Sending report...',
-    classes: 'yale-blue-1',
-    spinner: true,
-  });
-
   const [{ error }, emailSent] = await Promise.all([
     feedbackUploadToSupabase(),
     feedbackSendEmail(),
@@ -165,11 +193,5 @@ Yale Buttery Book Team`,
   }
   loadingNotification();
   closeReportDialog();
-  $q.notify({
-    message: 'Thank you, issue reported!',
-    caption: reportMessage.value,
-    classes: 'yale-blue-1',
-    icon: 'campaign',
-  });
 }
 </script>
