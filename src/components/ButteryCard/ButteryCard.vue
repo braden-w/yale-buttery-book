@@ -98,22 +98,23 @@
       </q-btn-dropdown>
       <q-dialog v-model="showDialog">
         <q-card>
-          <q-card-section class="text-h6">
-            To update the Buttery Calendar, please do the following:
+          <q-card-section class="text-subtitle2">
+            To update {{ props.buttery.id }}'s' Calendar, please:
           </q-card-section>
-          <q-card-section>
-            <ul>
+          <q-card-section class="q-pt-none">
+            <ol>
               <li>
-                Edit the text schedule here:
-                <q-btn
-                  label="Open Link"
-                  color="primary"
+                Edit
+                <a
                   href="https://docs.google.com/spreadsheets/d/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/edit?usp=sharing"
                   target="_blank"
-                />
+                  style="color: #1976d2; text-decoration: none"
+                >
+                  the schedule here.
+                </a>
               </li>
               <li>Text me an update</li>
-            </ul>
+            </ol>
           </q-card-section>
           <q-card-actions>
             <q-btn label="Close" color="primary" @click="showDialog = false" />
