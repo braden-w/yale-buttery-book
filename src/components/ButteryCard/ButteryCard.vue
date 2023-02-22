@@ -63,6 +63,24 @@
             </q-item-section>
           </q-item>
 
+          <q-item clickable v-close-popup @click="reportClosed(props.buttery)">
+            <q-item-section avatar>
+              <q-avatar text-color="amber" icon="edit_calendar" />
+            </q-item-section>
+            <q-item-section>
+              <q-item-label>Edit Schedule</q-item-label>
+            </q-item-section>
+          </q-item>
+
+          <q-item clickable v-close-popup :to="props.buttery.menu_link">
+            <q-item-section avatar>
+              <q-avatar text-color="green" icon="description" />
+            </q-item-section>
+            <q-item-section>
+              <q-item-label>Edit Menu</q-item-label>
+            </q-item-section>
+          </q-item>
+
           <q-item clickable v-close-popup @click="reportIssue(props.buttery)">
             <q-item-section avatar>
               <q-avatar text-color="amber" icon="feedback" />
