@@ -35,13 +35,13 @@
       <q-space />
       <q-btn-dropdown
         flat
-        :label="isMobile() ? undefined : 'Edit Status'"
+        :label="isMobile() ? undefined : 'Update'"
         dropdown-icon="edit_note"
         no-icon-animation
       >
         <template #label>
           <q-tooltip anchor="top middle" self="bottom middle" v-if="isMobile()">
-            Edit Status
+            Update
           </q-tooltip>
         </template>
         <q-list>
@@ -63,14 +63,41 @@
             </q-item-section>
           </q-item>
 
-          <q-item clickable v-close-popup @click="reportIssue(props.buttery)">
+          <q-item
+            clickable
+            v-close-popup
+            :href="`sms:import.meta.env.VITE_PHONE_NUMBER&body=Update%20to%20the%20YBB%20Schedule%20for%20${props.buttery.id}: `"
+          >
+            <q-item-section avatar>
+              <q-avatar text-color="amber" icon="edit_calendar" />
+            </q-item-section>
+            <q-item-section>
+              <q-item-label>Update Schedule</q-item-label>
+            </q-item-section>
+          </q-item>
+
+          <q-item
+            clickable
+            v-close-popup
+            :href="props.buttery.menu_link"
+            target="_blank"
+          >
+            <q-item-section avatar>
+              <q-avatar text-color="green" icon="description" />
+            </q-item-section>
+            <q-item-section>
+              <q-item-label>Update Menu</q-item-label>
+            </q-item-section>
+          </q-item>
+
+          <!-- <q-item clickable v-close-popup @click="reportIssue(props.buttery)">
             <q-item-section avatar>
               <q-avatar text-color="amber" icon="feedback" />
             </q-item-section>
             <q-item-section>
               <q-item-label>Report Other Issue</q-item-label>
             </q-item-section>
-          </q-item>
+          </q-item> -->
         </q-list>
       </q-btn-dropdown>
     </template>
