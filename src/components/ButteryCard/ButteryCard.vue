@@ -66,11 +66,7 @@
           <q-item
             clickable
             v-close-popup
-            :href="`sms:${
-              PHONE_NUMBER
-            }&body=Update%20to%20the%20YBB%20Schedule%20for%20${
-              props.buttery.id
-            }%20(${props.buttery.calendarID}):%20`"
+            :href="`sms:${PHONE_NUMBER}&body=Update%20to%20the%20YBB%20Schedule%20for%20${props.buttery.id}%20(${props.buttery.calendarID}):%20`"
           >
             <q-item-section avatar>
               <q-avatar text-color="amber" icon="edit_calendar" />
@@ -83,11 +79,7 @@
           <q-item
             clickable
             v-close-popup
-            :href="`sms:${
-              PHONE_NUMBER
-            }&body=Update%20to%20the%20YBB%20Menu%20for%20${
-              props.buttery.id
-            }%20(${props.buttery.menu_link}):%20`"
+            :href="`sms:${PHONE_NUMBER}&body=Update%20to%20the%20YBB%20Menu%20for%20${props.buttery.id}%20(${props.buttery.menu_link}):%20`"
           >
             <q-item-section avatar>
               <q-avatar text-color="green" icon="description" />
@@ -185,7 +177,7 @@ const props = defineProps({
   },
 });
 
-const PHONE_NUMBER = import.meta.env.VITE_PHONE_NUMBER
+const PHONE_NUMBER = import.meta.env.VITE_PHONE_NUMBER;
 const tab = ref('photo');
 
 const $q = useQuasar();
