@@ -155,7 +155,7 @@ Yale Buttery Book Team`,
     feedbackUploadToSupabase(),
     feedbackSendEmail(),
   ]);
-  if (error && !emailSent) {
+  if (error || !emailSent) {
     $q.notify({
       message: 'Error sending report',
       caption: `Details: ${error?.message}` ?? 'Error sending email',
