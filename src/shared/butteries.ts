@@ -56,6 +56,8 @@ export const defaultButteries: Buttery[] = [
     startTime: '22:00:00',
     menu_photo_url:
       'https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Benjamin Franklin.jpg',
+    menu_link:
+      'https://docs.google.com/spreadsheets/d/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/edit#gid=876931505',
   },
   {
     id: 'Berkeley',
@@ -66,6 +68,8 @@ export const defaultButteries: Buttery[] = [
     startTime: '22:00:00',
     menu_photo_url:
       'https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Berkeley.jpg',
+    menu_link:
+      'https://docs.google.com/spreadsheets/d/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/edit#gid=1122135459',
   },
   {
     id: 'Branford',
@@ -76,6 +80,8 @@ export const defaultButteries: Buttery[] = [
     startTime: '22:30:00',
     menu_photo_url:
       'https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Branford.jpg',
+    menu_link:
+      'https://docs.google.com/spreadsheets/d/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/edit#gid=1283902203',
   },
   {
     id: 'Davenport',
@@ -86,6 +92,8 @@ export const defaultButteries: Buttery[] = [
     startTime: '22:00:00',
     menu_photo_url:
       'https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Davenport.jpg',
+    menu_link:
+      'https://docs.google.com/spreadsheets/d/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/edit#gid=562972820',
   },
   {
     id: 'Ezra Stiles',
@@ -96,6 +104,8 @@ export const defaultButteries: Buttery[] = [
     startTime: '22:00:00',
     menu_photo_url:
       'https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Ezra Stiles.jpg',
+    menu_link:
+      'https://docs.google.com/spreadsheets/d/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/edit#gid=1488674607',
   },
   {
     id: 'Grace Hopper',
@@ -106,6 +116,8 @@ export const defaultButteries: Buttery[] = [
     startTime: '22:00:00',
     menu_photo_url:
       'https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Grace Hopper.jpg',
+    menu_link:
+      'https://docs.google.com/spreadsheets/d/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/edit#gid=1236110977',
   },
   {
     id: 'Jonathan Edwards',
@@ -116,6 +128,8 @@ export const defaultButteries: Buttery[] = [
     startTime: '21:30:00',
     menu_photo_url:
       'https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Jonathan Edwards.jpg',
+    menu_link:
+      'https://docs.google.com/spreadsheets/d/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/edit#gid=965474435',
   },
   {
     id: 'Morse',
@@ -126,6 +140,8 @@ export const defaultButteries: Buttery[] = [
     startTime: '22:00:00',
     menu_photo_url:
       'https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Morse.jpg',
+    menu_link:
+      'https://docs.google.com/spreadsheets/d/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/edit#gid=813755270',
   },
   {
     id: 'Pauli Murray',
@@ -136,6 +152,8 @@ export const defaultButteries: Buttery[] = [
     startTime: '22:00:00',
     menu_photo_url:
       'https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Pauli Murray.jpg',
+    menu_link:
+      'https://docs.google.com/spreadsheets/d/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/edit#gid=1973151484',
   },
   {
     id: 'Pierson',
@@ -146,6 +164,8 @@ export const defaultButteries: Buttery[] = [
     startTime: '22:30:00',
     menu_photo_url:
       'https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Pierson.jpg',
+    menu_link:
+      'https://docs.google.com/spreadsheets/d/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/edit#gid=1680147828',
   },
   {
     id: 'Saybrook',
@@ -156,6 +176,8 @@ export const defaultButteries: Buttery[] = [
     startTime: '22:00:00',
     menu_photo_url:
       'https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Saybrook.jpg',
+    menu_link:
+      'https://docs.google.com/spreadsheets/d/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/edit#gid=2005943370',
   },
   {
     id: 'Silliman',
@@ -166,6 +188,8 @@ export const defaultButteries: Buttery[] = [
     startTime: '22:00:00',
     menu_photo_url:
       'https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Silliman.jpg',
+    menu_link:
+      'https://docs.google.com/spreadsheets/d/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/edit#gid=795554107',
   },
   {
     id: 'Timothy Dwight',
@@ -177,6 +201,8 @@ export const defaultButteries: Buttery[] = [
     startTime: '22:00:00',
     menu_photo_url:
       'https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Timothy Dwight.jpg',
+    menu_link:
+      'https://docs.google.com/spreadsheets/d/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/edit#gid=299574957',
   },
   {
     id: 'Trumbull',
@@ -187,7 +213,8 @@ export const defaultButteries: Buttery[] = [
     startTime: '22:00:00',
     menu_photo_url:
       'https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/Trumbull.jpg',
-    //textTime: "Sun-Th, 9 PM - 10:30 PM; T, Th 11:30 PM - 1 AM"
+    menu_link:
+      'https://docs.google.com/spreadsheets/d/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/edit#gid=1747027399',
   },
   {
     id: 'The Acorn',
@@ -195,9 +222,11 @@ export const defaultButteries: Buttery[] = [
     nickname: 'The Acorn',
     recommend: 'Basic #1 Toast, Basic #2 Toast, Espresso',
     textTime: '9 AM - 8 PM | Daily',
-    startTime: '09:00:00',
+    startTime: '9:00:00',
     menu_photo_url:
       'https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/The Acorn.jpg',
+    menu_link:
+      'https://docs.google.com/spreadsheets/d/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/edit#gid=1106717244',
   },
   {
     id: 'The Beanjamin',
@@ -208,14 +237,16 @@ export const defaultButteries: Buttery[] = [
     startTime: '14:00:00',
     menu_photo_url:
       'https://res.cloudinary.com/djwhupcus/image/upload/q_auto/v1673931545/Yale%20Buttery%20Book/buttery-menu-photos/The Beanjamin.jpg',
+    menu_link:
+      'https://docs.google.com/spreadsheets/d/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/edit#gid=1476967950',
   },
 ];
 
 export type Buttery = {
-  id: typeof butteryIds[number];
+  id: (typeof butteryIds)[number];
   calendarID: string;
   /*** Unique key that we'll use to identify this buttery */
-  nickname: typeof butteryNicknames[number];
+  nickname: (typeof butteryNicknames)[number];
   recommend: string;
   textTime: string;
   /*** The daily start time represented in 00:00:00 format. This is used to focus the calendar view on the appropriate time of day without scrolling for each buttery. */
@@ -224,6 +255,7 @@ export type Buttery = {
   isOpen?: boolean;
   opensIn?: string;
   verified?: 'OPEN' | 'CLOSED' | undefined;
+  menu_link: string;
 };
 
 const butteries = await queryClient.ensureQueryData({
