@@ -93,7 +93,7 @@
           fab
           icon="campaign"
           color="accent"
-          href="sms:import.meta.env.VITE_PHONE_NUMBER&body=Suggestion%20for%20YBB:%20"
+          :href="`sms:${PHONE_NUMBER}&body=Suggestion%20for%20YBB:%20`"
         >
           Suggest
         </q-btn>
@@ -108,6 +108,7 @@ import InstallDialog from 'src/components/InstallDialog.vue';
 import ReportDialog from 'src/components/ReportDialog.vue';
 import { butteryDropdownOptions } from 'src/shared/butteries';
 import { isMobile } from 'src/shared/screen';
+const PHONE_NUMBER = import.meta.env.VITE_PHONE_NUMBER;
 
 const $q = useQuasar();
 function reportGeneral() {
