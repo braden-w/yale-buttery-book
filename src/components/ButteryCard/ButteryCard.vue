@@ -222,7 +222,12 @@ const { mutate: reportOpen } = useMutation({
       icon: 'campaign',
     });
   },
-  onError: (_err, _newButteries, context) => {
+  onError: (_err, buttery, context) => {
+    $q.notify({
+      message: `Error marking ${buttery.nickname} as open`,
+      color: 'error',
+      icon: 'campaign',
+    });
     context?.loadingNotification();
     queryClient.setQueryData(['butteries'], context?.previousButteries);
   },
@@ -261,7 +266,12 @@ const { mutate: reportClosed } = useMutation({
       icon: 'campaign',
     });
   },
-  onError: (_err, _newButteries, context) => {
+  onError: (_err, buttery, context) => {
+    $q.notify({
+      message: `Error marking ${buttery.nickname} as open`,
+      color: 'error',
+      icon: 'campaign',
+    });
     context?.loadingNotification();
     queryClient.setQueryData(['butteries'], context?.previousButteries);
   },
