@@ -110,6 +110,7 @@ const isValidEmailOrPhone = (text: string): boolean =>
   /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(text) ||
   /^\d{10}$/.test(text);
 
+const PHONE_NUMBER = import.meta.env.VITE_PHONE_NUMBER;
 const { mutate: submitReportDialog } = useMutation({
   mutationFn: submitReport,
   onSuccess: (_response, { report_message }) => {
@@ -120,7 +121,7 @@ const { mutate: submitReportDialog } = useMutation({
       icon: 'campaign',
     });
   },
-  onError: (error) => {
+  onError: (error, { report_message }) => {
     $q.notify({
       message: 'Error submitting report',
       caption: (error as Error).message,
@@ -128,6 +129,11 @@ const { mutate: submitReportDialog } = useMutation({
       classes: 'yale-blue-1',
       icon: 'campaign',
     });
+    open(
+      `sms:${PHONE_NUMBER}&body=${encodeURIComponent(
+        `YBB Report: ${report_message}`
+      )}`
+    );
   },
   onMutate: ({ report_college }) => {
     const loadingNotification = $q.notify({
