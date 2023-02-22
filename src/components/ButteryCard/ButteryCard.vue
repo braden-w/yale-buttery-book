@@ -86,14 +86,14 @@
             </q-item-section>
           </q-item>
 
-          <q-item clickable v-close-popup @click="reportIssue(props.buttery)">
+          <!-- <q-item clickable v-close-popup @click="reportIssue(props.buttery)">
             <q-item-section avatar>
               <q-avatar text-color="amber" icon="feedback" />
             </q-item-section>
             <q-item-section>
               <q-item-label>Report Other Issue</q-item-label>
             </q-item-section>
-          </q-item>
+          </q-item> -->
         </q-list>
       </q-btn-dropdown>
     </template>
