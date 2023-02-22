@@ -28,7 +28,7 @@
         dense
         rounded
         class="q-mb-md bg-accent text-white"
-        v-if="contributeBanner && !$q.platform.is.capacitor"
+        v-if="storeBanner && !$q.platform.is.capacitor"
       >
         <template #avatar v-if="$q.screen.gt.sm">
           <q-icon name="shopping_bag" />
