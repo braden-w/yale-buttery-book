@@ -63,7 +63,7 @@
             </q-item-section>
           </q-item>
 
-          <q-item clickable v-close-popup @click="reportClosed(props.buttery)">
+          <q-item clickable v-close-popup @click="showDialog = true">
             <q-item-section avatar>
               <q-avatar text-color="amber" icon="edit_calendar" />
             </q-item-section>
@@ -96,6 +96,30 @@
           </q-item> -->
         </q-list>
       </q-btn-dropdown>
+      <q-dialog v-model="showDialog">
+        <q-card>
+          <q-card-section class="text-h6">
+            To update the Buttery Calendar, please do the following:
+          </q-card-section>
+          <q-card-section>
+            <ul>
+              <li>
+                Edit the text schedule here:
+                <q-btn
+                  label="Open Link"
+                  color="primary"
+                  href="https://docs.google.com/spreadsheets/d/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/edit?usp=sharing"
+                  target="_blank"
+                />
+              </li>
+              <li>Text me an update</li>
+            </ul>
+          </q-card-section>
+          <q-card-actions>
+            <q-btn label="Close" color="primary" @click="showDialog = false" />
+          </q-card-actions>
+        </q-card>
+      </q-dialog>
     </template>
 
     <!-- Make a flex column div with gap 2 -->
@@ -175,6 +199,7 @@ const props = defineProps({
 });
 
 const tab = ref('photo');
+const showDialog = ref(false);
 
 const $q = useQuasar();
 const queryClient = useQueryClient();
