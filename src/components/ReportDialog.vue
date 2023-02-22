@@ -116,7 +116,6 @@ const { mutate: submitReportDialog } = useMutation({
     $q.notify({
       message: 'Thank you, issue reported!',
       caption: report_message,
-      color: 'positive',
       classes: 'yale-blue-1',
       icon: 'campaign',
     });
@@ -133,7 +132,6 @@ const { mutate: submitReportDialog } = useMutation({
   onMutate: ({ report_college }) => {
     const loadingNotification = $q.notify({
       message: `Sending report for ${report_college}...`,
-      classes: 'yale-blue-1',
       spinner: true,
     });
     return { loadingNotification };
