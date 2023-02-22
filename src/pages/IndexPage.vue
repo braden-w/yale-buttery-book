@@ -47,7 +47,7 @@
         </template>
       </q-banner>
 
-      <q-banner
+      <!-- <q-banner
         inline-actions
         dense
         rounded
@@ -70,7 +70,7 @@
           />
           <q-btn flat icon="close" @click="contributeBanner = false" />
         </template>
-      </q-banner>
+      </q-banner> -->
 
       <q-card flat class="q-mb-md">
         <q-card-section class="text-h5">Currently Open</q-card-section>
