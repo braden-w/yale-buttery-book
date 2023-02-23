@@ -63,11 +63,7 @@
             </q-item-section>
           </q-item>
 
-          <q-item
-            clickable
-            v-close-popup
-            :href="`sms:${PHONE_NUMBER}&body=Update%20to%20the%20YBB%20Schedule%20for%20${props.buttery.id}%20(${props.buttery.calendarID}):%20`"
-          >
+          <q-item clickable v-close-popup @click="showCalendarDialog = true">
             <q-item-section avatar>
               <q-avatar text-color="amber" icon="edit_calendar" />
             </q-item-section>
@@ -99,6 +95,75 @@
           </q-item> -->
         </q-list>
       </q-btn-dropdown>
+      <q-dialog v-model="showCalendarDialog" seamless position="bottom">
+        <q-card style="width: 100%" flat>
+          <q-card-section>
+            <div class="row">
+              <div class="text-h6">Update the Buttery Calendar</div>
+              <q-space></q-space>
+              <q-btn
+                round
+                flat
+                icon="close"
+                @click="showCalendarDialog = false"
+              ></q-btn>
+            </div>
+            <div class="text-caption">
+              We'll do our best to respond within the night! Send us a text and
+              we'll update the schedule (and give you access to the
+              <a
+                :href="`https://www.google.com/calendar/render?cid=${props.buttery.calendarID}`"
+                style="color: inherit"
+                target="_blank"
+              >
+                Google Calendar
+              </a>
+              too, if you want!)
+            </div>
+          </q-card-section>
+          <q-separator />
+          <q-card-actions>
+            <q-space></q-space>
+
+            <q-btn
+              label="Close"
+              padding="xs md"
+              flat
+              @click="showCalendarDialog = false"
+            />
+            <q-btn
+              label="Send Text"
+              padding="xs md"
+              color="accent"
+              :href="`sms:${PHONE_NUMBER}&body=Update%20to%20the%20YBB%20Schedule%20for%20${props.buttery.id}%20(${props.buttery.calendarID}):%20`"
+            />
+          </q-card-actions>
+        </q-card>
+      </q-dialog>
+      <q-dialog v-model="showMenuDialog" seamless position="bottom">
+        <q-card flat>
+          <q-card-section class="q-pt-0">
+            Edit {{ props.buttery.calendarID }}
+            Edit the text schedule here:
+            <q-btn
+              label="Open Link"
+              color="primary"
+              href="https://docs.google.com/spreadsheets/d/1NZyxbnUMkChmZC3umrW8vJdyus6PdPyRq8GbDLZiglU/edit?usp=sharing"
+              target="_blank"
+            />
+            xt
+            <li>Text me an update</li>
+          </q-card-section>
+          <q-card-actions>
+            <q-btn
+              label="Close"
+              color="primary"
+              :href="`sms:${PHONE_NUMBER}&body=Update%20to%20the%20YBB%20Schedule%20for%20${props.buttery.id}%20(${props.buttery.calendarID}):%20`"
+            />
+            <q-btn label="Close" @click="showMenuDialog = false" />
+          </q-card-actions>
+        </q-card>
+      </q-dialog>
     </template>
 
     <!-- Make a flex column div with gap 2 -->
@@ -179,6 +244,7 @@ const props = defineProps({
 
 const PHONE_NUMBER = import.meta.env.VITE_PHONE_NUMBER;
 const tab = ref('photo');
+const showCalendarDialog = ref(false);
 
 const $q = useQuasar();
 const queryClient = useQueryClient();
