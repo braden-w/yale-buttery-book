@@ -69,7 +69,7 @@ import { useQuasar } from 'quasar';
 import { ref } from 'vue';
 import { butteryDropdownOptions } from 'src/shared/butteries';
 import { useDialogPluginComponent } from 'quasar';
-import { useMutation, useQueryClient } from '@tanstack/vue-query';
+import { useMutation } from '@tanstack/vue-query';
 
 const props = defineProps({
   placeHolderCollege: {
