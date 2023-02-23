@@ -63,11 +63,7 @@
             </q-item-section>
           </q-item>
 
-          <q-item
-            clickable
-            v-close-popup
-            :href="`sms:${PHONE_NUMBER}&body=Update%20to%20the%20YBB%20Schedule%20for%20${props.buttery.id}%20(${props.buttery.calendarID}):%20`"
-          >
+          <q-item clickable v-close-popup @click="showCalendarDialog = true">
             <q-item-section avatar>
               <q-avatar text-color="amber" icon="edit_calendar" />
             </q-item-section>
@@ -76,11 +72,7 @@
             </q-item-section>
           </q-item>
 
-          <q-item
-            clickable
-            v-close-popup
-            :href="`sms:${PHONE_NUMBER}&body=Update%20to%20the%20YBB%20Menu%20for%20${props.buttery.id}%20(${props.buttery.menu_link}):%20`"
-          >
+          <q-item clickable v-close-popup @click="showMenuDialog = true">
             <q-item-section avatar>
               <q-avatar text-color="green" icon="description" />
             </q-item-section>
@@ -99,6 +91,95 @@
           </q-item> -->
         </q-list>
       </q-btn-dropdown>
+      <q-dialog v-model="showCalendarDialog" seamless position="bottom">
+        <q-card style="width: 100%" flat>
+          <q-card-section>
+            <div class="row">
+              <div class="text-h6">Update the Buttery Calendar</div>
+              <q-space></q-space>
+              <q-btn
+                round
+                flat
+                icon="close"
+                @click="showCalendarDialog = false"
+              ></q-btn>
+            </div>
+            <div class="text-caption">
+              We'll do our best to respond within the night! Send us a text and
+              we'll update the schedule (and give you access to the
+              <a
+                :href="`https://www.google.com/calendar/render?cid=${props.buttery.calendarID}`"
+                style="color: inherit"
+                target="_blank"
+              >
+                Google Calendar
+              </a>
+              too, if you want!)
+            </div>
+          </q-card-section>
+          <q-separator />
+          <q-card-actions>
+            <q-space></q-space>
+
+            <q-btn
+              label="Close"
+              padding="xs md"
+              flat
+              @click="showCalendarDialog = false"
+            />
+            <q-btn
+              label="Send Text"
+              padding="xs md"
+              color="accent"
+              :href="`sms:${PHONE_NUMBER}&body=Update%20to%20the%20YBB%20Schedule%20for%20${props.buttery.id}:%20`"
+            />
+          </q-card-actions>
+        </q-card>
+      </q-dialog>
+      <q-dialog v-model="showMenuDialog" seamless position="bottom">
+        <q-card style="width: 100%" flat>
+          <q-card-section>
+            <div class="row">
+              <div class="text-h6">Update the Buttery Menu</div>
+              <q-space></q-space>
+              <q-btn
+                round
+                flat
+                icon="close"
+                @click="showMenuDialog = false"
+              ></q-btn>
+            </div>
+            <div class="text-caption">
+              You can also edit the menu as a Google Sheet directly
+              <a
+                :href="props.buttery.menu_link"
+                style="color: inherit"
+                target="_blank"
+              >
+                here
+              </a>
+              . Or send us a text! We'll do our best to respond within the
+              night.
+            </div>
+          </q-card-section>
+          <q-separator />
+          <q-card-actions>
+            <q-space></q-space>
+            <q-btn
+              label="Close"
+              padding="xs md"
+              flat
+              @click="showMenuDialog = false"
+            />
+            <q-btn
+              label="Send Text"
+              padding="xs md"
+              color="accent"
+              :href="`sms:${PHONE_NUMBER}&body=Update%20to%20the%20YBB%20Menu%20for%20${props.buttery.id}:%20`"
+            />
+          </q-card-actions>
+        </q-card>
+      </q-dialog>
     </template>
 
     <!-- Make a flex column div with gap 2 -->
@@ -179,6 +260,8 @@ const props = defineProps({
 
 const PHONE_NUMBER = import.meta.env.VITE_PHONE_NUMBER;
 const tab = ref('photo');
+const showCalendarDialog = ref(false);
+const showMenuDialog = ref(false);
 
 const $q = useQuasar();
 const queryClient = useQueryClient();
