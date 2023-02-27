@@ -1,6 +1,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { z } from 'zod';
 import { GoogleSpreadsheet, GoogleSpreadsheetRow } from 'google-spreadsheet';
+import { allowCors } from './allowCors';
 
 // Zod Types
 const idSchema = z.enum([
@@ -25,10 +26,7 @@ const valueSchema = z.enum(['OPEN', 'CLOSED'], {
   description: 'Value must be either "OPEN" or "CLOSED"',
 });
 
-export default async function handler(
-  request: VercelRequest,
-  response: VercelResponse
-) {
+async function handler(request: VercelRequest, response: VercelResponse) {
   try {
     const { id, value } = request.query;
     const calendarId = idSchema.parse(id);
@@ -64,3 +62,5 @@ async function setButteryVerified(
   await row.save();
   return true;
 }
+
+module.exports = allowCors(handler);
